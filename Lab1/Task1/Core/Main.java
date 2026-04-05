@@ -7,8 +7,17 @@
 
 public class Main
 {
-    private static final double EPSILON = 1e-12;
+    private static final double EPSILON = 0.000000000001;
     private static final int MAX_ITERATIONS = 10000;
+    
+    public static void main(String[] args)
+    {
+        // проверка работы функции
+        System.out.println("arctg(0) = " + arctg(0));
+        System.out.println("arctg(0.5) = " + arctg(0.5));
+        System.out.println("arctg(1) = " + arctg(1));
+        System.out.println("arctg(-1) = " + arctg(-1));
+    }
 
     // считаем arctg(x) через ряд тейлора
     // если |x| <= 1: arctg(x) = x - x³/3 + x⁵/5 - x⁷/7 + ...
@@ -52,14 +61,5 @@ public class Main
         }
         
         return result;
-    }
-
-    public static void main(String[] args)
-    {
-        // проверка работы функции
-        System.out.println("arctg(0) = " + arctg(0));
-        System.out.println("arctg(0.5) = " + arctg(0.5));
-        System.out.println("arctg(1) = " + arctg(1));
-        System.out.println("arctg(-1) = " + arctg(-1));
     }
 }

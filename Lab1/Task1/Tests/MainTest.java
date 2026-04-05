@@ -10,8 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("тесты arctg(x)")
 public class MainTest
 {
-    
-    private static final double DELTA = 1e-9;
+    private static final double DELTA = 0.000000001;
 
     @Nested
     @DisplayName("|x| < 1 - обычный ряд тейлора")

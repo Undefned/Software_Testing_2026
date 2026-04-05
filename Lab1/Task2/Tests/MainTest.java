@@ -33,8 +33,8 @@ public class MainTest
             
             // эталон: вставка в лист -> готово
             List<Integer> expected = Arrays.asList(
-                Main.Checkpoint.INSERT_TO_LEAF,
-                Main.Checkpoint.INSERT_DONE
+                Checkpoint.INSERT_TO_LEAF,
+                Checkpoint.INSERT_DONE
             );
             
             assertEquals(expected, tree.getCheckpoints(),
@@ -52,10 +52,10 @@ public class MainTest
             
             // последняя операция: поиск листа -> вставка в лист -> не нашли -> готово
             List<Integer> expected = Arrays.asList(
-                Main.Checkpoint.SEARCH_START,
-                Main.Checkpoint.INSERT_TO_LEAF,
-                Main.Checkpoint.SEARCH_NOT_FOUND,
-                Main.Checkpoint.INSERT_DONE
+                Checkpoint.SEARCH_START,
+                Checkpoint.INSERT_TO_LEAF,
+                Checkpoint.SEARCH_NOT_FOUND,
+                Checkpoint.INSERT_DONE
             );
             
             assertEquals(expected, tree.getCheckpoints(),
@@ -72,9 +72,9 @@ public class MainTest
             
             // эталон: поиск -> нашли дубликат -> готово
             List<Integer> expected = Arrays.asList(
-                Main.Checkpoint.SEARCH_START,
-                Main.Checkpoint.SEARCH_FOUND,
-                Main.Checkpoint.INSERT_DONE
+                Checkpoint.SEARCH_START,
+                Checkpoint.SEARCH_FOUND,
+                Checkpoint.INSERT_DONE
             );
             
             assertEquals(expected, tree.getCheckpoints(),
@@ -104,11 +104,11 @@ public class MainTest
             List<Integer> checkpoints = tree.getCheckpoints();
             
             // проверяем что был сплит листа
-            assertTrue(checkpoints.contains(Main.Checkpoint.LEAF_SPLIT),
+            assertTrue(checkpoints.contains(Checkpoint.LEAF_SPLIT),
                 "должен быть сплит листа");
-            assertTrue(checkpoints.contains(Main.Checkpoint.PROMOTE_KEY),
+            assertTrue(checkpoints.contains(Checkpoint.PROMOTE_KEY),
                 "должно быть продвижение ключа");
-            assertTrue(checkpoints.contains(Main.Checkpoint.ROOT_SPLIT),
+            assertTrue(checkpoints.contains(Checkpoint.ROOT_SPLIT),
                 "должен быть сплит корня");
         }
 
@@ -131,11 +131,11 @@ public class MainTest
             
             // эталонная последовательность при сплите корня:
             // вставка в лист -> сплит листа -> продвижение ключа -> сплит корня -> готово
-            assertTrue(checkpoints.indexOf(Main.Checkpoint.INSERT_TO_LEAF) < 
-                       checkpoints.indexOf(Main.Checkpoint.LEAF_SPLIT),
+            assertTrue(checkpoints.indexOf(Checkpoint.INSERT_TO_LEAF) < 
+                       checkpoints.indexOf(Checkpoint.LEAF_SPLIT),
                 "вставка должна быть перед сплитом");
-            assertTrue(checkpoints.indexOf(Main.Checkpoint.LEAF_SPLIT) < 
-                       checkpoints.indexOf(Main.Checkpoint.PROMOTE_KEY),
+            assertTrue(checkpoints.indexOf(Checkpoint.LEAF_SPLIT) < 
+                       checkpoints.indexOf(Checkpoint.PROMOTE_KEY),
                 "сплит должен быть перед продвижением ключа");
         }
     }
@@ -157,9 +157,9 @@ public class MainTest
             
             assertTrue(found, "элемент должен быть найден");
             List<Integer> checkpoints = tree.getCheckpoints();
-            assertTrue(checkpoints.contains(Main.Checkpoint.SEARCH_START),
+            assertTrue(checkpoints.contains(Checkpoint.SEARCH_START),
                 "поиск должен начинаться с search_start");
-            assertTrue(checkpoints.contains(Main.Checkpoint.SEARCH_FOUND),
+            assertTrue(checkpoints.contains(Checkpoint.SEARCH_FOUND),
                 "должен быть search_found");
         }
 
@@ -176,9 +176,9 @@ public class MainTest
             
             assertFalse(found, "элемент не должен быть найден");
             List<Integer> checkpoints = tree.getCheckpoints();
-            assertTrue(checkpoints.contains(Main.Checkpoint.SEARCH_START),
+            assertTrue(checkpoints.contains(Checkpoint.SEARCH_START),
                 "поиск должен начинаться с search_start");
-            assertTrue(checkpoints.contains(Main.Checkpoint.SEARCH_NOT_FOUND),
+            assertTrue(checkpoints.contains(Checkpoint.SEARCH_NOT_FOUND),
                 "должен быть search_not_found");
         }
 
@@ -193,8 +193,8 @@ public class MainTest
             assertFalse(found, "в пустом дереве ничего нет");
             
             List<Integer> expected = Arrays.asList(
-                Main.Checkpoint.SEARCH_START,
-                Main.Checkpoint.SEARCH_NOT_FOUND
+                Checkpoint.SEARCH_START,
+                Checkpoint.SEARCH_NOT_FOUND
             );
             
             assertEquals(expected, tree.getCheckpoints(),
@@ -217,7 +217,7 @@ public class MainTest
             tree.search(12);
             
             List<Integer> checkpoints = tree.getCheckpoints();
-            assertTrue(checkpoints.contains(Main.Checkpoint.SEARCH_GO_RIGHT),
+            assertTrue(checkpoints.contains(Checkpoint.SEARCH_GO_RIGHT),
                 "должен быть переход вправо при поиске 12");
         }
 
@@ -237,7 +237,7 @@ public class MainTest
             tree.search(3);
             
             List<Integer> checkpoints = tree.getCheckpoints();
-            assertTrue(checkpoints.contains(Main.Checkpoint.SEARCH_GO_LEFT),
+            assertTrue(checkpoints.contains(Checkpoint.SEARCH_GO_LEFT),
                 "должен быть переход влево при поиске 3");
         }
     }
@@ -285,11 +285,11 @@ public class MainTest
             
             for (int i = 0; i < checkpoints.size(); i++)
             {
-                if (checkpoints.get(i) == Main.Checkpoint.INTERNAL_SPLIT)
+                if (checkpoints.get(i) == Checkpoint.INTERNAL_SPLIT)
                 {
                     lastInternalSplit = i;
                 }
-                if (checkpoints.get(i) == Main.Checkpoint.PROMOTE_KEY)
+                if (checkpoints.get(i) == Checkpoint.PROMOTE_KEY)
                 {
                     lastPromote = i;
                 }
@@ -299,7 +299,7 @@ public class MainTest
             if (lastInternalSplit != -1)
             {
                 assertTrue(lastPromote > lastInternalSplit || 
-                           checkpoints.contains(Main.Checkpoint.ROOT_SPLIT),
+                           checkpoints.contains(Checkpoint.ROOT_SPLIT),
                     "после сплита должно быть продвижение или сплит корня");
             }
         }
@@ -319,16 +319,16 @@ public class MainTest
             // этап 1: первый элемент
             tree.insert(5);
             List<Integer> expected1 = Arrays.asList(
-                Main.Checkpoint.INSERT_TO_LEAF,
-                Main.Checkpoint.INSERT_DONE
+                Checkpoint.INSERT_TO_LEAF,
+                Checkpoint.INSERT_DONE
             );
             assertEquals(expected1, tree.getCheckpoints());
             
             // этап 2: еще элементы без сплита
             tree.insert(3);
             List<Integer> cp2 = tree.getCheckpoints();
-            assertTrue(cp2.contains(Main.Checkpoint.INSERT_TO_LEAF));
-            assertTrue(cp2.contains(Main.Checkpoint.INSERT_DONE));
+            assertTrue(cp2.contains(Checkpoint.INSERT_TO_LEAF));
+            assertTrue(cp2.contains(Checkpoint.INSERT_DONE));
             
             // этап 3: много элементов до сплита
             for (int i = 0; i < 5; i++)
@@ -339,7 +339,7 @@ public class MainTest
             // этап 4: вставка вызывающая сплит
             tree.insert(100);
             List<Integer> cp4 = tree.getCheckpoints();
-            assertTrue(cp4.contains(Main.Checkpoint.INSERT_DONE),
+            assertTrue(cp4.contains(Checkpoint.INSERT_DONE),
                 "вставка должна завершиться");
         }
 
@@ -361,15 +361,15 @@ public class MainTest
             // проверяем поиск разных элементов
             assertTrue(tree.search(50));
             List<Integer> cp1 = tree.getCheckpoints();
-            assertTrue(cp1.contains(Main.Checkpoint.SEARCH_FOUND));
+            assertTrue(cp1.contains(Checkpoint.SEARCH_FOUND));
             
             assertFalse(tree.search(1000));
             List<Integer> cp2 = tree.getCheckpoints();
-            assertTrue(cp2.contains(Main.Checkpoint.SEARCH_NOT_FOUND));
+            assertTrue(cp2.contains(Checkpoint.SEARCH_NOT_FOUND));
             
             assertTrue(tree.search(5));
             List<Integer> cp3 = tree.getCheckpoints();
-            assertTrue(cp3.contains(Main.Checkpoint.SEARCH_FOUND));
+            assertTrue(cp3.contains(Checkpoint.SEARCH_FOUND));
         }
 
         @Test
@@ -407,7 +407,7 @@ public class MainTest
             
             assertTrue(tree.search(-5));
             List<Integer> cp = tree.getCheckpoints();
-            assertTrue(cp.contains(Main.Checkpoint.SEARCH_FOUND));
+            assertTrue(cp.contains(Checkpoint.SEARCH_FOUND));
         }
 
         @Test
@@ -444,7 +444,7 @@ public class MainTest
             
             // проверяем последовательность для последней вставки
             List<Integer> cp = tree.getCheckpoints();
-            assertTrue(cp.contains(Main.Checkpoint.SEARCH_FOUND),
+            assertTrue(cp.contains(Checkpoint.SEARCH_FOUND),
                 "дубликат должен быть найден");
         }
     }

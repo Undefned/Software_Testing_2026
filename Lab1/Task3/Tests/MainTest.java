@@ -1,4 +1,13 @@
 import org.junit.jupiter.api.*;
+
+import Enums.Direction;
+import Enums.EngineState;
+import Models.ControlPanel;
+import Models.Engine;
+import Models.Lever;
+import Models.Rocket;
+import Models.Spaceship;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 // тесты доменной модели: управление космическим кораблем
@@ -23,39 +32,39 @@ public class MainTest
         @DisplayName("противоположное направление: forward <-> backward")
         void testOppositeForwardBackward()
         {
-            assertEquals(Main.Direction.BACKWARD, Main.Direction.FORWARD.opposite());
-            assertEquals(Main.Direction.FORWARD, Main.Direction.BACKWARD.opposite());
+            assertEquals(Direction.BACKWARD, Direction.FORWARD.opposite());
+            assertEquals(Direction.FORWARD, Direction.BACKWARD.opposite());
         }
 
         @Test
         @DisplayName("противоположное направление: left <-> right")
         void testOppositeLeftRight()
         {
-            assertEquals(Main.Direction.RIGHT, Main.Direction.LEFT.opposite());
-            assertEquals(Main.Direction.LEFT, Main.Direction.RIGHT.opposite());
+            assertEquals(Direction.RIGHT, Direction.LEFT.opposite());
+            assertEquals(Direction.LEFT, Direction.RIGHT.opposite());
         }
 
         @Test
         @DisplayName("противоположное направление: up <-> down")
         void testOppositeUpDown()
         {
-            assertEquals(Main.Direction.DOWN, Main.Direction.UP.opposite());
-            assertEquals(Main.Direction.UP, Main.Direction.DOWN.opposite());
+            assertEquals(Direction.DOWN, Direction.UP.opposite());
+            assertEquals(Direction.UP, Direction.DOWN.opposite());
         }
 
         @Test
         @DisplayName("противоположное направление: диагонали")
         void testOppositeDiagonals()
         {
-            assertEquals(Main.Direction.BACKWARD_RIGHT, Main.Direction.FORWARD_LEFT.opposite());
-            assertEquals(Main.Direction.BACKWARD_LEFT, Main.Direction.FORWARD_RIGHT.opposite());
+            assertEquals(Direction.BACKWARD_RIGHT, Direction.FORWARD_LEFT.opposite());
+            assertEquals(Direction.BACKWARD_LEFT, Direction.FORWARD_RIGHT.opposite());
         }
 
         @Test
         @DisplayName("двойное применение opposite возвращает исходное")
         void testDoubleOpposite()
         {
-            for (Main.Direction dir : Main.Direction.values())
+            for (Direction dir : Direction.values())
             {
                 assertEquals(dir, dir.opposite().opposite(),
                     "двойное opposite должно вернуть исходное направление");
@@ -71,7 +80,7 @@ public class MainTest
         @DisplayName("новая рукоятка не захвачена")
         void testNewLeverNotGrabbed()
         {
-            Main.Lever lever = simulation.getShip().getMainPanel().getLever(0);
+            Lever lever = simulation.getShip().getMainPanel().getLever(0);
             assertNotNull(lever);
             assertFalse(lever.isGrabbed());
         }
@@ -80,7 +89,7 @@ public class MainTest
         @DisplayName("захват рукоятки")
         void testGrabLever()
         {
-            Main.Lever lever = simulation.getShip().getMainPanel().getLever(0);
+            Lever lever = simulation.getShip().getMainPanel().getLever(0);
             lever.grab();
             assertTrue(lever.isGrabbed());
         }
@@ -89,7 +98,7 @@ public class MainTest
         @DisplayName("освобождение рукоятки")
         void testReleaseLever()
         {
-            Main.Lever lever = simulation.getShip().getMainPanel().getLever(0);
+            Lever lever = simulation.getShip().getMainPanel().getLever(0);
             lever.grab();
             lever.release();
             assertFalse(lever.isGrabbed());
@@ -99,15 +108,15 @@ public class MainTest
         @DisplayName("рукоятка имеет направление")
         void testLeverDirection()
         {
-            Main.Lever lever = simulation.getShip().getMainPanel().getLever(0);
-            assertEquals(Main.Direction.FORWARD, lever.getDirection());
+            Lever lever = simulation.getShip().getMainPanel().getLever(0);
+            assertEquals(Direction.FORWARD, lever.getDirection());
         }
 
         @Test
         @DisplayName("рукоятка имеет имя")
         void testLeverName()
         {
-            Main.Lever lever = simulation.getShip().getMainPanel().getLever(0);
+            Lever lever = simulation.getShip().getMainPanel().getLever(0);
             assertEquals("forward", lever.getName());
         }
     }
@@ -120,7 +129,7 @@ public class MainTest
         @DisplayName("количество рукояток на пульте")
         void testLeverCount()
         {
-            Main.ControlPanel panel = simulation.getShip().getMainPanel();
+            ControlPanel panel = simulation.getShip().getMainPanel();
             assertEquals(6, panel.getLeverCount());
         }
 
@@ -128,7 +137,7 @@ public class MainTest
         @DisplayName("получение рукоятки по индексу")
         void testGetLeverByIndex()
         {
-            Main.ControlPanel panel = simulation.getShip().getMainPanel();
+            ControlPanel panel = simulation.getShip().getMainPanel();
             assertNotNull(panel.getLever(0));
             assertNotNull(panel.getLever(5));
             assertNull(panel.getLever(10));  // несуществующий индекс
@@ -139,7 +148,7 @@ public class MainTest
         @DisplayName("получение захваченных рукояток")
         void testGetGrabbedLevers()
         {
-            Main.ControlPanel panel = simulation.getShip().getMainPanel();
+            ControlPanel panel = simulation.getShip().getMainPanel();
 
             // сначала нет захваченных
             assertEquals(0, panel.getGrabbedLevers().size());
@@ -155,7 +164,7 @@ public class MainTest
         @DisplayName("освобождение всех рукояток")
         void testReleaseAllLevers()
         {
-            Main.ControlPanel panel = simulation.getShip().getMainPanel();
+            ControlPanel panel = simulation.getShip().getMainPanel();
 
             // захватываем все
             for (int i = 0; i < panel.getLeverCount(); i++)
@@ -178,8 +187,8 @@ public class MainTest
         @DisplayName("новый двигатель выключен")
         void testNewEngineOff()
         {
-            Main.Engine engine = new Main.Engine(Main.Direction.FORWARD);
-            assertEquals(Main.EngineState.OFF, engine.getState());
+            Engine engine = new Engine(Direction.FORWARD);
+            assertEquals(EngineState.OFF, engine.getState());
             assertEquals(0, engine.getThrust());
         }
 
@@ -187,19 +196,19 @@ public class MainTest
         @DisplayName("запуск двигателя")
         void testStartEngine()
         {
-            Main.Engine engine = new Main.Engine(Main.Direction.FORWARD);
+            Engine engine = new Engine(Direction.FORWARD);
             engine.start();
-            assertEquals(Main.EngineState.IDLE, engine.getState());
+            assertEquals(EngineState.IDLE, engine.getState());
         }
 
         @Test
         @DisplayName("работа двигателя с тягой")
         void testEngineRun()
         {
-            Main.Engine engine = new Main.Engine(Main.Direction.FORWARD);
+            Engine engine = new Engine(Direction.FORWARD);
             engine.start();
             engine.run(50);
-            assertEquals(Main.EngineState.RUNNING, engine.getState());
+            assertEquals(EngineState.RUNNING, engine.getState());
             assertEquals(50, engine.getThrust());
         }
 
@@ -207,10 +216,10 @@ public class MainTest
         @DisplayName("перегрузка двигателя при тяге > 100")
         void testEngineOverload()
         {
-            Main.Engine engine = new Main.Engine(Main.Direction.FORWARD);
+            Engine engine = new Engine(Direction.FORWARD);
             engine.start();
             engine.run(150);
-            assertEquals(Main.EngineState.OVERLOAD, engine.getState());
+            assertEquals(EngineState.OVERLOAD, engine.getState());
             assertEquals(100, engine.getThrust());  // ограничено до 100
         }
 
@@ -218,11 +227,11 @@ public class MainTest
         @DisplayName("остановка двигателя")
         void testStopEngine()
         {
-            Main.Engine engine = new Main.Engine(Main.Direction.FORWARD);
+            Engine engine = new Engine(Direction.FORWARD);
             engine.start();
             engine.run(50);
             engine.stop();
-            assertEquals(Main.EngineState.OFF, engine.getState());
+            assertEquals(EngineState.OFF, engine.getState());
             assertEquals(0, engine.getThrust());
         }
 
@@ -230,7 +239,7 @@ public class MainTest
         @DisplayName("двигатель активен только в состоянии RUNNING или OVERLOAD")
         void testEngineIsActive()
         {
-            Main.Engine engine = new Main.Engine(Main.Direction.FORWARD);
+            Engine engine = new Engine(Direction.FORWARD);
 
             assertFalse(engine.isActive());  // OFF
 
@@ -253,7 +262,7 @@ public class MainTest
         @DisplayName("новая ракета не уничтожена")
         void testNewRocketNotDestroyed()
         {
-            Main.Rocket rocket = new Main.Rocket(0, 0, 0, 10);
+            Rocket rocket = new Rocket(0, 0, 0, 10);
             assertFalse(rocket.isDestroyed());
         }
 
@@ -261,7 +270,7 @@ public class MainTest
         @DisplayName("уничтожение ракеты")
         void testDestroyRocket()
         {
-            Main.Rocket rocket = new Main.Rocket(0, 0, 0, 10);
+            Rocket rocket = new Rocket(0, 0, 0, 10);
             rocket.destroy();
             assertTrue(rocket.isDestroyed());
         }
@@ -270,7 +279,7 @@ public class MainTest
         @DisplayName("расчет расстояния до точки")
         void testDistanceCalculation()
         {
-            Main.Rocket rocket = new Main.Rocket(3, 4, 0, 10);
+            Rocket rocket = new Rocket(3, 4, 0, 10);
             double distance = rocket.getDistanceTo(0, 0, 0);
             assertEquals(5.0, distance, 0.001);  // теорема пифагора
         }
@@ -279,7 +288,7 @@ public class MainTest
         @DisplayName("движение ракеты")
         void testRocketMove()
         {
-            Main.Rocket rocket = new Main.Rocket(0, 0, 0, 10);
+            Rocket rocket = new Rocket(0, 0, 0, 10);
             double distBefore = rocket.getDistanceTo(10, 0, 0);
 
             rocket.move();
@@ -293,7 +302,7 @@ public class MainTest
         @DisplayName("уничтоженная ракета не движется")
         void testDestroyedRocketDontMove()
         {
-            Main.Rocket rocket = new Main.Rocket(0, 0, 0, 10);
+            Rocket rocket = new Rocket(0, 0, 0, 10);
             rocket.destroy();
 
             double distBefore = rocket.getDistanceTo(0, 0, 0);
@@ -312,7 +321,7 @@ public class MainTest
         @DisplayName("начальные координаты корабля")
         void testInitialPosition()
         {
-            Main.Spaceship ship = simulation.getShip();
+            Spaceship ship = simulation.getShip();
             assertEquals(0, ship.getX(), 0.001);
             assertEquals(0, ship.getY(), 0.001);
             assertEquals(0, ship.getZ(), 0.001);
@@ -322,15 +331,15 @@ public class MainTest
         @DisplayName("начальное направление корабля")
         void testInitialDirection()
         {
-            Main.Spaceship ship = simulation.getShip();
-            assertEquals(Main.Direction.FORWARD, ship.getFacingDirection());
+            Spaceship ship = simulation.getShip();
+            assertEquals(Direction.FORWARD, ship.getFacingDirection());
         }
 
         @Test
         @DisplayName("начальная скорость корабля")
         void testInitialSpeed()
         {
-            Main.Spaceship ship = simulation.getShip();
+            Spaceship ship = simulation.getShip();
             assertEquals(0, ship.getSpeed(), 0.001);
         }
 
@@ -338,27 +347,27 @@ public class MainTest
         @DisplayName("количество двигателей")
         void testEngineCount()
         {
-            Main.Spaceship ship = simulation.getShip();
+            Spaceship ship = simulation.getShip();
             // должно быть по одному на каждое направление
-            assertEquals(Main.Direction.values().length, ship.getEngines().size());
+            assertEquals(Direction.values().length, ship.getEngines().size());
         }
 
         @Test
         @DisplayName("разворот корабля")
         void testTurnAround()
         {
-            Main.Spaceship ship = simulation.getShip();
-            assertEquals(Main.Direction.FORWARD, ship.getFacingDirection());
+            Spaceship ship = simulation.getShip();
+            assertEquals(Direction.FORWARD, ship.getFacingDirection());
 
             ship.turnAround();
-            assertEquals(Main.Direction.BACKWARD, ship.getFacingDirection());
+            assertEquals(Direction.BACKWARD, ship.getFacingDirection());
         }
 
         @Test
         @DisplayName("захват рукояток пилотом")
         void testGrabLevers()
         {
-            Main.Spaceship ship = simulation.getShip();
+            Spaceship ship = simulation.getShip();
             ship.grabLevers(java.util.Arrays.asList(0, 1, 2));
 
             assertEquals(3, ship.getMainPanel().getGrabbedLevers().size());
@@ -368,7 +377,7 @@ public class MainTest
         @DisplayName("освобождение половины рукояток")
         void testReleaseHalfLevers()
         {
-            Main.Spaceship ship = simulation.getShip();
+            Spaceship ship = simulation.getShip();
 
             // захватываем 6 рукояток
             ship.grabLevers(java.util.Arrays.asList(0, 1, 2, 3, 4, 5));
@@ -383,7 +392,7 @@ public class MainTest
         @DisplayName("движение корабля при работающих двигателях")
         void testShipMovement()
         {
-            Main.Spaceship ship = simulation.getShip();
+            Spaceship ship = simulation.getShip();
 
             // захватываем рукоятку forward
             ship.grabLevers(java.util.Arrays.asList(0));
@@ -443,7 +452,7 @@ public class MainTest
             simulation.getPilot().startEngines();
 
             boolean hasActiveEngine = false;
-            for (Main.Engine e : simulation.getShip().getEngines())
+            for (Engine e : simulation.getShip().getEngines())
             {
                 if (e.isActive())
                 {
@@ -481,7 +490,7 @@ public class MainTest
         {
             simulation.executeScenario();
 
-            assertEquals(Main.Direction.BACKWARD,
+            assertEquals(Direction.BACKWARD,
                 simulation.getShip().getFacingDirection());
         }
 
@@ -506,8 +515,8 @@ public class MainTest
         @DisplayName("столкновение с ракетой")
         void testCollisionDetection()
         {
-            Main.Spaceship ship = simulation.getShip();
-            Main.Rocket rocket = new Main.Rocket(0.5, 0, 0, 10);  // близко к кораблю
+            Spaceship ship = simulation.getShip();
+            Rocket rocket = new Rocket(0.5, 0, 0, 10);  // близко к кораблю
 
             assertTrue(ship.isCollidingWith(rocket));
         }
@@ -516,8 +525,8 @@ public class MainTest
         @DisplayName("нет столкновения с далекой ракетой")
         void testNoCollisionWithFarRocket()
         {
-            Main.Spaceship ship = simulation.getShip();
-            Main.Rocket rocket = new Main.Rocket(100, 100, 100, 10);  // далеко
+            Spaceship ship = simulation.getShip();
+            Rocket rocket = new Rocket(100, 100, 100, 10);  // далеко
 
             assertFalse(ship.isCollidingWith(rocket));
         }
@@ -560,20 +569,20 @@ public class MainTest
         @DisplayName("тяга двигателя = 0")
         void testZeroThrust()
         {
-            Main.Engine engine = new Main.Engine(Main.Direction.FORWARD);
+            Engine engine = new Engine(Direction.FORWARD);
             engine.start();
             engine.run(0);
-            assertEquals(Main.EngineState.IDLE, engine.getState());
+            assertEquals(EngineState.IDLE, engine.getState());
         }
 
         @Test
         @DisplayName("тяга двигателя = 100 (граница)")
         void testMaxThrust()
         {
-            Main.Engine engine = new Main.Engine(Main.Direction.FORWARD);
+            Engine engine = new Engine(Direction.FORWARD);
             engine.start();
             engine.run(100);
-            assertEquals(Main.EngineState.RUNNING, engine.getState());
+            assertEquals(EngineState.RUNNING, engine.getState());
             assertEquals(100, engine.getThrust());
         }
 
@@ -581,10 +590,10 @@ public class MainTest
         @DisplayName("тяга двигателя = 101 (перегрузка)")
         void testOverloadThrust()
         {
-            Main.Engine engine = new Main.Engine(Main.Direction.FORWARD);
+            Engine engine = new Engine(Direction.FORWARD);
             engine.start();
             engine.run(101);
-            assertEquals(Main.EngineState.OVERLOAD, engine.getState());
+            assertEquals(EngineState.OVERLOAD, engine.getState());
         }
     }
 
@@ -597,32 +606,32 @@ public class MainTest
         void testAllEngineStates()
         {
             // OFF
-            Main.Engine engine1 = new Main.Engine(Main.Direction.FORWARD);
-            assertEquals(Main.EngineState.OFF, engine1.getState());
+            Engine engine1 = new Engine(Direction.FORWARD);
+            assertEquals(EngineState.OFF, engine1.getState());
 
             // IDLE
-            Main.Engine engine2 = new Main.Engine(Main.Direction.FORWARD);
+            Engine engine2 = new Engine(Direction.FORWARD);
             engine2.start();
-            assertEquals(Main.EngineState.IDLE, engine2.getState());
+            assertEquals(EngineState.IDLE, engine2.getState());
 
             // RUNNING
-            Main.Engine engine3 = new Main.Engine(Main.Direction.FORWARD);
+            Engine engine3 = new Engine(Direction.FORWARD);
             engine3.start();
             engine3.run(50);
-            assertEquals(Main.EngineState.RUNNING, engine3.getState());
+            assertEquals(EngineState.RUNNING, engine3.getState());
 
             // OVERLOAD
-            Main.Engine engine4 = new Main.Engine(Main.Direction.FORWARD);
+            Engine engine4 = new Engine(Direction.FORWARD);
             engine4.start();
             engine4.run(200);
-            assertEquals(Main.EngineState.OVERLOAD, engine4.getState());
+            assertEquals(EngineState.OVERLOAD, engine4.getState());
         }
 
         @Test
         @DisplayName("все направления протестированы")
         void testAllDirections()
         {
-            for (Main.Direction dir : Main.Direction.values())
+            for (Direction dir : Direction.values())
             {
                 assertNotNull(dir);
                 assertNotNull(dir.opposite());

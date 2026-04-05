@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Engine.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">spaceship-domain</a> &gt; <a href="index.source.html" class="el_package">Models</a> &gt; <span class="el_source">Engine.java</span></div><h1>Engine.java</h1><pre class="source lang-java linenums">package Models;
+// двигатель
+
+import Enums.Direction;
+import Enums.EngineState;
+
+public class Engine
+{
+    private EngineState state;
+    private int thrust;
+    private Direction direction;
+
+    public Engine(Direction direction)
+<span class="fc" id="L14">    {</span>
+<span class="fc" id="L15">        this.state = EngineState.OFF;</span>
+<span class="fc" id="L16">        this.thrust = 0;</span>
+<span class="fc" id="L17">        this.direction = direction;</span>
+<span class="fc" id="L18">    }</span>
+
+    public void start()
+    {
+<span class="pc bpc" id="L22" title="1 of 2 branches missed.">        if (state == EngineState.OFF)</span>
+        {
+<span class="fc" id="L24">            state = EngineState.IDLE;</span>
+        }
+<span class="fc" id="L26">    }</span>
+
+    public void run(int thrust)
+    {
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        if (thrust &gt; 100)</span>
+        {
+<span class="fc" id="L32">            state = EngineState.OVERLOAD;</span>
+<span class="fc" id="L33">            this.thrust = 100;</span>
+        }
+<span class="fc bfc" id="L35" title="All 2 branches covered.">        else if (thrust &gt; 0)</span>
+        {
+<span class="fc" id="L37">            state = EngineState.RUNNING;</span>
+<span class="fc" id="L38">            this.thrust = thrust;</span>
+        }
+        else
+        {
+<span class="fc" id="L42">            state = EngineState.IDLE;</span>
+<span class="fc" id="L43">            this.thrust = 0;</span>
+        }
+<span class="fc" id="L45">    }</span>
+
+    public void stop()
+    {
+<span class="fc" id="L49">        state = EngineState.OFF;</span>
+<span class="fc" id="L50">        thrust = 0;</span>
+<span class="fc" id="L51">    }</span>
+
+    public EngineState getState()
+    {
+<span class="fc" id="L55">        return state;</span>
+    }
+
+    public int getThrust()
+    {
+<span class="fc" id="L60">        return thrust;</span>
+    }
+
+    public Direction getDirection()
+    {
+<span class="fc" id="L65">        return direction;</span>
+    }
+
+    public boolean isActive()
+    {
+<span class="fc bfc" id="L70" title="All 4 branches covered.">        return state == EngineState.RUNNING || state == EngineState.OVERLOAD;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

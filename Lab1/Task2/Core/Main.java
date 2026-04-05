@@ -1,66 +1,49 @@
-// B+ дерево с отслеживанием характерных точек
-// максимальное количество ключей в узле = 7 (order = 8)
+// 2. Провести модульное тестирование указанного алгоритма. 
+// Для этого выбрать характерные точки внутри алгоритма, 
+// и для предложенных самостоятельно наборов исходных данных 
+// записать последовательность попадания в характерные точки. 
+// Сравнить последовательность попадания с эталонной.
+
+// Программный модуль для работы с B+ деревьями 
+// (максимальное количество элементов в ключе - 7, 
+// http://www.cs.usfca.edu/~galles/visualization/BPlusTree.html)
 
 import java.util.*;
 
 public class Main
 {
-    // характерные точки для отслеживания
-    public static class Checkpoint
-    {
-        public static final int SEARCH_START = 1;      // начало поиска
-        public static final int SEARCH_GO_LEFT = 2;    // пошли влево
-        public static final int SEARCH_GO_RIGHT = 3;   // пошли вправо
-        public static final int SEARCH_FOUND = 4;      // нашли в листе
-        public static final int SEARCH_NOT_FOUND = 5;  // не нашли
-        public static final int INSERT_TO_LEAF = 6;    // вставка в лист
-        public static final int LEAF_SPLIT = 7;        // сплит листа
-        public static final int PROMOTE_KEY = 8;       // продвижение ключа вверх
-        public static final int INTERNAL_SPLIT = 9;    // сплит внутреннего узла
-        public static final int ROOT_SPLIT = 10;       // сплит корня (рост дерева)
-        public static final int INSERT_DONE = 11;      // вставка завершена
-    }
-
     // список для записи последовательности характерных точек
     public List<Integer> checkpoints = new ArrayList<>();
 
-    private static final int ORDER = 8;  // максимальное число потомков
-    private static final int MAX_KEYS = ORDER - 1;  // 7 ключей максимум
+    private static final int MAXDEGREE = 8;  // максимальное число потомков
+    private static final int MAX_KEYS = MAXDEGREE - 1;  // ключей максимум
 
     private Node root;
-
-    // базовый класс узла
-    private abstract class Node
+    public static void main(String[] args)
     {
-        List<Integer> keys = new ArrayList<>();
-        boolean isLeaf;
-
-        Node(boolean isLeaf)
-        {
-            this.isLeaf = isLeaf;
-        }
-    }
-
-    // листовой узел
-    private class LeafNode extends Node
-    {
-        LeafNode next;  // ссылка на следующий лист
-
-        LeafNode()
-        {
-            super(true);
-        }
-    }
-
-    // внутренний узел
-    private class InternalNode extends Node
-    {
-        List<Node> children = new ArrayList<>();
-
-        InternalNode()
-        {
-            super(false);
-        }
+        Main tree = new Main();
+        
+        System.out.println("=== вставка 1, 2, 3 ===");
+        tree.insert(1);
+        System.out.println("checkpoints: " + tree.getCheckpoints());
+        
+        tree.insert(2);
+        System.out.println("checkpoints: " + tree.getCheckpoints());
+        
+        tree.insert(3);
+        System.out.println("checkpoints: " + tree.getCheckpoints());
+        
+        tree.print();
+        
+        System.out.println("\n=== поиск 2 ===");
+        boolean found = tree.search(2);
+        System.out.println("найдено: " + found);
+        System.out.println("checkpoints: " + tree.getCheckpoints());
+        
+        System.out.println("\n=== поиск 100 ===");
+        found = tree.search(100);
+        System.out.println("найдено: " + found);
+        System.out.println("checkpoints: " + tree.getCheckpoints());
     }
 
     public Main()
@@ -377,7 +360,7 @@ public class Main
         return false;
     }
 
-    // вывод дерева (для отладки)
+    // вывод дерева
     public void print()
     {
         printNode(root, 0);
@@ -407,32 +390,5 @@ public class Main
     public List<Integer> getCheckpoints()
     {
         return new ArrayList<>(checkpoints);
-    }
-
-    public static void main(String[] args)
-    {
-        Main tree = new Main();
-        
-        System.out.println("=== вставка 1, 2, 3 ===");
-        tree.insert(1);
-        System.out.println("checkpoints: " + tree.getCheckpoints());
-        
-        tree.insert(2);
-        System.out.println("checkpoints: " + tree.getCheckpoints());
-        
-        tree.insert(3);
-        System.out.println("checkpoints: " + tree.getCheckpoints());
-        
-        tree.print();
-        
-        System.out.println("\n=== поиск 2 ===");
-        boolean found = tree.search(2);
-        System.out.println("найдено: " + found);
-        System.out.println("checkpoints: " + tree.getCheckpoints());
-        
-        System.out.println("\n=== поиск 100 ===");
-        found = tree.search(100);
-        System.out.println("найдено: " + found);
-        System.out.println("checkpoints: " + tree.getCheckpoints());
     }
 }

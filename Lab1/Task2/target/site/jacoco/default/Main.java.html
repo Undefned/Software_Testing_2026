@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Main.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bplus-tree</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Main.java</span></div><h1>Main.java</h1><pre class="source lang-java linenums">// 2. Провести модульное тестирование указанного алгоритма. 
+// Для этого выбрать характерные точки внутри алгоритма, 
+// и для предложенных самостоятельно наборов исходных данных 
+// записать последовательность попадания в характерные точки. 
+// Сравнить последовательность попадания с эталонной.
+
+// Программный модуль для работы с B+ деревьями 
+// (максимальное количество элементов в ключе - 7, 
+// http://www.cs.usfca.edu/~galles/visualization/BPlusTree.html)
+
+import java.util.*;
+
+public class Main
+{
+    // список для записи последовательности характерных точек
+<span class="fc" id="L16">    public List&lt;Integer&gt; checkpoints = new ArrayList&lt;&gt;();</span>
+
+    private static final int MAXDEGREE = 8;  // максимальное число потомков
+    private static final int MAX_KEYS = MAXDEGREE - 1;  // ключей максимум
+
+    private Node root;
+    public static void main(String[] args)
+    {
+<span class="nc" id="L24">        Main tree = new Main();</span>
+        
+<span class="nc" id="L26">        System.out.println(&quot;=== вставка 1, 2, 3 ===&quot;);</span>
+<span class="nc" id="L27">        tree.insert(1);</span>
+<span class="nc" id="L28">        System.out.println(&quot;checkpoints: &quot; + tree.getCheckpoints());</span>
+        
+<span class="nc" id="L30">        tree.insert(2);</span>
+<span class="nc" id="L31">        System.out.println(&quot;checkpoints: &quot; + tree.getCheckpoints());</span>
+        
+<span class="nc" id="L33">        tree.insert(3);</span>
+<span class="nc" id="L34">        System.out.println(&quot;checkpoints: &quot; + tree.getCheckpoints());</span>
+        
+<span class="nc" id="L36">        tree.print();</span>
+        
+<span class="nc" id="L38">        System.out.println(&quot;\n=== поиск 2 ===&quot;);</span>
+<span class="nc" id="L39">        boolean found = tree.search(2);</span>
+<span class="nc" id="L40">        System.out.println(&quot;найдено: &quot; + found);</span>
+<span class="nc" id="L41">        System.out.println(&quot;checkpoints: &quot; + tree.getCheckpoints());</span>
+        
+<span class="nc" id="L43">        System.out.println(&quot;\n=== поиск 100 ===&quot;);</span>
+<span class="nc" id="L44">        found = tree.search(100);</span>
+<span class="nc" id="L45">        System.out.println(&quot;найдено: &quot; + found);</span>
+<span class="nc" id="L46">        System.out.println(&quot;checkpoints: &quot; + tree.getCheckpoints());</span>
+<span class="nc" id="L47">    }</span>
+
+    public Main()
+<span class="fc" id="L50">    {</span>
+<span class="fc" id="L51">        root = null;</span>
+<span class="fc" id="L52">    }</span>
+
+    // публичный метод вставки
+    public void insert(int key)
+    {
+<span class="fc" id="L57">        checkpoints.clear();</span>
+        
+<span class="fc bfc" id="L59" title="All 2 branches covered.">        if (root == null)</span>
+        {
+            // создаем первый лист
+<span class="fc" id="L62">            LeafNode leaf = new LeafNode();</span>
+<span class="fc" id="L63">            leaf.keys.add(key);</span>
+<span class="fc" id="L64">            root = leaf;</span>
+<span class="fc" id="L65">            checkpoints.add(Checkpoint.INSERT_TO_LEAF);</span>
+<span class="fc" id="L66">            checkpoints.add(Checkpoint.INSERT_DONE);</span>
+<span class="fc" id="L67">            return;</span>
+        }
+
+        // ищем лист для вставки
+<span class="fc" id="L71">        LeafNode leaf = findLeaf(key);</span>
+        
+        // вставляем ключ в лист
+<span class="fc" id="L74">        insertIntoLeaf(leaf, key);</span>
+        
+<span class="fc" id="L76">        checkpoints.add(Checkpoint.INSERT_DONE);</span>
+<span class="fc" id="L77">    }</span>
+
+    // поиск листового узла для ключа
+    private LeafNode findLeaf(int key)
+    {
+<span class="fc" id="L82">        checkpoints.add(Checkpoint.SEARCH_START);</span>
+        
+<span class="fc" id="L84">        Node current = root;</span>
+        
+<span class="fc bfc" id="L86" title="All 2 branches covered.">        while (!current.isLeaf)</span>
+        {
+<span class="fc" id="L88">            InternalNode internal = (InternalNode) current;</span>
+<span class="fc" id="L89">            int i = 0;</span>
+            
+            // ищем подходящий child
+<span class="fc bfc" id="L92" title="All 4 branches covered.">            while (i &lt; internal.keys.size() &amp;&amp; key &gt;= internal.keys.get(i))</span>
+            {
+<span class="fc" id="L94">                i++;</span>
+            }
+            
+<span class="fc bfc" id="L97" title="All 2 branches covered.">            if (i == 0)</span>
+            {
+<span class="fc" id="L99">                checkpoints.add(Checkpoint.SEARCH_GO_LEFT);</span>
+            }
+            else
+            {
+<span class="fc" id="L103">                checkpoints.add(Checkpoint.SEARCH_GO_RIGHT);</span>
+            }
+            
+<span class="fc" id="L106">            current = internal.children.get(i);</span>
+<span class="fc" id="L107">        }</span>
+        
+<span class="fc" id="L109">        return (LeafNode) current;</span>
+    }
+
+    // вставка ключа в лист
+    private void insertIntoLeaf(LeafNode leaf, int key)
+    {
+        // если ключ уже есть - не вставляем
+<span class="fc bfc" id="L116" title="All 2 branches covered.">        if (leaf.keys.contains(key))</span>
+        {
+<span class="fc" id="L118">            checkpoints.add(Checkpoint.SEARCH_FOUND);</span>
+<span class="fc" id="L119">            return;</span>
+        }
+        
+        // находим позицию для вставки
+<span class="fc" id="L123">        int pos = 0;</span>
+<span class="fc bfc" id="L124" title="All 4 branches covered.">        while (pos &lt; leaf.keys.size() &amp;&amp; leaf.keys.get(pos) &lt; key)</span>
+        {
+<span class="fc" id="L126">            pos++;</span>
+        }
+        
+<span class="fc" id="L129">        leaf.keys.add(pos, key);</span>
+<span class="fc" id="L130">        checkpoints.add(Checkpoint.INSERT_TO_LEAF);</span>
+        
+        // проверяем на переполнение
+<span class="fc bfc" id="L133" title="All 2 branches covered.">        if (leaf.keys.size() &gt; MAX_KEYS)</span>
+        {
+<span class="fc" id="L135">            splitLeaf(leaf);</span>
+        }
+        else
+        {
+<span class="fc" id="L139">            checkpoints.add(Checkpoint.SEARCH_NOT_FOUND);</span>
+        }
+<span class="fc" id="L141">    }</span>
+
+    // сплит листового узла
+    private void splitLeaf(LeafNode leaf)
+    {
+<span class="fc" id="L146">        checkpoints.add(Checkpoint.LEAF_SPLIT);</span>
+        
+<span class="fc" id="L148">        int mid = leaf.keys.size() / 2;</span>
+        
+        // создаем новый лист
+<span class="fc" id="L151">        LeafNode newLeaf = new LeafNode();</span>
+        
+        // перемещаем половину ключей в новый лист
+<span class="fc bfc" id="L154" title="All 2 branches covered.">        for (int i = mid; i &lt; leaf.keys.size(); i++)</span>
+        {
+<span class="fc" id="L156">            newLeaf.keys.add(leaf.keys.get(i));</span>
+        }
+        
+        // удаляем перемещенные ключи из старого листа
+<span class="fc bfc" id="L160" title="All 2 branches covered.">        for (int i = leaf.keys.size() - 1; i &gt;= mid; i--)</span>
+        {
+<span class="fc" id="L162">            leaf.keys.remove(i);</span>
+        }
+        
+        // связываем листы
+<span class="fc" id="L166">        newLeaf.next = leaf.next;</span>
+<span class="fc" id="L167">        leaf.next = newLeaf;</span>
+        
+        // продвигаем ключ вверх
+<span class="fc" id="L170">        int promoteKey = newLeaf.keys.get(0);</span>
+<span class="fc" id="L171">        checkpoints.add(Checkpoint.PROMOTE_KEY);</span>
+        
+<span class="fc bfc" id="L173" title="All 2 branches covered.">        if (root == leaf)</span>
+        {
+            // сплит корня - создаем новый корень
+<span class="fc" id="L176">            InternalNode newRoot = new InternalNode();</span>
+<span class="fc" id="L177">            newRoot.keys.add(promoteKey);</span>
+<span class="fc" id="L178">            newRoot.children.add(leaf);</span>
+<span class="fc" id="L179">            newRoot.children.add(newLeaf);</span>
+<span class="fc" id="L180">            root = newRoot;</span>
+<span class="fc" id="L181">            checkpoints.add(Checkpoint.ROOT_SPLIT);</span>
+<span class="fc" id="L182">        }</span>
+        else
+        {
+            // вставляем в родительский узел
+<span class="fc" id="L186">            insertIntoParent(leaf, promoteKey, newLeaf);</span>
+        }
+<span class="fc" id="L188">    }</span>
+
+    // вставка в родительский узел после сплита
+    private void insertIntoParent(Node left, int key, Node right)
+    {
+<span class="fc" id="L193">        Node parent = findParent(root, left);</span>
+        
+<span class="pc bpc" id="L195" title="1 of 2 branches missed.">        if (parent == null)</span>
+        {
+<span class="nc" id="L197">            return;</span>
+        }
+        
+<span class="fc" id="L200">        InternalNode internal = (InternalNode) parent;</span>
+        
+        // находим позицию для вставки
+<span class="fc" id="L203">        int pos = 0;</span>
+<span class="fc bfc" id="L204" title="All 4 branches covered.">        while (pos &lt; internal.keys.size() &amp;&amp; internal.keys.get(pos) &lt; key)</span>
+        {
+<span class="fc" id="L206">            pos++;</span>
+        }
+        
+<span class="fc" id="L209">        internal.keys.add(pos, key);</span>
+        
+        // находим позицию left и вставляем right после него
+<span class="fc" id="L212">        int childPos = internal.children.indexOf(left);</span>
+<span class="fc" id="L213">        internal.children.add(childPos + 1, right);</span>
+        
+<span class="fc" id="L215">        checkpoints.add(Checkpoint.PROMOTE_KEY);</span>
+        
+        // проверяем на переполнение
+<span class="fc bfc" id="L218" title="All 2 branches covered.">        if (internal.keys.size() &gt; MAX_KEYS)</span>
+        {
+<span class="fc" id="L220">            splitInternal(internal);</span>
+        }
+<span class="fc" id="L222">    }</span>
+
+    // поиск родителя узла
+    private Node findParent(Node current, Node target)
+    {
+<span class="pc bpc" id="L227" title="2 of 4 branches missed.">        if (current.isLeaf || current == target)</span>
+        {
+<span class="nc" id="L229">            return null;</span>
+        }
+        
+<span class="fc" id="L232">        InternalNode internal = (InternalNode) current;</span>
+        
+<span class="fc bfc" id="L234" title="All 2 branches covered.">        for (Node child : internal.children)</span>
+        {
+<span class="fc bfc" id="L236" title="All 2 branches covered.">            if (child == target)</span>
+            {
+<span class="fc" id="L238">                return current;</span>
+            }
+            
+<span class="fc bfc" id="L241" title="All 2 branches covered.">            if (!child.isLeaf)</span>
+            {
+<span class="fc" id="L243">                Node result = findParent(child, target);</span>
+<span class="fc bfc" id="L244" title="All 2 branches covered.">                if (result != null)</span>
+                {
+<span class="fc" id="L246">                    return result;</span>
+                }
+            }
+<span class="fc" id="L249">        }</span>
+        
+<span class="fc" id="L251">        return null;</span>
+    }
+
+    // сплит внутреннего узла
+    private void splitInternal(InternalNode node)
+    {
+<span class="fc" id="L257">        checkpoints.add(Checkpoint.INTERNAL_SPLIT);</span>
+        
+<span class="fc" id="L259">        int mid = node.keys.size() / 2;</span>
+<span class="fc" id="L260">        int promotePos = mid;</span>
+        
+        // создаем новый узел
+<span class="fc" id="L263">        InternalNode newNode = new InternalNode();</span>
+        
+        // ключ для продвижения
+<span class="fc" id="L266">        int promoteKey = node.keys.get(mid);</span>
+        
+        // перемещаем ключи и детей в новый узел
+<span class="fc bfc" id="L269" title="All 2 branches covered.">        for (int i = mid + 1; i &lt; node.keys.size(); i++)</span>
+        {
+<span class="fc" id="L271">            newNode.keys.add(node.keys.get(i));</span>
+        }
+        
+<span class="fc bfc" id="L274" title="All 2 branches covered.">        for (int i = mid + 1; i &lt; node.children.size(); i++)</span>
+        {
+<span class="fc" id="L276">            newNode.children.add(node.children.get(i));</span>
+        }
+        
+        // удаляем перемещенные из старого узла
+<span class="fc bfc" id="L280" title="All 2 branches covered.">        for (int i = node.keys.size() - 1; i &gt; mid; i--)</span>
+        {
+<span class="fc" id="L282">            node.keys.remove(i);</span>
+        }
+        
+<span class="fc bfc" id="L285" title="All 2 branches covered.">        for (int i = node.children.size() - 1; i &gt; mid; i--)</span>
+        {
+<span class="fc" id="L287">            node.children.remove(i);</span>
+        }
+        
+        // удаляем продвигаемый ключ из старого узла
+<span class="fc" id="L291">        node.keys.remove(promotePos);</span>
+        
+<span class="fc" id="L293">        checkpoints.add(Checkpoint.PROMOTE_KEY);</span>
+        
+<span class="fc bfc" id="L295" title="All 2 branches covered.">        if (root == node)</span>
+        {
+            // сплит корня
+<span class="fc" id="L298">            InternalNode newRoot = new InternalNode();</span>
+<span class="fc" id="L299">            newRoot.keys.add(promoteKey);</span>
+<span class="fc" id="L300">            newRoot.children.add(node);</span>
+<span class="fc" id="L301">            newRoot.children.add(newNode);</span>
+<span class="fc" id="L302">            root = newRoot;</span>
+<span class="fc" id="L303">            checkpoints.add(Checkpoint.ROOT_SPLIT);</span>
+<span class="fc" id="L304">        }</span>
+        else
+        {
+<span class="fc" id="L307">            insertIntoParent(node, promoteKey, newNode);</span>
+        }
+<span class="fc" id="L309">    }</span>
+
+    // поиск ключа
+    public boolean search(int key)
+    {
+<span class="fc" id="L314">        checkpoints.clear();</span>
+        
+<span class="fc bfc" id="L316" title="All 2 branches covered.">        if (root == null)</span>
+        {
+<span class="fc" id="L318">            checkpoints.add(Checkpoint.SEARCH_START);</span>
+<span class="fc" id="L319">            checkpoints.add(Checkpoint.SEARCH_NOT_FOUND);</span>
+<span class="fc" id="L320">            return false;</span>
+        }
+        
+<span class="fc" id="L323">        Node current = root;</span>
+        
+<span class="fc bfc" id="L325" title="All 2 branches covered.">        while (!current.isLeaf)</span>
+        {
+<span class="fc" id="L327">            InternalNode internal = (InternalNode) current;</span>
+<span class="fc" id="L328">            int i = 0;</span>
+            
+<span class="fc bfc" id="L330" title="All 4 branches covered.">            while (i &lt; internal.keys.size() &amp;&amp; key &gt;= internal.keys.get(i))</span>
+            {
+<span class="fc" id="L332">                i++;</span>
+            }
+            
+<span class="fc bfc" id="L335" title="All 2 branches covered.">            if (i == 0)</span>
+            {
+<span class="fc" id="L337">                checkpoints.add(Checkpoint.SEARCH_GO_LEFT);</span>
+            }
+            else
+            {
+<span class="fc" id="L341">                checkpoints.add(Checkpoint.SEARCH_GO_RIGHT);</span>
+            }
+            
+<span class="fc" id="L344">            current = internal.children.get(i);</span>
+<span class="fc" id="L345">        }</span>
+        
+        // поиск в листе
+<span class="fc" id="L348">        checkpoints.add(Checkpoint.SEARCH_START);</span>
+        
+<span class="fc bfc" id="L350" title="All 2 branches covered.">        for (int k : current.keys)</span>
+        {
+<span class="fc bfc" id="L352" title="All 2 branches covered.">            if (k == key)</span>
+            {
+<span class="fc" id="L354">                checkpoints.add(Checkpoint.SEARCH_FOUND);</span>
+<span class="fc" id="L355">                return true;</span>
+            }
+<span class="fc" id="L357">        }</span>
+        
+<span class="fc" id="L359">        checkpoints.add(Checkpoint.SEARCH_NOT_FOUND);</span>
+<span class="fc" id="L360">        return false;</span>
+    }
+
+    // вывод дерева
+    public void print()
+    {
+<span class="nc" id="L366">        printNode(root, 0);</span>
+<span class="nc" id="L367">    }</span>
+
+    private void printNode(Node node, int level)
+    {
+<span class="nc" id="L371">        String indent = &quot;  &quot;.repeat(level);</span>
+        
+<span class="nc bnc" id="L373" title="All 2 branches missed.">        if (node.isLeaf)</span>
+        {
+<span class="nc" id="L375">            System.out.println(indent + &quot;Leaf: &quot; + node.keys);</span>
+        }
+        else
+        {
+<span class="nc" id="L379">            InternalNode internal = (InternalNode) node;</span>
+<span class="nc" id="L380">            System.out.println(indent + &quot;Internal: &quot; + internal.keys);</span>
+            
+<span class="nc bnc" id="L382" title="All 2 branches missed.">            for (Node child : internal.children)</span>
+            {
+<span class="nc" id="L384">                printNode(child, level + 1);</span>
+<span class="nc" id="L385">            }</span>
+        }
+<span class="nc" id="L387">    }</span>
+
+    // получение последовательности характерных точек
+    public List&lt;Integer&gt; getCheckpoints()
+    {
+<span class="fc" id="L392">        return new ArrayList&lt;&gt;(checkpoints);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>
