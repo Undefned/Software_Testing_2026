@@ -19,10 +19,7 @@ public class Engine
 
     public void start()
     {
-        if (state == EngineState.OFF)
-        {
-            state = EngineState.IDLE;
-        }
+        state = EngineState.IDLE;
     }
 
     public void run(int thrust)

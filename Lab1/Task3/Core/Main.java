@@ -23,13 +23,14 @@ public class Main
     private Pilot pilot;
     private List<Rocket> rockets;
 
-    public static void main(String[] args)
-    {
-        Main sim = new Main();
-        System.out.println("=== сценарий управления кораблем ===\n");
-        System.out.println(sim.executeScenario());
-    }
+    // public static void main(String[] args)
+    // {
+    //     Main sim = new Main();
+    //     System.out.println("=== сценарий управления кораблем ===\n");
+    //     System.out.println(sim.executeScenario());
+    // }
 
+    
     public Main()
     {
         rockets = new ArrayList<>();
@@ -113,7 +114,7 @@ public class Main
         return log.toString();
     }
 
-    // геттеры для тестов
+    // геттеры
     public Spaceship getShip() { return ship; }
     public Pilot getPilot() { return pilot; }
     public List<Rocket> getRockets() { return rockets; }

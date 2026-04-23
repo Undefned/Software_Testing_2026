@@ -15,39 +15,15 @@ public class Main
     // список для записи последовательности характерных точек
     public List<Integer> checkpoints = new ArrayList<>();
 
-    private static final int MAXDEGREE = 8;  // максимальное число потомков
-    private static final int MAX_KEYS = MAXDEGREE - 1;  // ключей максимум
+    private final int MAXDEGREE;  // максимальное число потомков
+    private final int MAX_KEYS;  // ключей максимум
 
     private Node root;
-    public static void main(String[] args)
+    
+    public Main(int maxdegree)
     {
-        Main tree = new Main();
-        
-        System.out.println("=== вставка 1, 2, 3 ===");
-        tree.insert(1);
-        System.out.println("checkpoints: " + tree.getCheckpoints());
-        
-        tree.insert(2);
-        System.out.println("checkpoints: " + tree.getCheckpoints());
-        
-        tree.insert(3);
-        System.out.println("checkpoints: " + tree.getCheckpoints());
-        
-        tree.print();
-        
-        System.out.println("\n=== поиск 2 ===");
-        boolean found = tree.search(2);
-        System.out.println("найдено: " + found);
-        System.out.println("checkpoints: " + tree.getCheckpoints());
-        
-        System.out.println("\n=== поиск 100 ===");
-        found = tree.search(100);
-        System.out.println("найдено: " + found);
-        System.out.println("checkpoints: " + tree.getCheckpoints());
-    }
-
-    public Main()
-    {
+        MAXDEGREE = maxdegree;
+        MAX_KEYS = MAXDEGREE - 1; 
         root = null;
     }
 
@@ -187,21 +163,15 @@ public class Main
         }
     }
 
-    // вставка в родительский узел после сплита
     private void insertIntoParent(Node left, int key, Node right)
     {
         Node parent = findParent(root, left);
-        
-        if (parent == null)
-        {
-            return;
-        }
         
         InternalNode internal = (InternalNode) parent;
         
         // находим позицию для вставки
         int pos = 0;
-        while (pos < internal.keys.size() && internal.keys.get(pos) < key)
+        while (pos < internal.keys.size())
         {
             pos++;
         }
@@ -224,30 +194,27 @@ public class Main
     // поиск родителя узла
     private Node findParent(Node current, Node target)
     {
-        if (current.isLeaf || current == target)
+        if (current.isLeaf)
         {
             return null;
         }
-        
+
         InternalNode internal = (InternalNode) current;
-        
+
         for (Node child : internal.children)
         {
             if (child == target)
             {
                 return current;
             }
-            
-            if (!child.isLeaf)
+
+            Node res = findParent(child, target);
+            if (res != null)
             {
-                Node result = findParent(child, target);
-                if (result != null)
-                {
-                    return result;
-                }
+                return res;
             }
         }
-        
+
         return null;
     }
 
@@ -291,21 +258,14 @@ public class Main
         node.keys.remove(promotePos);
         
         checkpoints.add(Checkpoint.PROMOTE_KEY);
-        
-        if (root == node)
-        {
-            // сплит корня
-            InternalNode newRoot = new InternalNode();
-            newRoot.keys.add(promoteKey);
-            newRoot.children.add(node);
-            newRoot.children.add(newNode);
-            root = newRoot;
-            checkpoints.add(Checkpoint.ROOT_SPLIT);
-        }
-        else
-        {
-            insertIntoParent(node, promoteKey, newNode);
-        }
+
+        // сплит корня
+        InternalNode newRoot = new InternalNode();
+        newRoot.keys.add(promoteKey);
+        newRoot.children.add(node);
+        newRoot.children.add(newNode);
+        root = newRoot;
+        checkpoints.add(Checkpoint.ROOT_SPLIT);
     }
 
     // поиск ключа
@@ -360,35 +320,19 @@ public class Main
         return false;
     }
 
-    // вывод дерева
-    public void print()
-    {
-        printNode(root, 0);
-    }
 
-    private void printNode(Node node, int level)
-    {
-        String indent = "  ".repeat(level);
-        
-        if (node.isLeaf)
-        {
-            System.out.println(indent + "Leaf: " + node.keys);
-        }
-        else
-        {
-            InternalNode internal = (InternalNode) node;
-            System.out.println(indent + "Internal: " + internal.keys);
-            
-            for (Node child : internal.children)
-            {
-                printNode(child, level + 1);
-            }
-        }
-    }
 
     // получение последовательности характерных точек
     public List<Integer> getCheckpoints()
     {
         return new ArrayList<>(checkpoints);
+    }
+
+    public int getMaxKeys() {
+        return MAX_KEYS;
+    }
+    
+    public int getMaxDegree() {
+        return MAXDEGREE;
     }
 }

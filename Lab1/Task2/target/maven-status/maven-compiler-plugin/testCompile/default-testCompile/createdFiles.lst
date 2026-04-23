@@ -1,7 +1,6 @@
 MainTest.class
-MainTest$BoundaryTests.class
-MainTest$InternalSplitTests.class
-MainTest$ComplexTests.class
-MainTest$SearchTests.class
 MainTest$LeafSplitTests.class
+MainTest$BoundaryTests.class
 MainTest$SimpleInsertTests.class
+MainTest$UncoveredMethodsTests.class
+MainTest$SearchTests.class

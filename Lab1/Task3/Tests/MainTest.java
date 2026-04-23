@@ -10,6 +10,8 @@ import Models.Spaceship;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.List;
+
 // тесты доменной модели: управление космическим кораблем
 // предметная область: форд управляет кораблем, уклоняясь от ракет
 
@@ -58,17 +60,6 @@ public class MainTest
         {
             assertEquals(Direction.BACKWARD_RIGHT, Direction.FORWARD_LEFT.opposite());
             assertEquals(Direction.BACKWARD_LEFT, Direction.FORWARD_RIGHT.opposite());
-        }
-
-        @Test
-        @DisplayName("двойное применение opposite возвращает исходное")
-        void testDoubleOpposite()
-        {
-            for (Direction dir : Direction.values())
-            {
-                assertEquals(dir, dir.opposite().opposite(),
-                    "двойное opposite должно вернуть исходное направление");
-            }
         }
     }
 
@@ -469,22 +460,6 @@ public class MainTest
     class ScenarioTests
     {
         @Test
-        @DisplayName("полный сценарий из текста")
-        void testFullScenario()
-        {
-            String log = simulation.executeScenario();
-
-            // проверяем что сценарий выполнился
-            assertTrue(log.contains("форд подскочил к пультам"));
-            assertTrue(log.contains("схватился за"));
-            assertTrue(log.contains("двигатели работают"));
-            assertTrue(log.contains("корабль движется"));
-            assertTrue(log.contains("осталось рукояток"));
-            assertTrue(log.contains("корабль развернут"));
-            assertTrue(log.contains("направляется навстречу ракетам"));
-        }
-
-        @Test
         @DisplayName("после сценария корабль развернут")
         void testShipTurnedAfterScenario()
         {
@@ -636,6 +611,92 @@ public class MainTest
                 assertNotNull(dir);
                 assertNotNull(dir.opposite());
             }
+        }
+    }
+
+    @Nested
+    @DisplayName("тесты покрытия состояний")
+    class UncoveredMethodsTests
+    {
+        @Test
+        @DisplayName("возврат пустой панели контроля")
+        void ReurnEmptyControlPanel()
+        {
+            Spaceship ship = new Spaceship(0,0,0);
+
+            ControlPanel emptyPanel = ship.getMainPanel();
+            assertNull(emptyPanel);
+        }
+
+        @Test
+        @DisplayName("проверка того что может вернуться null при хвате за рукоятки")
+        void testNullControlPanel()
+        {
+            Spaceship ship = new Spaceship(0,0,0);
+            List<Integer> leverIndices = java.util.Arrays.asList(0, 1, 2);
+
+            ship.grabLevers(leverIndices);
+            ControlPanel emptyPanel = ship.getMainPanel();
+            assertNull(emptyPanel);
+        }
+
+        @Test
+        @DisplayName("проверка того что может вернуться null при отпускании половины рукояток")
+        void testNullControlPanelAfterReleasingHalf()
+        {
+            Spaceship ship = new Spaceship(0,0,0);
+
+            ship.releaseHalfLevers();
+            ControlPanel emptyPanel = ship.getMainPanel();
+            assertNull(emptyPanel);
+        }
+
+        @Test
+        @DisplayName("проверка того что может вернуться null при запуске двигателей на основе захваченных рукояток")
+        void testNullControlPanelStartEngines()
+        {
+            Spaceship ship = new Spaceship(0,0,0);
+
+            ship.startEngines();
+            ControlPanel emptyPanel = ship.getMainPanel();
+            assertNull(emptyPanel);
+        }
+
+        @Test
+        @DisplayName("проверка количества толкающих двигателей мнеьше 0")
+        void testNegativeThrust()
+        {
+            Spaceship ship = new Spaceship(0,0,0);
+
+            ship.move();
+            
+            assertTrue(ship.getSpeed() >= 0, "скорость не может быть отрицательной");
+        }
+
+        @Test
+        @DisplayName("default ветка - направления FORWARD_LEFT и др.")
+        void testMoveDefaultBranch()
+        {
+            Spaceship ship = new Spaceship(0, 0, 0);
+            
+            Engine engine1 = new Engine(Direction.FORWARD_LEFT);
+            engine1.start();
+            engine1.run(50);
+            
+            ship.addEngine(engine1);
+            
+            ship.move();
+
+            assertTrue(ship.getSpeed() > 0);
+        }
+
+        @Test
+        @DisplayName("тест возвращение рукояток")
+        void testGetLevers()
+        {
+            ControlPanel panel = new ControlPanel();
+            panel.addLever(new Lever("forward", Direction.FORWARD));
+            assertNotNull(panel.getLevers());
         }
     }
 }

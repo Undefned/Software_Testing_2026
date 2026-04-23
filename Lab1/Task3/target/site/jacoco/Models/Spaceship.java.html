@@ -38,124 +38,120 @@ public class Spaceship
 <span class="fc" id="L38">        return engines;</span>
     }
 
-    public List&lt;ControlPanel&gt; getControlPanels()
-    {
-<span class="nc" id="L43">        return controlPanels;</span>
-    }
-
     public ControlPanel getMainPanel()
     {
-<span class="pc bpc" id="L48" title="1 of 2 branches missed.">        if (!controlPanels.isEmpty())</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        if (!controlPanels.isEmpty())</span>
         {
-<span class="fc" id="L50">            return controlPanels.get(0);</span>
+<span class="fc" id="L45">            return controlPanels.get(0);</span>
         }
-<span class="nc" id="L52">        return null;</span>
+<span class="fc" id="L47">        return null;</span>
     }
 
     // форд хватается за рукоятки
     public void grabLevers(List&lt;Integer&gt; leverIndices)
     {
-<span class="fc" id="L58">        ControlPanel panel = getMainPanel();</span>
-<span class="pc bpc" id="L59" title="1 of 2 branches missed.">        if (panel != null)</span>
+<span class="fc" id="L53">        ControlPanel panel = getMainPanel();</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">        if (panel != null)</span>
         {
-<span class="fc bfc" id="L61" title="All 2 branches covered.">            for (int index : leverIndices)</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">            for (int index : leverIndices)</span>
             {
-<span class="fc" id="L63">                Lever lever = panel.getLever(index);</span>
-<span class="fc bfc" id="L64" title="All 2 branches covered.">                if (lever != null)</span>
+<span class="fc" id="L58">                Lever lever = panel.getLever(index);</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">                if (lever != null)</span>
                 {
-<span class="fc" id="L66">                    lever.grab();</span>
+<span class="fc" id="L61">                    lever.grab();</span>
                 }
-<span class="fc" id="L68">            }</span>
+<span class="fc" id="L63">            }</span>
         }
-<span class="fc" id="L70">    }</span>
+<span class="fc" id="L65">    }</span>
 
     // форд отпускает половину рукояток
     public void releaseHalfLevers()
     {
-<span class="fc" id="L75">        ControlPanel panel = getMainPanel();</span>
-<span class="pc bpc" id="L76" title="1 of 2 branches missed.">        if (panel != null)</span>
+<span class="fc" id="L70">        ControlPanel panel = getMainPanel();</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">        if (panel != null)</span>
         {
-<span class="fc" id="L78">            List&lt;Lever&gt; grabbed = panel.getGrabbedLevers();</span>
-<span class="fc" id="L79">            int toRelease = grabbed.size() / 2;</span>
+<span class="fc" id="L73">            List&lt;Lever&gt; grabbed = panel.getGrabbedLevers();</span>
+<span class="fc" id="L74">            int toRelease = grabbed.size() / 2;</span>
 
-<span class="pc bpc" id="L81" title="1 of 4 branches missed.">            for (int i = 0; i &lt; toRelease &amp;&amp; i &lt; grabbed.size(); i++)</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">            for (int i = 0; i &lt; toRelease; i++)</span>
             {
-<span class="fc" id="L83">                grabbed.get(i).release();</span>
+<span class="fc" id="L78">                grabbed.get(i).release();</span>
             }
         }
-<span class="fc" id="L86">    }</span>
+<span class="fc" id="L81">    }</span>
 
     // запуск двигателей на основе захваченных рукояток
     public void startEngines()
     {
-<span class="fc" id="L91">        ControlPanel panel = getMainPanel();</span>
-<span class="pc bpc" id="L92" title="1 of 2 branches missed.">        if (panel != null)</span>
+<span class="fc" id="L86">        ControlPanel panel = getMainPanel();</span>
+<span class="fc bfc" id="L87" title="All 2 branches covered.">        if (panel != null)</span>
         {
-<span class="fc bfc" id="L94" title="All 2 branches covered.">            for (Lever lever : panel.getGrabbedLevers())</span>
+<span class="fc bfc" id="L89" title="All 2 branches covered.">            for (Lever lever : panel.getGrabbedLevers())</span>
             {
-<span class="fc bfc" id="L96" title="All 2 branches covered.">                for (Engine engine : engines)</span>
+<span class="fc bfc" id="L91" title="All 2 branches covered.">                for (Engine engine : engines)</span>
                 {
-<span class="fc bfc" id="L98" title="All 2 branches covered.">                    if (engine.getDirection() == lever.getDirection())</span>
+<span class="fc bfc" id="L93" title="All 2 branches covered.">                    if (engine.getDirection() == lever.getDirection())</span>
                     {
-<span class="fc" id="L100">                        engine.start();</span>
-<span class="fc" id="L101">                        engine.run(50 + (int)(Math.random() * 50));</span>
+<span class="fc" id="L95">                        engine.start();</span>
+<span class="fc" id="L96">                        engine.run(50 + (int)(Math.random() * 50));</span>
                     }
-<span class="fc" id="L103">                }</span>
-<span class="fc" id="L104">            }</span>
+<span class="fc" id="L98">                }</span>
+<span class="fc" id="L99">            }</span>
         }
-<span class="fc" id="L106">    }</span>
+<span class="fc" id="L101">    }</span>
 
     // движение корабля
     public void move()
     {
-<span class="fc" id="L111">        double totalThrust = 0;</span>
-<span class="fc" id="L112">        double dx = 0, dy = 0, dz = 0;</span>
+<span class="fc" id="L106">        double totalThrust = 0;</span>
+<span class="fc" id="L107">        double dx = 0, dy = 0, dz = 0;</span>
 
-<span class="fc bfc" id="L114" title="All 2 branches covered.">        for (Engine engine : engines)</span>
+<span class="fc bfc" id="L109" title="All 2 branches covered.">        for (Engine engine : engines)</span>
         {
-<span class="fc bfc" id="L116" title="All 2 branches covered.">            if (engine.isActive())</span>
+<span class="fc bfc" id="L111" title="All 2 branches covered.">            if (engine.isActive())</span>
             {
-<span class="fc" id="L118">                totalThrust += engine.getThrust();</span>
+<span class="fc" id="L113">                totalThrust += engine.getThrust();</span>
 
                 // упрощенно: каждое направление влияет на координаты
-<span class="pc bpc" id="L121" title="1 of 7 branches missed.">                switch (engine.getDirection())</span>
+<span class="fc bfc" id="L116" title="All 7 branches covered.">                switch (engine.getDirection())</span>
                 {
-<span class="fc" id="L123">                    case FORWARD -&gt; dz += engine.getThrust();</span>
-<span class="fc" id="L124">                    case BACKWARD -&gt; dz -= engine.getThrust();</span>
-<span class="fc" id="L125">                    case LEFT -&gt; dx -= engine.getThrust();</span>
-<span class="fc" id="L126">                    case RIGHT -&gt; dx += engine.getThrust();</span>
-<span class="fc" id="L127">                    case UP -&gt; dy += engine.getThrust();</span>
-<span class="fc" id="L128">                    case DOWN -&gt; dy -= engine.getThrust();</span>
+<span class="fc" id="L118">                    case FORWARD -&gt; dz += engine.getThrust();</span>
+<span class="fc" id="L119">                    case BACKWARD -&gt; dz -= engine.getThrust();</span>
+<span class="fc" id="L120">                    case LEFT -&gt; dx -= engine.getThrust();</span>
+<span class="fc" id="L121">                    case RIGHT -&gt; dx += engine.getThrust();</span>
+<span class="fc" id="L122">                    case UP -&gt; dy += engine.getThrust();</span>
+<span class="fc" id="L123">                    case DOWN -&gt; dy -= engine.getThrust();</span>
+<span class="fc" id="L124">                    default-&gt; System.out.println(&quot;неизвестное направление двигателя&quot;);</span>
                 }
             }
-<span class="fc" id="L131">        }</span>
+<span class="fc" id="L127">        }</span>
 
-<span class="pc bpc" id="L133" title="1 of 2 branches missed.">        if (totalThrust &gt; 0)</span>
+<span class="fc bfc" id="L129" title="All 2 branches covered.">        if (totalThrust &gt; 0)</span>
         {
-<span class="fc" id="L135">            x += dx * 0.01;</span>
-<span class="fc" id="L136">            y += dy * 0.01;</span>
-<span class="fc" id="L137">            z += dz * 0.01;</span>
-<span class="fc" id="L138">            speed = totalThrust * 0.1;</span>
+<span class="fc" id="L131">            x += dx * 0.01;</span>
+<span class="fc" id="L132">            y += dy * 0.01;</span>
+<span class="fc" id="L133">            z += dz * 0.01;</span>
+<span class="fc" id="L134">            speed = totalThrust * 0.1;</span>
         }
-<span class="fc" id="L140">    }</span>
+<span class="fc" id="L136">    }</span>
 
     // развернуть корабль (описать дугу)
     public void turnAround()
     {
-<span class="fc" id="L145">        facingDirection = facingDirection.opposite();</span>
-<span class="fc" id="L146">    }</span>
+<span class="fc" id="L141">        facingDirection = facingDirection.opposite();</span>
+<span class="fc" id="L142">    }</span>
 
     // проверка столкновения с ракетой
     public boolean isCollidingWith(Rocket rocket)
     {
-<span class="fc" id="L151">        double distance = rocket.getDistanceTo(x, y, z);</span>
-<span class="fc bfc" id="L152" title="All 2 branches covered.">        return distance &lt; 1.0;  // радиус столкновения</span>
+<span class="fc" id="L147">        double distance = rocket.getDistanceTo(x, y, z);</span>
+<span class="fc bfc" id="L148" title="All 2 branches covered.">        return distance &lt; 1.0;  // радиус столкновения</span>
     }
 
-<span class="fc" id="L155">    public double getX() { return x; }</span>
-<span class="fc" id="L156">    public double getY() { return y; }</span>
-<span class="fc" id="L157">    public double getZ() { return z; }</span>
-<span class="fc" id="L158">    public Direction getFacingDirection() { return facingDirection; }</span>
-<span class="fc" id="L159">    public double getSpeed() { return speed; }</span>
+<span class="fc" id="L151">    public double getX() { return x; }</span>
+<span class="fc" id="L152">    public double getY() { return y; }</span>
+<span class="fc" id="L153">    public double getZ() { return z; }</span>
+<span class="fc" id="L154">    public Direction getFacingDirection() { return facingDirection; }</span>
+<span class="fc" id="L155">    public double getSpeed() { return speed; }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -7,24 +7,23 @@
 
 public class Main
 {
-    private static final double EPSILON = 0.000000000001;
-    private static final int MAX_ITERATIONS = 10000;
-    
-    public static void main(String[] args)
+    private float EPSILON = 0.0000001f;
+    private int MAX_ITERATIONS = 10000;
+
+    public Main(float epsilon, int maxIterations)
     {
-        // проверка работы функции
-        System.out.println("arctg(0) = " + arctg(0));
-        System.out.println("arctg(0.5) = " + arctg(0.5));
-        System.out.println("arctg(1) = " + arctg(1));
-        System.out.println("arctg(-1) = " + arctg(-1));
+        // конструктор для настройки параметров
+        EPSILON = epsilon;
+        MAX_ITERATIONS = maxIterations;
     }
 
     // считаем arctg(x) через ряд тейлора
     // если |x| <= 1: arctg(x) = x - x³/3 + x⁵/5 - x⁷/7 + ...
     // если |x| > 1: используем формулу arctg(x) = π/2 - arctg(1/x)
     // для |x| близких к 1 делаем редукцию чтобы быстрее сходилась
-    public static double arctg(double x)
+    public double arctg(double x)
     {
+        Main main = new Main(EPSILON, MAX_ITERATIONS); // для доступа к константам
         if (x > 1.0)
         {
             return Math.PI / 2.0 - arctg(1.0 / x);
@@ -46,12 +45,12 @@ public class Main
         int sign = 1;
         
         // сам ряд тейлора
-        for (int n = 1; n <= MAX_ITERATIONS; n += 2)
+        for (int n = 1; n <= main.MAX_ITERATIONS; n += 2)
         {
             double term = sign * xPower / n;
             result += term;
             
-            if (Math.abs(term) < EPSILON)
+            if (Math.abs(term) < main.EPSILON)
             {
                 break;
             }

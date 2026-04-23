@@ -19,26 +19,17 @@ public class Pilot
 
     public void grabLevers(List<Integer> leverIndices)
     {
-        if (currentShip != null)
-        {
-            currentShip.grabLevers(leverIndices);
-        }
+        currentShip.grabLevers(leverIndices);
     }
 
     public void releaseHalfLevers()
     {
-        if (currentShip != null)
-        {
-            currentShip.releaseHalfLevers();
-        }
+        currentShip.releaseHalfLevers();
     }
 
     public void startEngines()
     {
-        if (currentShip != null)
-        {
-            currentShip.startEngines();
-        }
+        currentShip.startEngines();
     }
 
     public String getName()

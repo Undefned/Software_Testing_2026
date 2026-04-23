@@ -5,12 +5,10 @@ import java.util.*;
 public class ControlPanel
 {
     private List<Lever> levers;
-    private boolean isActive;
 
     public ControlPanel()
     {
         this.levers = new ArrayList<>();
-        this.isActive = true;
     }
 
     public void addLever(Lever lever)

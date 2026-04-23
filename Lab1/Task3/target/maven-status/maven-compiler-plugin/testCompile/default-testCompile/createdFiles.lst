@@ -9,3 +9,4 @@ MainTest$SpaceshipTests.class
 MainTest$LeverTests.class
 MainTest$DirectionTests.class
 MainTest$RocketTests.class
+MainTest$UncoveredMethodsTests.class

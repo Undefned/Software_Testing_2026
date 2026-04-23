@@ -5,62 +5,61 @@
 // Функция arctg(x)
 
 
-<span class="nc" id="L8">public class Main</span>
+public class Main
 {
-    private static final double EPSILON = 0.000000000001;
-    private static final int MAX_ITERATIONS = 10000;
-    
-    public static void main(String[] args)
-    {
-        // проверка работы функции
-<span class="nc" id="L16">        System.out.println(&quot;arctg(0) = &quot; + arctg(0));</span>
-<span class="nc" id="L17">        System.out.println(&quot;arctg(0.5) = &quot; + arctg(0.5));</span>
-<span class="nc" id="L18">        System.out.println(&quot;arctg(1) = &quot; + arctg(1));</span>
-<span class="nc" id="L19">        System.out.println(&quot;arctg(-1) = &quot; + arctg(-1));</span>
-<span class="nc" id="L20">    }</span>
+<span class="fc" id="L10">    private float EPSILON = 0.0000001f;</span>
+<span class="fc" id="L11">    private int MAX_ITERATIONS = 10000;</span>
+
+    public Main(float epsilon, int maxIterations)
+<span class="fc" id="L14">    {</span>
+        // конструктор для настройки параметров
+<span class="fc" id="L16">        EPSILON = epsilon;</span>
+<span class="fc" id="L17">        MAX_ITERATIONS = maxIterations;</span>
+<span class="fc" id="L18">    }</span>
 
     // считаем arctg(x) через ряд тейлора
     // если |x| &lt;= 1: arctg(x) = x - x³/3 + x⁵/5 - x⁷/7 + ...
     // если |x| &gt; 1: используем формулу arctg(x) = π/2 - arctg(1/x)
     // для |x| близких к 1 делаем редукцию чтобы быстрее сходилась
-    public static double arctg(double x)
+    public double arctg(double x)
     {
-<span class="fc bfc" id="L28" title="All 2 branches covered.">        if (x &gt; 1.0)</span>
+<span class="fc" id="L26">        Main main = new Main(EPSILON, MAX_ITERATIONS); // для доступа к константам</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        if (x &gt; 1.0)</span>
         {
-<span class="fc" id="L30">            return Math.PI / 2.0 - arctg(1.0 / x);</span>
+<span class="fc" id="L29">            return Math.PI / 2.0 - arctg(1.0 / x);</span>
         }
-<span class="fc bfc" id="L32" title="All 2 branches covered.">        else if (x &lt; -1.0)</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">        else if (x &lt; -1.0)</span>
         {
-<span class="fc" id="L34">            return -Math.PI / 2.0 - arctg(1.0 / x);</span>
+<span class="fc" id="L33">            return -Math.PI / 2.0 - arctg(1.0 / x);</span>
         }
         
         // если х близок к 1, то уменьшаем через формулу
-<span class="fc bfc" id="L38" title="All 2 branches covered.">        if (Math.abs(x) &gt; 0.5)</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        if (Math.abs(x) &gt; 0.5)</span>
         {
-<span class="fc" id="L40">            double reduced = x / (1.0 + Math.sqrt(1.0 + x * x));</span>
-<span class="fc" id="L41">            return 2.0 * arctg(reduced);</span>
+<span class="fc" id="L39">            double reduced = x / (1.0 + Math.sqrt(1.0 + x * x));</span>
+<span class="fc" id="L40">            return 2.0 * arctg(reduced);</span>
         }
         
-<span class="fc" id="L44">        double result = 0.0;</span>
-<span class="fc" id="L45">        double xPower = x;</span>
-<span class="fc" id="L46">        int sign = 1;</span>
+<span class="fc" id="L43">        double result = 0.0;</span>
+<span class="fc" id="L44">        double xPower = x;</span>
+<span class="fc" id="L45">        int sign = 1;</span>
         
         // сам ряд тейлора
-<span class="pc bpc" id="L49" title="1 of 2 branches missed.">        for (int n = 1; n &lt;= MAX_ITERATIONS; n += 2)</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        for (int n = 1; n &lt;= main.MAX_ITERATIONS; n += 2)</span>
         {
-<span class="fc" id="L51">            double term = sign * xPower / n;</span>
-<span class="fc" id="L52">            result += term;</span>
+<span class="fc" id="L50">            double term = sign * xPower / n;</span>
+<span class="fc" id="L51">            result += term;</span>
             
-<span class="fc bfc" id="L54" title="All 2 branches covered.">            if (Math.abs(term) &lt; EPSILON)</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">            if (Math.abs(term) &lt; main.EPSILON)</span>
             {
-<span class="fc" id="L56">                break;</span>
+<span class="fc" id="L55">                break;</span>
             }
             
-<span class="fc" id="L59">            xPower *= x * x;</span>
-<span class="fc" id="L60">            sign = -sign;</span>
+<span class="fc" id="L58">            xPower *= x * x;</span>
+<span class="fc" id="L59">            sign = -sign;</span>
         }
         
-<span class="fc" id="L63">        return result;</span>
+<span class="fc" id="L62">        return result;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

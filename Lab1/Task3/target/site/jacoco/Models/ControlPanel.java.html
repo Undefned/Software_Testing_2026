@@ -5,57 +5,55 @@ import java.util.*;
 public class ControlPanel
 {
     private List&lt;Lever&gt; levers;
-    private boolean isActive;
 
     public ControlPanel()
-<span class="fc" id="L11">    {</span>
-<span class="fc" id="L12">        this.levers = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L13">        this.isActive = true;</span>
-<span class="fc" id="L14">    }</span>
+<span class="fc" id="L10">    {</span>
+<span class="fc" id="L11">        this.levers = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L12">    }</span>
 
     public void addLever(Lever lever)
     {
-<span class="fc" id="L18">        levers.add(lever);</span>
-<span class="fc" id="L19">    }</span>
+<span class="fc" id="L16">        levers.add(lever);</span>
+<span class="fc" id="L17">    }</span>
 
     public List&lt;Lever&gt; getLevers()
     {
-<span class="nc" id="L23">        return levers;</span>
+<span class="fc" id="L21">        return levers;</span>
     }
 
     public Lever getLever(int index)
     {
-<span class="fc bfc" id="L28" title="All 4 branches covered.">        if (index &gt;= 0 &amp;&amp; index &lt; levers.size())</span>
+<span class="fc bfc" id="L26" title="All 4 branches covered.">        if (index &gt;= 0 &amp;&amp; index &lt; levers.size())</span>
         {
-<span class="fc" id="L30">            return levers.get(index);</span>
+<span class="fc" id="L28">            return levers.get(index);</span>
         }
-<span class="fc" id="L32">        return null;</span>
+<span class="fc" id="L30">        return null;</span>
     }
 
     public int getLeverCount()
     {
-<span class="fc" id="L37">        return levers.size();</span>
+<span class="fc" id="L35">        return levers.size();</span>
     }
 
     public List&lt;Lever&gt; getGrabbedLevers()
     {
-<span class="fc" id="L42">        List&lt;Lever&gt; grabbed = new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L43" title="All 2 branches covered.">        for (Lever lever : levers)</span>
+<span class="fc" id="L40">        List&lt;Lever&gt; grabbed = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        for (Lever lever : levers)</span>
         {
-<span class="fc bfc" id="L45" title="All 2 branches covered.">            if (lever.isGrabbed())</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">            if (lever.isGrabbed())</span>
             {
-<span class="fc" id="L47">                grabbed.add(lever);</span>
+<span class="fc" id="L45">                grabbed.add(lever);</span>
             }
-<span class="fc" id="L49">        }</span>
-<span class="fc" id="L50">        return grabbed;</span>
+<span class="fc" id="L47">        }</span>
+<span class="fc" id="L48">        return grabbed;</span>
     }
 
     public void releaseAll()
     {
-<span class="fc bfc" id="L55" title="All 2 branches covered.">        for (Lever lever : levers)</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">        for (Lever lever : levers)</span>
         {
-<span class="fc" id="L57">            lever.release();</span>
-<span class="fc" id="L58">        }</span>
-<span class="fc" id="L59">    }</span>
+<span class="fc" id="L55">            lever.release();</span>
+<span class="fc" id="L56">        }</span>
+<span class="fc" id="L57">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

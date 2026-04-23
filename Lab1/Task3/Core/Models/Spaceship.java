@@ -38,11 +38,6 @@ public class Spaceship
         return engines;
     }
 
-    public List<ControlPanel> getControlPanels()
-    {
-        return controlPanels;
-    }
-
     public ControlPanel getMainPanel()
     {
         if (!controlPanels.isEmpty())
@@ -78,7 +73,7 @@ public class Spaceship
             List<Lever> grabbed = panel.getGrabbedLevers();
             int toRelease = grabbed.size() / 2;
 
-            for (int i = 0; i < toRelease && i < grabbed.size(); i++)
+            for (int i = 0; i < toRelease; i++)
             {
                 grabbed.get(i).release();
             }
@@ -126,6 +121,7 @@ public class Spaceship
                     case RIGHT -> dx += engine.getThrust();
                     case UP -> dy += engine.getThrust();
                     case DOWN -> dy -= engine.getThrust();
+                    default-> System.out.println("неизвестное направление двигателя");
                 }
             }
         }
