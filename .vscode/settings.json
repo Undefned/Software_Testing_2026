@@ -1,3 +1,11 @@
 {
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.project.sourcePaths": [
+        "Task3/Core",
+        "Lab1/Task2/Tests",
+        "Lab1/Task2/Core",
+        "Lab1/Task1/Tests",
+        "Lab1/Task1/Core",
+        "Lab2/src/main/java/lab2"
+    ]
 }
