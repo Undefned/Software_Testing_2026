@@ -1,6 +1,6 @@
-package lab2.log;
+package log;
 
-import lab2.common.MathModule;
+import common.MathModule;
 
 /**
  * Вычисляет логарифм по основанию 2 через натуральный логарифм.

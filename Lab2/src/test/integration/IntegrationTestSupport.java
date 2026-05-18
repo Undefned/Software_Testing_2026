@@ -1,28 +1,26 @@
-package lab2.integration;
+package integration;
 
-import lab2.common.MathModule;
-import lab2.log.Ln;
-import lab2.log.Log10;
-import lab2.log.Log2;
-import lab2.log.Log3;
-import lab2.log.Log5;
-import lab2.stub.StubModules;
-import lab2.system.LogBranch;
-import lab2.system.SystemFunction;
-import lab2.system.TrigBranch;
-import lab2.trig.Cos;
-import lab2.trig.Cot;
-import lab2.trig.Csc;
-import lab2.trig.Sec;
-import lab2.trig.Sin;
-import lab2.trig.Tan;
+import common.MathModule;
+import log.Ln;
+import log.Log2;
+import log.Log3;
+import stub.StubModules;
+import system.LogBranch;
+import system.SystemFunction;
+import system.TrigBranch;
+import trig.Cos;
+import trig.Cot;
+import trig.Csc;
+import trig.Sec;
+import trig.Sin;
+import trig.Tan;
 
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-final class SupportIntegrationTest {
+final class IntegrationTestSupport {
     static final double DELTA = 1.0E-6;
 
     static final double[] TRIG_BRANCH_POINTS = StubModules.TRIG_BRANCH_POINTS.clone();
@@ -31,8 +29,7 @@ final class SupportIntegrationTest {
             .toArray();
     static final double[] LOG_POINTS = StubModules.LOG_POINTS.clone();
 
-    private IntegrationTestSupport() {
-    }
+    private IntegrationTestSupport() {}
 
     static MathModule createRealTrigBranch() {
         MathModule sin = new Sin(1.0E-12, 10_000);
@@ -68,7 +65,7 @@ final class SupportIntegrationTest {
             double actual = assertDoesNotThrow(() -> actualModule.calculate(x));
             double expected = assertDoesNotThrow(() -> expectedModule.calculate(x));
             double scaledDelta = Math.max(DELTA, Math.abs(expected) * 1.0E-12);
-            assertEquals(expected, actual, scaledDelta);
+            assertEquals(expected, actual, scaledDelta, "x = " + x);
         }
     }
 

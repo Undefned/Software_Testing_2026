@@ -1,6 +1,6 @@
-package lab2.csv;
+package csv;
 
-import lab2.common.MathModule;
+import common.MathModule;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
@@ -30,7 +30,7 @@ class CsvExporterIntegrationTest {
         Path output = tempDir.resolve("exports").resolve("module.csv");
         CsvExporter exporter = new CsvExporter();
 
-        exporter.export(module, 0.0, 1.0, 0.5, output.toString(), "Result");
+        exporter.export(module, 0.0, 2.0, 0.5, output.toString(), "Result");
 
         List<String> lines = Files.readAllLines(output);
 

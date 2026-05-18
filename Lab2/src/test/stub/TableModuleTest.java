@@ -1,4 +1,4 @@
-package lab2.stub;
+package stub;
 
 import org.junit.jupiter.api.Test;
 

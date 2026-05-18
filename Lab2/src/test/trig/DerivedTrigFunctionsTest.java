@@ -1,6 +1,6 @@
-package lab2.trig;
+package trig;
 
-import lab2.common.MathModule;
+import common.MathModule;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;

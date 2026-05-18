@@ -1,6 +1,6 @@
-package lab2.system;
+package system;
 
-import lab2.common.MathModule;
+import common.MathModule;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -11,7 +11,7 @@ class LogBranchTest {
 
     @Test
     void shouldRejectNonPositiveArgument() {
-        LogBranch logBranch = new LogBranch(x -> 1.0, x -> 1.0, x -> 1.0, x -> 1.0, x -> 1.0);
+        LogBranch logBranch = new LogBranch(x -> 1.0, x -> 1.0, x -> 1.0);
 
         assertThrows(IllegalArgumentException.class, () -> logBranch.calculate(0.0));
         assertThrows(IllegalArgumentException.class, () -> logBranch.calculate(-1.0));
@@ -19,7 +19,7 @@ class LogBranchTest {
 
     @Test
     void shouldRejectNonFiniteArgument() {
-        LogBranch logBranch = new LogBranch(x -> 1.0, x -> 1.0, x -> 1.0, x -> 1.0, x -> 1.0);
+        LogBranch logBranch = new LogBranch(x -> 1.0, x -> 1.0, x -> 1.0);
 
         assertThrows(IllegalArgumentException.class, () -> logBranch.calculate(Double.NaN));
         assertThrows(IllegalArgumentException.class, () -> logBranch.calculate(Double.POSITIVE_INFINITY));
@@ -29,10 +29,8 @@ class LogBranchTest {
     void shouldRejectNullDependencies() {
         MathModule stub = x -> 1.0;
 
-        assertThrows(IllegalArgumentException.class, () -> new LogBranch(null, stub, stub, stub, stub));
-        assertThrows(IllegalArgumentException.class, () -> new LogBranch(stub, null, stub, stub, stub));
-        assertThrows(IllegalArgumentException.class, () -> new LogBranch(stub, stub, null, stub, stub));
-        assertThrows(IllegalArgumentException.class, () -> new LogBranch(stub, stub, stub, null, stub));
-        assertThrows(IllegalArgumentException.class, () -> new LogBranch(stub, stub, stub, stub, null));
+        assertThrows(IllegalArgumentException.class, () -> new LogBranch(null, stub, stub));
+        assertThrows(IllegalArgumentException.class, () -> new LogBranch(stub, null, stub));
+        assertThrows(IllegalArgumentException.class, () -> new LogBranch(stub, stub, null));
     }
 }

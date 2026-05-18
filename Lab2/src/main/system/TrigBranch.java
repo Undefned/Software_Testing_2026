@@ -1,6 +1,6 @@
-package lab2.system;
+package system;
 
-import lab2.common.MathModule;
+import common.MathModule;
 
 /**
  * Вычисляет тригонометрическую ветвь системы для {@code x <= 0}.

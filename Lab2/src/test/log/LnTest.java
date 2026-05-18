@@ -1,4 +1,4 @@
-package lab2.log;
+package log;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -16,11 +16,7 @@ class LnTest {
 
     @ParameterizedTest
     @CsvSource({
-        "1.0",
-        "2.718281828459045",
-        "0.5",
-        "2.0",
-        "10.0"
+        "1.0", "2.718281828459045", "0.5", "2.0", "10.0"
     })
     void shouldApproximateLnAccurately(double x) {
         assertEquals(Math.log(x), ln.calculate(x), ASSERT_DELTA);

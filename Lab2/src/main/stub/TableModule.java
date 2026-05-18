@@ -1,6 +1,6 @@
-package lab2.stub;
+package stub;
 
-import lab2.common.MathModule;
+import common.MathModule;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

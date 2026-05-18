@@ -20,7 +20,7 @@ public class CsvStubGenerator {
                 double Ct = Math.abs(T) < 1e-12 ? Double.POSITIVE_INFINITY : 1.0 / T;
                 double Sc = Math.abs(C) < 1e-12 ? Double.POSITIVE_INFINITY : 1.0 / C;
                 double Csc = Math.abs(S) < 1e-12 ? Double.POSITIVE_INFINITY : 1.0 / S;
-                w.printf(Locale.US, "%.10f;%.10f;%.10f;%.10f;%.10f;%.10f;%.10f\n",
+                w.printf(Locale.US, "%.15f;%.15f;%.15f;%.15f;%.15f;%.15f;%.15f\n",
                         x, S, C, T, Ct, Sc, Csc);
             }
         }
@@ -31,24 +31,22 @@ public class CsvStubGenerator {
             for (double x : TRIG_POINTS) {
                 double val = trigBranch(x);
                 if (Double.isNaN(val) || Double.isInfinite(val)) {
-                    w.printf(Locale.US, "%.10f;NaN\n", x);
+                    w.printf(Locale.US, "%.15f;NaN\n", x);
                 } else {
-                    w.printf(Locale.US, "%.10f;%.10f\n", x, val);
+                    w.printf(Locale.US, "%.15f;%.15f\n", x, val);
                 }
             }
         }
 
         // 3. log-functions.csv
         try (PrintWriter w = new PrintWriter(outputDir + "log-functions.csv")) {
-            w.println("x;ln;log2;log3;log5;log10");
+            w.println("x;ln;log2;log3");
             for (double x : LOG_POINTS) {
                 double lnx = Math.log(x);
                 double log2x = lnx / Math.log(2);
                 double log3x = lnx / Math.log(3);
-                double log5x = lnx / Math.log(5);
-                double log10x = Math.log10(x);
-                w.printf(Locale.US, "%.10f;%.10f;%.10f;%.10f;%.10f;%.10f\n",
-                        x, lnx, log2x, log3x, log5x, log10x);
+                w.printf(Locale.US, "%.15f;%.15f;%.15f;%.15f\n",
+                        x, lnx, log2x, log3x);
             }
         }
 
@@ -58,9 +56,9 @@ public class CsvStubGenerator {
             for (double x : LOG_POINTS) {
                 double val = logBranch(x);
                 if (Double.isNaN(val) || Double.isInfinite(val)) {
-                    w.printf(Locale.US, "%.10f;NaN\n", x);
+                    w.printf(Locale.US, "%.15f;NaN\n", x);
                 } else {
-                    w.printf(Locale.US, "%.10f;%.10f\n", x, val);
+                    w.printf(Locale.US, "%.15f;%.15f\n", x, val);
                 }
             }
         }
@@ -125,23 +123,26 @@ public class CsvStubGenerator {
     }
 
     // ===== ТРИГОНОМЕТРИЧЕСКИЕ ТОЧКИ (x ≤ 0) =====
+    // Исключены точки где sin(x)=0 или tan(x)=0: 0, -π, -2π и кратные π/2
     private static final double[] TRIG_POINTS = {
-        // От -2π до 0 с шагом π/12 (~15°)
-        -6.283185307179586, -5.759586531581287, -5.235987755982989, -4.71238898038469,
-        -4.1887902047863905, -3.665191429188092, -3.141592653589793, -2.6179938779914944,
-        -2.0943951023931953, -1.5707963267948966, -1.0471975511965976, -0.5235987755982988,
+        // От -2π до 0 с шагом π/12, только где функция определена
+        -5.759586531581287, -5.235987755982989,
+        -4.1887902047863905, -3.665191429188092,
+        -2.6179938779914944, -2.0943951023931953,
+        -1.0471975511965976, -0.5235987755982988,
         // Дополнительные точки
         -6.0, -5.5, -5.0, -4.5, -4.0, -3.5, -3.0, -2.5, -2.0, -1.5, -1.0, -0.5,
+        // Окрестность -π/2 (BASE_TRIG_FUNCTION_POINTS)
+        -1.5807963267948966, -1.5607963267948966,
         // Приближение к нулю
-        -0.1, -0.05, -0.01, -0.005, -0.001, -0.0001,
-        // Граница
-        0.0
+        -0.1, -0.05, -0.01, -0.005, -0.001, -0.0001
     };
 
     // ===== ЛОГАРИФМИЧЕСКИЕ ТОЧКИ (x > 0) =====
+    // Исключена точка x=1.0 (log3(1)=0, деление на ноль в log_branch)
     private static final double[] LOG_POINTS = {
         0.001, 0.005, 0.01, 0.02, 0.05, 0.07, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5,
-        0.6, 0.7, 0.8, 0.9, 0.95, 0.99, 1.0,
+        0.6, 0.7, 0.8, 0.9, 0.95, 0.99,
         1.01, 1.05, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0,
         2.2, 2.5, 2.7, 3.0, 3.5, 4.0, 4.5, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0,
         15.0, 20.0, 30.0, 50.0, 70.0, 100.0

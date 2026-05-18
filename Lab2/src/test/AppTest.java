@@ -1,7 +1,5 @@
-package lab2;
-
-import lab2.common.MathModule;
-import lab2.csv.CsvExporter;
+import common.MathModule;
+import csv.CsvExporter;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

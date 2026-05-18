@@ -1,6 +1,6 @@
-package lab2.system;
+package system;
 
-import lab2.common.MathModule;
+import common.MathModule;
 
 public class LogBranch implements MathModule {
     private final MathModule ln;

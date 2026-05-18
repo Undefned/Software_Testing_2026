@@ -1,4 +1,4 @@
-package lab2.common;
+package common;
 
 public interface MathModule {
     double calculate(double x);

@@ -1,6 +1,6 @@
-package lab2.system;
+package system;
 
-import lab2.common.MathModule;
+import common.MathModule;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

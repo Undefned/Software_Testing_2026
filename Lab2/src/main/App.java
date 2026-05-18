@@ -1,9 +1,6 @@
-package lab2;
-
-import lab2.common.MathModule;
-import lab2.csv.CsvExporter;
-import lab2.stub.StubModules;
-
+import common.MathModule;
+import csv.CsvExporter;
+import stub.StubModules;
 import java.io.IOException;
 
 public final class App {
@@ -12,6 +9,9 @@ public final class App {
 
     public static void main(String[] args) {
         run(new CsvExporter());
+
+        System.out.println(Math.log(2.0));
+        System.out.println(Math.log(3.0));
     }
 
     static void run(CsvExporter exporter) {

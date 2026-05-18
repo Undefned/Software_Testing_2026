@@ -1,6 +1,6 @@
-package lab2.trig;
+package trig;
 
-import lab2.common.MathModule;
+import common.MathModule;
 
 /**
  * Вычисляет функцию синуса с помощью разложения в ряд Тейлора.

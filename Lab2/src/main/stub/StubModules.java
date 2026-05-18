@@ -1,6 +1,6 @@
-package lab2.stub;
+package stub;
 
-import lab2.common.MathModule;
+import common.MathModule;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -28,62 +28,54 @@ public final class StubModules {
             0.1
     };
 
-    public static final double[] TRIG_BRANCH_POINTS = loadPointsFromCsv("/lab2/stub/trig-branch.csv");
+    public static final double[] TRIG_BRANCH_POINTS = loadPointsFromCsv("/stub/trig-branch.csv", "trig_branch");
     public static final double[] TRIG_FUNCTION_POINTS = buildTrigFunctionPoints();
-    public static final double[] LOG_POINTS = loadPointsFromCsv("/lab2/stub/log-functions.csv");
+    public static final double[] LOG_POINTS = loadPointsFromCsv("/stub/log-branch.csv", "log_branch");
 
     private StubModules() {}
 
     public static MathModule sinStub() {
-        return fromCsv("/lab2/stub/trig-functions.csv", "sin");
+        return fromCsv("/stub/trig-functions.csv", "sin");
     }
 
     public static MathModule cosStub() {
-        return fromCsv("/lab2/stub/trig-functions.csv", "cos");
+        return fromCsv("/stub/trig-functions.csv", "cos");
     }
 
     public static MathModule tanStub() {
-        return fromCsv("/lab2/stub/trig-functions.csv", "tan");
+        return fromCsv("/stub/trig-functions.csv", "tan");
     }
 
     public static MathModule cotStub() {
-        return fromCsv("/lab2/stub/trig-functions.csv", "cot");
+        return fromCsv("/stub/trig-functions.csv", "cot");
     }
 
     public static MathModule secStub() {
-        return fromCsv("/lab2/stub/trig-functions.csv", "sec");
+        return fromCsv("/stub/trig-functions.csv", "sec");
     }
 
     public static MathModule cscStub() {
-        return fromCsv("/lab2/stub/trig-functions.csv", "csc");
+        return fromCsv("/stub/trig-functions.csv", "csc");
     }
 
     public static MathModule lnStub() {
-        return fromCsv("/lab2/stub/log-functions.csv", "ln");
+        return fromCsv("/stub/log-functions.csv", "ln");
     }
 
     public static MathModule log2Stub() {
-        return fromCsv("/lab2/stub/log-functions.csv", "log2");
+        return fromCsv("/stub/log-functions.csv", "log2");
     }
 
     public static MathModule log3Stub() {
-        return fromCsv("/lab2/stub/log-functions.csv", "log3");
-    }
-
-    public static MathModule log5Stub() {
-        return fromCsv("/lab2/stub/log-functions.csv", "log5");
-    }
-
-    public static MathModule log10Stub() {
-        return fromCsv("/lab2/stub/log-functions.csv", "log10");
+        return fromCsv("/stub/log-functions.csv", "log3");
     }
 
     public static MathModule trigBranchStub() {
-        return fromCsv("/lab2/stub/trig-branch.csv", "trig_branch");
+        return fromCsv("/stub/trig-branch.csv", "trig_branch");
     }
 
     public static MathModule logBranchStub() {
-        return fromCsv("/lab2/stub/log-branch.csv", "log_branch");
+        return fromCsv("/stub/log-branch.csv", "log_branch");
     }
 
     private static MathModule fromCsv(String resourcePath, String columnName) {
@@ -106,7 +98,19 @@ public final class StubModules {
                     continue;
                 }
                 String[] parts = line.split(";");
-                result.put(Double.parseDouble(parts[0]), Double.parseDouble(parts[targetIndex]));
+                double x = Double.parseDouble(parts[0]);
+                String rawY = parts[targetIndex].trim();
+
+                if (rawY.equals("NaN") || rawY.equals("Infinity") || rawY.equals("-Infinity")) {
+                    continue;
+                }
+
+                double y = Double.parseDouble(rawY);
+                if (!Double.isFinite(y)) {
+                    continue;
+                }
+
+                result.put(x, y);
             }
             return result;
         } catch (IOException exception) {
@@ -114,8 +118,8 @@ public final class StubModules {
         }
     }
 
-    private static double[] loadPointsFromCsv(String resourcePath) {
-        Map<Double, Double> values = loadColumn(resourcePath, "x");
+    private static double[] loadPointsFromCsv(String resourcePath, String columnName) {
+        Map<Double, Double> values = loadColumn(resourcePath, columnName);
         double[] points = new double[values.size()];
         int index = 0;
         for (double point : values.keySet()) {
@@ -147,7 +151,10 @@ public final class StubModules {
         for (double point : TRIG_BRANCH_POINTS) {
             if (point < 0.0) {
                 addPoint(points, point);
-                addPoint(points, Math.PI / 2.0 - point);
+                double mirrored = Math.PI / 2.0 - point;
+                if (mirrored <= Math.PI * 2.0) {
+                    addPoint(points, mirrored);
+                }
             }
         }
 

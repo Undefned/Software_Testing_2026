@@ -1,4 +1,4 @@
-package lab2.trig;
+package trig;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

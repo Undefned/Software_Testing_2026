@@ -1,6 +1,6 @@
-package lab2.system;
+package system;
 
-import lab2.common.MathModule;
+import common.MathModule;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -20,17 +20,18 @@ class TrigBranchTest {
 
         TrigBranch trigBranch = new TrigBranch(sin, cos, tan, cot, sec, csc);
 
-        double expectedPart1 = (Math.pow(5.0, 3) - 13.0) * Math.pow(5.0, 3);
-        double expectedPart2 = (11.0 + 5.0) + 2.0;
-        double expectedDivision1 = (expectedPart1 - expectedPart2) / 3.0;
-        double expectedDivision2 = expectedDivision1 / (13.0 + 13.0);
-        double expectedDivision3 = expectedDivision2 / (13.0 / 2.0);
-        double expectedMultiplied = expectedDivision3 * (11.0 * Math.pow(3.0, 2));
-        double expectedAdded = expectedMultiplied + ((11.0 / 7.0) * 5.0);
-        double expectedDivision4 = expectedAdded / (13.0 + (2.0 * Math.pow(5.0, 3)));
-        double expected = Math.pow(expectedDivision4 - 13.0, 3);
+        double S = 2.0, C = 3.0, T = 5.0, Ct = 7.0, Sc = 11.0, Csc = 13.0;
 
-        assertEquals(expected, trigBranch.calculate(-1.0), ASSERT_DELTA);
+        double secDivSin = Sc / S;
+        double partA3 = Math.pow(Math.pow(secDivSin, 3) - Ct, 2);
+        double partA5 = (partA3 / (S + S)) * Csc;
+        double partA10 = ((partA5 + S * C) * Ct + Csc) * (Csc + Ct) + T;
+        double A = partA10 / (Math.pow(Ct, 3) / (Sc - Csc));
+
+        double partB4 = Math.pow(Math.pow(Math.pow(C - T, 2) + (Csc + Ct), 3), 2);
+        double B = partB4 / Ct / (Csc - T) - T / (Sc * (Sc * (S * S * C)));
+
+        assertEquals(A - B, trigBranch.calculate(-1.0), ASSERT_DELTA);
     }
 
     @Test

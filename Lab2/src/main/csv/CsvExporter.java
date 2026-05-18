@@ -1,6 +1,6 @@
-package lab2.csv;
+package csv;
 
-import lab2.common.MathModule;
+import common.MathModule;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -61,7 +61,7 @@ public class CsvExporter {
         List<String> lines = new ArrayList<>();
         lines.add("X;" + headerName);
 
-        double epsilon = Math.abs(step) * 1.0E-9;
+        double epsilon = Math.abs(step) * 0.5;
         for (double currentX = startX; currentX <= endX + epsilon; currentX += step) {
             lines.add(formatLine(module, currentX));
         }
