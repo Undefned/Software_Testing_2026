@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TableModule.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">system-function</a> &gt; <a href="index.source.html" class="el_package">stub</a> &gt; <span class="el_source">TableModule.java</span></div><h1>TableModule.java</h1><pre class="source lang-java linenums">package stub;
+
+import common.MathModule;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+/**
+ * Табличная реализация модуля для поэтапной интеграции системы.
+ */
+public class TableModule implements MathModule {
+    private static final double DEFAULT_LOOKUP_EPSILON = 1.0E-9;
+
+    private final Map&lt;Double, Double&gt; table;
+    private final double lookupEpsilon;
+
+    /**
+     * Создает табличный модуль с допуском поиска по умолчанию.
+     *
+     * @param table таблица известных пар аргумент-значение
+     */
+    public TableModule(Map&lt;Double, Double&gt; table) {
+<span class="fc" id="L23">        this(table, DEFAULT_LOOKUP_EPSILON);</span>
+<span class="fc" id="L24">    }</span>
+
+    /**
+     * Создает табличный модуль с пользовательским допуском поиска.
+     *
+     * @param table таблица известных пар аргумент-значение
+     * @param lookupEpsilon максимально допустимое расстояние до сохраненного аргумента
+     */
+<span class="fc" id="L32">    public TableModule(Map&lt;Double, Double&gt; table, double lookupEpsilon) {</span>
+<span class="fc bfc" id="L33" title="All 4 branches covered.">        if (table == null || table.isEmpty()) {</span>
+<span class="fc" id="L34">            throw new IllegalArgumentException(&quot;table must not be null or empty&quot;);</span>
+        }
+<span class="fc bfc" id="L36" title="All 4 branches covered.">        if (!Double.isFinite(lookupEpsilon) || lookupEpsilon &lt;= 0.0) {</span>
+<span class="fc" id="L37">            throw new IllegalArgumentException(&quot;lookupEpsilon must be a positive finite number&quot;);</span>
+        }
+
+<span class="fc" id="L40">        LinkedHashMap&lt;Double, Double&gt; copiedTable = new LinkedHashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        for (Map.Entry&lt;Double, Double&gt; entry : table.entrySet()) {</span>
+<span class="fc" id="L42">            Double x = entry.getKey();</span>
+<span class="fc" id="L43">            Double y = entry.getValue();</span>
+
+<span class="fc bfc" id="L45" title="All 8 branches covered.">            if (x == null || y == null || !Double.isFinite(x) || !Double.isFinite(y)) {</span>
+<span class="fc" id="L46">                throw new IllegalArgumentException(&quot;table entries must contain finite non-null numbers&quot;);</span>
+            }
+
+<span class="fc" id="L49">            copiedTable.put(x, y);</span>
+<span class="fc" id="L50">        }</span>
+
+<span class="fc" id="L52">        this.table = Map.copyOf(copiedTable);</span>
+<span class="fc" id="L53">        this.lookupEpsilon = lookupEpsilon;</span>
+<span class="fc" id="L54">    }</span>
+
+    /**
+     * Находит ближайшее табличное значение для заданного аргумента.
+     *
+     * @param x аргумент, который нужно найти в таблице
+     * @return табличное значение для подходящей точки
+     */
+    @Override
+    public double calculate(double x) {
+<span class="fc bfc" id="L64" title="All 2 branches covered.">        if (!Double.isFinite(x)) {</span>
+<span class="fc" id="L65">            throw new IllegalArgumentException(&quot;x must be finite&quot;);</span>
+        }
+
+<span class="fc" id="L68">        Double bestValue = null;</span>
+<span class="fc" id="L69">        double bestDistance = Double.POSITIVE_INFINITY;</span>
+
+<span class="fc bfc" id="L71" title="All 2 branches covered.">        for (Map.Entry&lt;Double, Double&gt; entry : table.entrySet()) {</span>
+<span class="fc" id="L72">            double distance = Math.abs(entry.getKey() - x);</span>
+<span class="fc bfc" id="L73" title="All 4 branches covered.">            if (distance &lt;= lookupEpsilon &amp;&amp; distance &lt; bestDistance) {</span>
+<span class="fc" id="L74">                bestDistance = distance;</span>
+<span class="fc" id="L75">                bestValue = entry.getValue();</span>
+            }
+<span class="fc" id="L77">        }</span>
+
+<span class="fc bfc" id="L79" title="All 2 branches covered.">        if (bestValue == null) {</span>
+<span class="fc" id="L80">            throw new IllegalArgumentException(&quot;No tabulated value found for x = &quot; + x);</span>
+        }
+
+<span class="fc" id="L83">        return bestValue;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

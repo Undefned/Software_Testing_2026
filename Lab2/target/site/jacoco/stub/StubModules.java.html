@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StubModules.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">system-function</a> &gt; <a href="index.source.html" class="el_package">stub</a> &gt; <span class="el_source">StubModules.java</span></div><h1>StubModules.java</h1><pre class="source lang-java linenums">package stub;
+
+import common.MathModule;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+/**
+ * Набор фабричных методов для табличных заглушек модулей системы.
+ */
+public final class StubModules {
+    private static final double LOOKUP_EPSILON = 1.0E-6;
+
+<span class="fc" id="L19">    private static final double[] BASE_TRIG_FUNCTION_POINTS = {</span>
+            -Math.PI / 2.0 - 0.01,
+            -Math.PI / 2.0 + 0.01,
+            -Math.PI / 3.0,
+            -Math.PI / 4.0,
+            -Math.PI / 6.0,
+            -0.1,
+            -0.01
+    };
+
+<span class="fc" id="L29">    public static final double[] TRIG_BRANCH_POINTS = loadPointsFromCsv(&quot;/stub/trig-branch.csv&quot;, &quot;trig_branch&quot;);</span>
+<span class="fc" id="L30">    public static final double[] TRIG_FUNCTION_POINTS = buildTrigFunctionPoints();</span>
+<span class="fc" id="L31">    public static final double[] LOG_POINTS = loadPointsFromCsv(&quot;/stub/log-branch.csv&quot;, &quot;log_branch&quot;);</span>
+
+    private StubModules() {}
+
+    public static MathModule sinStub() {
+<span class="fc" id="L36">        return fromCsv(&quot;/stub/trig-functions.csv&quot;, &quot;sin&quot;);</span>
+    }
+
+    public static MathModule cosStub() {
+<span class="fc" id="L40">        return fromCsv(&quot;/stub/trig-functions.csv&quot;, &quot;cos&quot;);</span>
+    }
+
+    public static MathModule tanStub() {
+<span class="fc" id="L44">        return fromCsv(&quot;/stub/trig-functions.csv&quot;, &quot;tan&quot;);</span>
+    }
+
+    public static MathModule cotStub() {
+<span class="fc" id="L48">        return fromCsv(&quot;/stub/trig-functions.csv&quot;, &quot;cot&quot;);</span>
+    }
+
+    public static MathModule secStub() {
+<span class="fc" id="L52">        return fromCsv(&quot;/stub/trig-functions.csv&quot;, &quot;sec&quot;);</span>
+    }
+
+    public static MathModule cscStub() {
+<span class="fc" id="L56">        return fromCsv(&quot;/stub/trig-functions.csv&quot;, &quot;csc&quot;);</span>
+    }
+
+    public static MathModule lnStub() {
+<span class="fc" id="L60">        return fromCsv(&quot;/stub/log-functions.csv&quot;, &quot;ln&quot;);</span>
+    }
+
+    public static MathModule log2Stub() {
+<span class="fc" id="L64">        return fromCsv(&quot;/stub/log-functions.csv&quot;, &quot;log2&quot;);</span>
+    }
+
+    public static MathModule log3Stub() {
+<span class="fc" id="L68">        return fromCsv(&quot;/stub/log-functions.csv&quot;, &quot;log3&quot;);</span>
+    }
+
+    public static MathModule trigBranchStub() {
+<span class="fc" id="L72">        return fromCsv(&quot;/stub/trig-branch.csv&quot;, &quot;trig_branch&quot;);</span>
+    }
+
+    public static MathModule logBranchStub() {
+<span class="fc" id="L76">        return fromCsv(&quot;/stub/log-branch.csv&quot;, &quot;log_branch&quot;);</span>
+    }
+
+    private static MathModule fromCsv(String resourcePath, String columnName) {
+<span class="fc" id="L80">        return new TableModule(loadColumn(resourcePath, columnName), LOOKUP_EPSILON);</span>
+    }
+
+    private static Map&lt;Double, Double&gt; loadColumn(String resourcePath, String columnName) {
+<span class="fc" id="L84">        try (BufferedReader reader = openResource(resourcePath)) {</span>
+<span class="fc" id="L85">            String header = reader.readLine();</span>
+<span class="pc bpc" id="L86" title="1 of 2 branches missed.">            if (header == null) {</span>
+<span class="nc" id="L87">                throw new IllegalStateException(&quot;CSV resource is empty: &quot; + resourcePath);</span>
+            }
+<span class="fc" id="L89">            String[] columns = header.split(&quot;;&quot;);</span>
+<span class="fc" id="L90">            int targetIndex = findColumnIndex(columns, columnName, resourcePath);</span>
+
+<span class="fc" id="L92">            LinkedHashMap&lt;Double, Double&gt; result = new LinkedHashMap&lt;&gt;();</span>
+            String line;
+<span class="fc bfc" id="L94" title="All 2 branches covered.">            while ((line = reader.readLine()) != null) {</span>
+<span class="pc bpc" id="L95" title="1 of 2 branches missed.">                if (line.isBlank()) {</span>
+<span class="nc" id="L96">                    continue;</span>
+                }
+<span class="fc" id="L98">                String[] parts = line.split(&quot;;&quot;);</span>
+<span class="fc" id="L99">                double x = Double.parseDouble(parts[0]);</span>
+<span class="fc" id="L100">                String rawY = parts[targetIndex].trim();</span>
+
+<span class="pc bpc" id="L102" title="3 of 6 branches missed.">                if (rawY.equals(&quot;NaN&quot;) || rawY.equals(&quot;Infinity&quot;) || rawY.equals(&quot;-Infinity&quot;)) {</span>
+<span class="nc" id="L103">                    continue;</span>
+                }
+
+<span class="fc" id="L106">                double y = Double.parseDouble(rawY);</span>
+<span class="pc bpc" id="L107" title="1 of 2 branches missed.">                if (!Double.isFinite(y)) {</span>
+<span class="nc" id="L108">                    continue;</span>
+                }
+
+<span class="fc" id="L111">                result.put(x, y);</span>
+<span class="fc" id="L112">            }</span>
+<span class="fc" id="L113">            return result;</span>
+<span class="nc" id="L114">        } catch (IOException exception) {</span>
+<span class="nc" id="L115">            throw new IllegalStateException(&quot;Failed to read CSV resource: &quot; + resourcePath, exception);</span>
+        }
+    }
+
+    private static double[] loadPointsFromCsv(String resourcePath, String columnName) {
+<span class="fc" id="L120">        Map&lt;Double, Double&gt; values = loadColumn(resourcePath, columnName);</span>
+<span class="fc" id="L121">        double[] points = new double[values.size()];</span>
+<span class="fc" id="L122">        int index = 0;</span>
+<span class="fc bfc" id="L123" title="All 2 branches covered.">        for (double point : values.keySet()) {</span>
+<span class="fc" id="L124">            points[index++] = point;</span>
+<span class="fc" id="L125">        }</span>
+<span class="fc" id="L126">        return points;</span>
+    }
+
+    private static int findColumnIndex(String[] columns, String columnName, String resourcePath) {
+<span class="pc bpc" id="L130" title="1 of 2 branches missed.">        for (int index = 0; index &lt; columns.length; index++) {</span>
+<span class="fc bfc" id="L131" title="All 2 branches covered.">            if (columns[index].trim().equals(columnName)) {</span>
+<span class="fc" id="L132">                return index;</span>
+            }
+        }
+<span class="nc" id="L135">        throw new IllegalStateException(&quot;Column '&quot; + columnName + &quot;' is missing in &quot; + resourcePath);</span>
+    }
+
+    private static BufferedReader openResource(String resourcePath) {
+<span class="fc" id="L139">        InputStream resource = StubModules.class.getResourceAsStream(resourcePath);</span>
+<span class="pc bpc" id="L140" title="1 of 2 branches missed.">        if (resource == null) {</span>
+<span class="nc" id="L141">            throw new IllegalStateException(&quot;Resource not found: &quot; + resourcePath);</span>
+        }
+<span class="fc" id="L143">        return new BufferedReader(new InputStreamReader(resource, StandardCharsets.UTF_8));</span>
+    }
+
+    private static double[] buildTrigFunctionPoints() {
+<span class="fc" id="L147">        LinkedHashMap&lt;Double, Boolean&gt; points = new LinkedHashMap&lt;&gt;();</span>
+<span class="fc" id="L148">        addPoints(points, BASE_TRIG_FUNCTION_POINTS);</span>
+<span class="fc bfc" id="L149" title="All 2 branches covered.">        for (double point : TRIG_BRANCH_POINTS) {</span>
+<span class="pc bpc" id="L150" title="1 of 2 branches missed.">            if (point &lt; 0.0) {</span>
+<span class="fc" id="L151">                addPoint(points, point);</span>
+<span class="fc" id="L152">                double mirrored = Math.PI / 2.0 - point;</span>
+<span class="fc bfc" id="L153" title="All 2 branches covered.">                if (mirrored &lt;= Math.PI * 2.0) {</span>
+<span class="fc" id="L154">                    addPoint(points, mirrored);</span>
+                }
+            }
+        }
+
+<span class="fc" id="L159">        double[] result = new double[points.size()];</span>
+<span class="fc" id="L160">        int index = 0;</span>
+<span class="fc bfc" id="L161" title="All 2 branches covered.">        for (double point : points.keySet()) {</span>
+<span class="fc" id="L162">            result[index] = point;</span>
+<span class="fc" id="L163">            index++;</span>
+<span class="fc" id="L164">        }</span>
+<span class="fc" id="L165">        return result;</span>
+    }
+
+    private static void addPoints(LinkedHashMap&lt;Double, Boolean&gt; points, double[] values) {
+<span class="fc bfc" id="L169" title="All 2 branches covered.">        for (double value : values) {</span>
+<span class="fc" id="L170">            addPoint(points, value);</span>
+        }
+<span class="fc" id="L172">    }</span>
+
+    private static void addPoint(LinkedHashMap&lt;Double, Boolean&gt; points, double point) {
+<span class="fc" id="L175">        points.put(point, Boolean.TRUE);</span>
+<span class="fc" id="L176">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

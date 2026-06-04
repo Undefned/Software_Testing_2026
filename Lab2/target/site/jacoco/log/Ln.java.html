@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Ln.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">system-function</a> &gt; <a href="index.source.html" class="el_package">log</a> &gt; <span class="el_source">Ln.java</span></div><h1>Ln.java</h1><pre class="source lang-java linenums">package log;
+
+import common.MathModule;
+
+/**
+ * Вычисляет натуральный логарифм только с помощью разложения в ряд.
+ */
+public class Ln implements MathModule {
+    private static final double DEFAULT_EPSILON = 1.0E-12;
+    private static final int DEFAULT_MAX_ITERATIONS = 10_000;
+    private static final double LOWER_NORMALIZATION_BOUND = 0.75;
+    private static final double UPPER_NORMALIZATION_BOUND = 1.5;
+<span class="fc" id="L13">    private static final double LN_2 = computeLn2();</span>
+
+    private final double epsilon;
+    private final int maxIterations;
+
+    /**
+     * Создает модуль натурального логарифма с настройками точности по умолчанию.
+     */
+    public Ln() {
+<span class="nc" id="L22">        this(DEFAULT_EPSILON, DEFAULT_MAX_ITERATIONS);</span>
+<span class="nc" id="L23">    }</span>
+
+    /**
+     * Создает модуль натурального логарифма с пользовательскими настройками точности.
+     *
+     * @param epsilon порог сходимости для следующего члена ряда
+     * @param maxIterations максимальное число итераций ряда
+     */
+<span class="fc" id="L31">    public Ln(double epsilon, int maxIterations) {</span>
+<span class="fc bfc" id="L32" title="All 4 branches covered.">        if (!Double.isFinite(epsilon) || epsilon &lt;= 0.0) {</span>
+<span class="fc" id="L33">            throw new IllegalArgumentException(&quot;epsilon must be a positive finite number&quot;);</span>
+        }
+<span class="fc bfc" id="L35" title="All 2 branches covered.">        if (maxIterations &lt;= 0) {</span>
+<span class="fc" id="L36">            throw new IllegalArgumentException(&quot;maxIterations must be positive&quot;);</span>
+        }
+<span class="fc" id="L38">        this.epsilon = epsilon;</span>
+<span class="fc" id="L39">        this.maxIterations = maxIterations;</span>
+<span class="fc" id="L40">    }</span>
+
+    /**
+     * Вычисляет {@code ln(x)} с помощью ряда на основе функции atanh.
+     *
+     * @param x положительный аргумент
+     * @return приближенное значение натурального логарифма
+     */
+    @Override
+    public double calculate(double x) {
+<span class="fc bfc" id="L50" title="All 2 branches covered.">        if (Double.isNaN(x)) {</span>
+<span class="fc" id="L51">            return Double.NaN;</span>
+        }
+<span class="fc bfc" id="L53" title="All 2 branches covered.">        if (x &lt;= 0.0) {</span>
+<span class="fc" id="L54">            throw new IllegalArgumentException(&quot;ln is defined only for positive arguments&quot;);</span>
+        }
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        if (Double.isInfinite(x)) {</span>
+<span class="fc" id="L57">            return Double.POSITIVE_INFINITY;</span>
+        }
+
+<span class="fc" id="L60">        double normalized = x;</span>
+<span class="fc" id="L61">        int powerOfTwo = 0;</span>
+
+<span class="fc bfc" id="L63" title="All 2 branches covered.">        while (normalized &gt; UPPER_NORMALIZATION_BOUND) {</span>
+<span class="fc" id="L64">            normalized /= 2.0;</span>
+<span class="fc" id="L65">            powerOfTwo++;</span>
+        }
+
+<span class="fc bfc" id="L68" title="All 2 branches covered.">        while (normalized &lt; LOWER_NORMALIZATION_BOUND) {</span>
+<span class="fc" id="L69">            normalized *= 2.0;</span>
+<span class="fc" id="L70">            powerOfTwo--;</span>
+        }
+
+<span class="fc" id="L73">        return powerOfTwo * LN_2 + computeSeries(normalized, epsilon, maxIterations);</span>
+    }
+
+    private static double computeLn2() {
+<span class="fc" id="L77">        return computeSeries(2.0, 1.0E-16, 100_000);</span>
+    }
+
+    private static double computeSeries(double x, double epsilon, int maxIterations) {
+<span class="fc" id="L81">        double y = (x - 1.0) / (x + 1.0);</span>
+<span class="fc" id="L82">        double ySquared = y * y;</span>
+<span class="fc" id="L83">        double power = y;</span>
+<span class="fc" id="L84">        double sum = 0.0;</span>
+
+<span class="fc bfc" id="L86" title="All 2 branches covered.">        for (int iteration = 0; iteration &lt; maxIterations; iteration++) {</span>
+<span class="fc" id="L87">            double term = power / (2 * iteration + 1);</span>
+<span class="fc" id="L88">            sum += term;</span>
+
+<span class="fc bfc" id="L90" title="All 2 branches covered.">            if (Math.abs(term) &lt;= epsilon / 2.0) {</span>
+<span class="fc" id="L91">                return 2.0 * sum;</span>
+            }
+
+<span class="fc" id="L94">            power *= ySquared;</span>
+        }
+
+<span class="fc" id="L97">        throw new IllegalStateException(&quot;Logarithm series did not converge within maxIterations&quot;);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

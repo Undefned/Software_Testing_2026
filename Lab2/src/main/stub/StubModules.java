@@ -23,9 +23,7 @@ public final class StubModules {
             -Math.PI / 4.0,
             -Math.PI / 6.0,
             -0.1,
-            -0.01,
-            0.01,
-            0.1
+            -0.01
     };
 
     public static final double[] TRIG_BRANCH_POINTS = loadPointsFromCsv("/stub/trig-branch.csv", "trig_branch");

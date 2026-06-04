@@ -10,11 +10,6 @@ public class Sec implements MathModule {
 
     private final MathModule cos;
 
-    /**
-     * Создает модуль секанса на основе зависимости от косинуса.
-     *
-     * @param cos модуль косинуса
-     */
     public Sec(MathModule cos) {
         if (cos == null) {
             throw new IllegalArgumentException("cos module must not be null");
@@ -22,12 +17,6 @@ public class Sec implements MathModule {
         this.cos = cos;
     }
 
-    /**
-     * Вычисляет {@code sec(x)} как {@code 1 / cos(x)}.
-     *
-     * @param x аргумент в радианах
-     * @return приближенное значение секанса
-     */
     @Override
     public double calculate(double x) {
         double denominator = cos.calculate(x);

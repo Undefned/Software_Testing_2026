@@ -52,13 +52,7 @@ class TrigBranchTest {
     @Test
     void shouldRejectDivisionByZeroInsideFormula() {
         TrigBranch trigBranch = new TrigBranch(
-                x -> 2.0,
-                x -> 0.0,
-                x -> 5.0,
-                x -> 7.0,
-                x -> 11.0,
-                x -> 13.0
-        );
+                x -> 2.0, x -> 0.0, x -> 5.0, x -> 7.0, x -> 11.0, x -> 13.0 );
 
         assertThrows(IllegalArgumentException.class, () -> trigBranch.calculate(-1.0));
     }

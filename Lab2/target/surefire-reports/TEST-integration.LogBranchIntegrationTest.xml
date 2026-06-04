@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="integration.LogBranchIntegrationTest" time="0.029" tests="3" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="integration.LogBranchIntegrationTest" time="0.481" tests="165" errors="0" skipped="0" failures="0">
   <properties>
-    <property name="java.specification.version" value="25"/>
+    <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1251"/>
     <property name="java.class.path" value="C:\University\Programming\Software Testing\Lab2\target\test-classes;C:\University\Programming\Software Testing\Lab2\target\classes;C:\Users\ddeni\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\ddeni\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\ddeni\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\ddeni\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\ddeni\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\ddeni\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\ddeni\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\ddeni\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;"/>
-    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.vendor" value="Amazon.com Inc."/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
-    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="java.vendor.url" value="https://aws.amazon.com/corretto/"/>
     <property name="user.timezone" value="Europe/Moscow"/>
     <property name="os.name" value="Windows 10"/>
-    <property name="java.vm.specification.version" value="25"/>
+    <property name="java.vm.specification.version" value="21"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
-    <property name="sun.boot.library.path" value="C:\Program Files (x86)\Java\jdk-25.0.2\bin"/>
-    <property name="sun.java.command" value="C:\Users\ddeni\AppData\Local\Temp\surefire8222927041727431363\surefirebooter-20260519003524755_3.jar C:\Users\ddeni\AppData\Local\Temp\surefire8222927041727431363 2026-05-19T00-35-24_647-jvmRun1 surefire-20260519003524755_1tmp surefire_0-20260519003524755_2tmp"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Amazon Corretto\jdk21.0.11_10\bin"/>
+    <property name="sun.java.command" value="C:\Users\ddeni\AppData\Local\Temp\surefire12415084711071670404\surefirebooter-20260605015404472_3.jar C:\Users\ddeni\AppData\Local\Temp\surefire12415084711071670404 2026-06-05T01-54-04_356-jvmRun1 surefire-20260605015404472_1tmp surefire_0-20260605015404472_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\University\Programming\Software Testing\Lab2\target\test-classes;C:\University\Programming\Software Testing\Lab2\target\classes;C:\Users\ddeni\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\ddeni\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\ddeni\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\ddeni\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\ddeni\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\ddeni\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\ddeni\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\ddeni\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\ddeni"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
-    <property name="java.version.date" value="2026-01-20"/>
-    <property name="java.home" value="C:\Program Files (x86)\Java\jdk-25.0.2"/>
+    <property name="java.version.date" value="2026-04-21"/>
+    <property name="java.home" value="C:\Program Files\Amazon Corretto\jdk21.0.11_10"/>
     <property name="file.separator" value="\"/>
     <property name="basedir" value="C:\University\Programming\Software Testing\Lab2"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\ddeni\AppData\Local\Temp\surefire8222927041727431363\surefirebooter-20260519003524755_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\ddeni\AppData\Local\Temp\surefire12415084711071670404\surefirebooter-20260605015404472_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="java.runtime.version" value="25.0.2+10-69"/>
+    <property name="java.runtime.version" value="21.0.11+10-LTS"/>
     <property name="user.name" value="ddeni"/>
     <property name="stdout.encoding" value="Cp1251"/>
     <property name="path.separator" value=";"/>
@@ -41,25 +41,187 @@
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Corretto-21.0.11.10.1"/>
     <property name="localRepository" value="C:\Users\ddeni\.m2\repository"/>
-    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.vendor.url.bug" value="https://github.com/corretto/corretto-21/issues/"/>
     <property name="java.io.tmpdir" value="C:\Users\ddeni\AppData\Local\Temp\"/>
-    <property name="java.version" value="25.0.2"/>
+    <property name="java.version" value="21.0.11"/>
     <property name="user.dir" value="C:\University\Programming\Software Testing\Lab2"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="native.encoding" value="Cp1251"/>
-    <property name="java.library.path" value="C:\Program Files (x86)\Java\jdk-25.0.2\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\NVIDIA Corporation\Cg\bin;C:\Program Files (x86)\NVIDIA Corporation\Cg\bin.x64;C:\Program Files\Warp\bin;C:\Program Files (x86)\Java\jdk-25.0.2\bin;C:\Program Files (x86)\Java\maven-mvnd-2.0.0-rc-3-windows-amd64\bin;C:\Program Files (x86)\Java\apache-maven-3.9.12\bin;C:\Program Files\WireGuard\;C:\Program Files\Cloudflare\Cloudflare WARP\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files (x86)\NVIDIA Corporation\Cg\bin;C:\Program Files (x86)\NVIDIA Corporation\Cg\bin.x64;C:\Program Files\Cloudflare\Cloudflare WARP\;C:\Users\ddeni\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\ddeni\AppData\Local\Programs\Python\Python313\;C:\Users\ddeni\AppData\Local\Microsoft\WindowsApps;C:\Users\ddeni\.dotnet\tools;C:\Users\ddeni\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\ddeni\.lmstudio\bin;C:\Program Files\flutter;C:\Program Files\flutter\bin;C:\Program Files\ffmpeg-8.0.1-essentials_build\bin;;."/>
+    <property name="java.library.path" value="C:\Program Files\Amazon Corretto\jdk21.0.11_10\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Python314\Scripts\;C:\Python314\;C:\Program Files\Amazon Corretto\jdk21.0.11_10\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\NVIDIA Corporation\Cg\bin;C:\Program Files (x86)\NVIDIA Corporation\Cg\bin.x64;C:\Program Files\Warp\bin;C:\Program Files (x86)\Java\jdk-25.0.2\bin;C:\Program Files (x86)\Java\maven-mvnd-2.0.0-rc-3-windows-amd64\bin;C:\Program Files (x86)\Java\apache-maven-3.9.12\bin;C:\Program Files\WireGuard\;C:\Program Files\Cloudflare\Cloudflare WARP\;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files (x86)\NVIDIA Corporation\Cg\bin;C:\Program Files (x86)\NVIDIA Corporation\Cg\bin.x64;C:\Program Files\Cloudflare\Cloudflare WARP\;C:\Users\ddeni\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\ddeni\AppData\Local\Programs\Python\Python313\;C:\Users\ddeni\AppData\Local\Microsoft\WindowsApps;C:\Users\ddeni\.dotnet\tools;C:\Users\ddeni\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\ddeni\.lmstudio\bin;C:\Program Files\flutter;C:\Program Files\flutter\bin;C:\Program Files\ffmpeg-8.0.1-essentials_build\bin;C:\Users\ddeni\AppData\Roaming\npm;C:\Users\ddeni\.dotnet\tools;."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
     <property name="stderr.encoding" value="Cp1251"/>
-    <property name="java.vendor" value="Oracle Corporation"/>
-    <property name="java.vm.version" value="25.0.2+10-69"/>
-    <property name="stdin.encoding" value="Cp1251"/>
+    <property name="java.vendor" value="Amazon.com Inc."/>
+    <property name="java.vm.version" value="21.0.11+10-LTS"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
-    <property name="java.class.version" value="69.0"/>
+    <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="shouldCalculateWithRealDerivedLogsAndStubLn" classname="integration.LogBranchIntegrationTest" time="0.02"/>
-  <testcase name="shouldCalculateWithStubbedLogDependencies" classname="integration.LogBranchIntegrationTest" time="0.004"/>
-  <testcase name="shouldCalculateWithFullyRealLogBranch" classname="integration.LogBranchIntegrationTest" time="0.003"/>
+  <testcase name="stage2_allLogReal(double)[1]" classname="integration.LogBranchIntegrationTest" time="0.028"/>
+  <testcase name="stage2_allLogReal(double)[2]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[3]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[4]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage2_allLogReal(double)[5]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage2_allLogReal(double)[6]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[7]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[8]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage2_allLogReal(double)[9]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[10]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[11]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage2_allLogReal(double)[12]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[13]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage2_allLogReal(double)[14]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[15]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage2_allLogReal(double)[16]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[17]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage2_allLogReal(double)[18]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[19]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage2_allLogReal(double)[20]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[21]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage2_allLogReal(double)[22]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[23]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage2_allLogReal(double)[24]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[25]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[26]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[27]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[28]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[29]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[30]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[31]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[32]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[33]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[34]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage2_allLogReal(double)[35]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage2_allLogReal(double)[36]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[37]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[38]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[39]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[40]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage2_allLogReal(double)[41]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[42]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage2_allLogReal(double)[43]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[44]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage2_allLogReal(double)[45]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[46]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[47]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage2_allLogReal(double)[48]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[49]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[50]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[51]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[52]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage2_allLogReal(double)[53]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage2_allLogReal(double)[54]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage2_allLogReal(double)[55]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[1]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage1_log2AndLog3Real(double)[2]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[3]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage1_log2AndLog3Real(double)[4]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage1_log2AndLog3Real(double)[5]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage1_log2AndLog3Real(double)[6]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[7]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[8]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage1_log2AndLog3Real(double)[9]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage1_log2AndLog3Real(double)[10]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage1_log2AndLog3Real(double)[11]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[12]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[13]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage1_log2AndLog3Real(double)[14]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage1_log2AndLog3Real(double)[15]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[16]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage1_log2AndLog3Real(double)[17]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[18]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage1_log2AndLog3Real(double)[19]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[20]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage1_log2AndLog3Real(double)[21]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[22]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage1_log2AndLog3Real(double)[23]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[24]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[25]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[26]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[27]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage1_log2AndLog3Real(double)[28]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[29]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage1_log2AndLog3Real(double)[30]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[31]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage1_log2AndLog3Real(double)[32]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[33]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage1_log2AndLog3Real(double)[34]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[35]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage1_log2AndLog3Real(double)[36]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[37]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage1_log2AndLog3Real(double)[38]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[39]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage1_log2AndLog3Real(double)[40]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[41]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage1_log2AndLog3Real(double)[42]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[43]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[44]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[45]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[46]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[47]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[48]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage1_log2AndLog3Real(double)[49]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[50]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage1_log2AndLog3Real(double)[51]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[52]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage1_log2AndLog3Real(double)[53]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage1_log2AndLog3Real(double)[54]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage1_log2AndLog3Real(double)[55]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[1]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[2]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[3]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[4]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[5]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[6]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[7]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[8]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[9]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[10]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[11]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[12]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[13]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[14]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[15]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[16]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[17]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[18]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[19]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[20]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[21]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[22]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[23]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[24]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[25]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[26]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[27]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[28]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[29]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[30]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[31]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[32]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[33]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[34]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[35]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[36]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[37]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[38]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[39]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[40]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[41]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[42]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[43]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[44]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[45]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[46]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[47]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[48]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[49]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[50]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[51]" classname="integration.LogBranchIntegrationTest" time="0.0"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[52]" classname="integration.LogBranchIntegrationTest" time="0.004"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[53]" classname="integration.LogBranchIntegrationTest" time="0.003"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[54]" classname="integration.LogBranchIntegrationTest" time="0.002"/>
+  <testcase name="stage0_onlyLogBranchReal(double)[55]" classname="integration.LogBranchIntegrationTest" time="0.002"/>
 </testsuite>

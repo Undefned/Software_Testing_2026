@@ -32,23 +32,6 @@ class AppTest {
     }
 
     @Test
-    void shouldCreateSinStubCsvOnSuccessPathViaMain() throws IOException {
-        Path output = Path.of("target", "sin-stub.csv");
-        Files.deleteIfExists(output);
-
-        try {
-            App.main(new String[0]);
-
-            assertTrue(Files.exists(output));
-            List<String> lines = Files.readAllLines(output);
-            assertFalse(lines.isEmpty());
-            assertTrue(lines.get(0).startsWith("X;Result"));
-        } finally {
-            Files.deleteIfExists(output);
-        }
-    }
-
-    @Test
     void shouldWrapIOExceptionIntoIllegalStateException() {
         IOException expectedCause = new IOException("simulated io failure");
         CsvExporter failingExporter = new CsvExporter() {

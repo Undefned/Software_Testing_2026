@@ -3,11 +3,10 @@ package system;
 import common.MathModule;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class LogBranchTest {
-    private static final double ASSERT_DELTA = 1.0E-10;
+    // private static final double ASSERT_DELTA = 1.0E-10;
 
     @Test
     void shouldRejectNonPositiveArgument() {

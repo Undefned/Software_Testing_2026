@@ -8,6 +8,7 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+// Проверяет, что TableModule правильно ищет значения в таблице
 class TableModuleTest {
 
     @Test

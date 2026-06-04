@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: stub.StubModulesTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s -- in stub.StubModulesTest
+Tests run: 208, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.288 s -- in stub.StubModulesTest

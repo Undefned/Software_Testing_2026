@@ -10,11 +10,6 @@ public class Csc implements MathModule {
 
     private final MathModule sin;
 
-    /**
-     * Создает модуль косеканса на основе зависимости от синуса.
-     *
-     * @param sin модуль синуса
-     */
     public Csc(MathModule sin) {
         if (sin == null) {
             throw new IllegalArgumentException("sin module must not be null");
@@ -22,12 +17,6 @@ public class Csc implements MathModule {
         this.sin = sin;
     }
 
-    /**
-     * Вычисляет {@code csc(x)} как {@code 1 / sin(x)}.
-     *
-     * @param x аргумент в радианах
-     * @return приближенное значение косеканса
-     */
     @Override
     public double calculate(double x) {
         double denominator = sin.calculate(x);

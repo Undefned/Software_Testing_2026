@@ -11,12 +11,6 @@ public class Cot implements MathModule {
     private final MathModule cos;
     private final MathModule sin;
 
-    /**
-     * Создает модуль котангенса из зависимостей косинуса и синуса.
-     *
-     * @param cos модуль косинуса
-     * @param sin модуль синуса
-     */
     public Cot(MathModule cos, MathModule sin) {
         if (cos == null) {
             throw new IllegalArgumentException("cos module must not be null");
@@ -28,12 +22,7 @@ public class Cot implements MathModule {
         this.sin = sin;
     }
 
-    /**
-     * Вычисляет {@code cot(x)} как {@code cos(x) / sin(x)}.
-     *
-     * @param x аргумент в радианах
-     * @return приближенное значение котангенса
-     */
+
     @Override
     public double calculate(double x) {
         double denominator = sin.calculate(x);

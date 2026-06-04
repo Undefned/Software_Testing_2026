@@ -13,19 +13,10 @@ public class Sin implements MathModule {
     private final double epsilon;
     private final int maxIterations;
 
-    /**
-     * Создает модуль синуса с настройками точности по умолчанию.
-     */
     public Sin() {
         this(DEFAULT_EPSILON, DEFAULT_MAX_ITERATIONS);
     }
 
-    /**
-     * Создает модуль синуса с пользовательскими настройками точности.
-     *
-     * @param epsilon порог сходимости для следующего члена ряда Тейлора
-     * @param maxIterations максимальное число итераций ряда Тейлора
-     */
     public Sin(double epsilon, int maxIterations) {
         if (!Double.isFinite(epsilon) || epsilon <= 0.0) {
             throw new IllegalArgumentException("epsilon must be a positive finite number");
@@ -37,12 +28,6 @@ public class Sin implements MathModule {
         this.maxIterations = maxIterations;
     }
 
-    /**
-     * Вычисляет {@code sin(x)} с помощью ряда Тейлора в окрестности нуля.
-     *
-     * @param x аргумент в радианах
-     * @return приближенное значение синуса
-     */
     @Override
     public double calculate(double x) {
         if (Double.isNaN(x) || Double.isInfinite(x)) {

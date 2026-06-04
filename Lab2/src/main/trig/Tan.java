@@ -11,12 +11,6 @@ public class Tan implements MathModule {
     private final MathModule sin;
     private final MathModule cos;
 
-    /**
-     * Создает модуль тангенса из зависимостей синуса и косинуса.
-     *
-     * @param sin модуль синуса
-     * @param cos модуль косинуса
-     */
     public Tan(MathModule sin, MathModule cos) {
         if (sin == null) {
             throw new IllegalArgumentException("sin module must not be null");
@@ -28,12 +22,6 @@ public class Tan implements MathModule {
         this.cos = cos;
     }
 
-    /**
-     * Вычисляет {@code tan(x)} как {@code sin(x) / cos(x)}.
-     *
-     * @param x аргумент в радианах
-     * @return приближенное значение тангенса
-     */
     @Override
     public double calculate(double x) {
         double denominator = cos.calculate(x);

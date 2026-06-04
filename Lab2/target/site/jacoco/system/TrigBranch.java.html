@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TrigBranch.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">system-function</a> &gt; <a href="index.source.html" class="el_package">system</a> &gt; <span class="el_source">TrigBranch.java</span></div><h1>TrigBranch.java</h1><pre class="source lang-java linenums">package system;
+
+import common.MathModule;
+
+/**
+ * Вычисляет тригонометрическую ветвь системы для {@code x &lt;= 0}.
+ * Формула: A - B, где A и B — два больших выражения.
+ */
+public class TrigBranch implements MathModule {
+    private static final double ZERO_THRESHOLD = 1.0E-12;
+
+    private final MathModule sin;
+    private final MathModule cos;
+    private final MathModule tan;
+    private final MathModule cot;
+    private final MathModule sec;
+    private final MathModule csc;
+
+    public TrigBranch(MathModule sin, MathModule cos, MathModule tan, 
+<span class="fc" id="L20">        MathModule cot, MathModule sec, MathModule csc) {</span>
+<span class="fc bfc" id="L21" title="All 12 branches covered.">        if (sin == null || cos == null || tan == null || cot == null || sec == null || csc == null) {</span>
+<span class="fc" id="L22">            throw new IllegalArgumentException(&quot;trigonometric dependencies must not be null&quot;);</span>
+        }
+<span class="fc" id="L24">        this.sin = sin;</span>
+<span class="fc" id="L25">        this.cos = cos;</span>
+<span class="fc" id="L26">        this.tan = tan;</span>
+<span class="fc" id="L27">        this.cot = cot;</span>
+<span class="fc" id="L28">        this.sec = sec;</span>
+<span class="fc" id="L29">        this.csc = csc;</span>
+<span class="fc" id="L30">    }</span>
+
+    @Override
+    public double calculate(double x) {
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        if (!Double.isFinite(x)) {</span>
+<span class="fc" id="L35">            throw new IllegalArgumentException(&quot;x must be finite&quot;);</span>
+        }
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        if (x &gt; 0.0) {</span>
+<span class="fc" id="L38">            throw new IllegalArgumentException(&quot;TrigBranch is defined only for x &lt;= 0&quot;);</span>
+        }
+
+<span class="fc" id="L41">        double Sin = sin.calculate(x);</span>
+<span class="fc" id="L42">        double Cos = cos.calculate(x);</span>
+<span class="fc" id="L43">        double Tan = tan.calculate(x);</span>
+<span class="fc" id="L44">        double Cot = cot.calculate(x);</span>
+<span class="fc" id="L45">        double Sec = sec.calculate(x);</span>
+<span class="fc" id="L46">        double Csc = csc.calculate(x);</span>
+
+        // Проверки на нули в знаменателях
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">        if (Math.abs(Sin) &lt;= ZERO_THRESHOLD) {</span>
+<span class="nc" id="L50">            throw new IllegalArgumentException(&quot;sin(x) is zero -&gt; division by zero&quot;);</span>
+        }
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">        if (Math.abs(Sec - Csc) &lt;= ZERO_THRESHOLD) {</span>
+<span class="nc" id="L53">            throw new IllegalArgumentException(&quot;sec(x) - csc(x) is zero -&gt; division by zero&quot;);</span>
+        }
+<span class="pc bpc" id="L55" title="1 of 2 branches missed.">        if (Math.abs(Csc - Tan) &lt;= ZERO_THRESHOLD) {</span>
+<span class="nc" id="L56">            throw new IllegalArgumentException(&quot;csc(x) - tan(x) is zero -&gt; division by zero&quot;);</span>
+        }
+
+        // ========== ЧАСТЬ A (числитель первой дроби, потом деление) ==========
+        // ((sec/sin)^3 - cot)^2
+<span class="fc" id="L61">        double secDivSin = Sec / Sin;</span>
+<span class="fc" id="L62">        double partA1 = Math.pow(secDivSin, 3);      // (sec/sin)^3</span>
+<span class="fc" id="L63">        double partA2 = partA1 - Cot;                 // (sec/sin)^3 - cot</span>
+<span class="fc" id="L64">        double partA3 = Math.pow(partA2, 2);         // ((sec/sin)^3 - cot)^2</span>
+
+        // деление на (sin+sin)
+<span class="fc" id="L67">        double sinPlusSin = Sin + Sin;</span>
+<span class="fc" id="L68">        double partA4 = partA3 / sinPlusSin;         // ((...)^2) / (sin+sin)</span>
+
+        // умножение на csc
+<span class="fc" id="L71">        double partA5 = partA4 * Csc;                // ... * csc</span>
+
+        // + (sin * cos)
+<span class="fc" id="L74">        double partA6 = partA5 + (Sin * Cos);</span>
+
+        // * cot
+<span class="fc" id="L77">        double partA7 = partA6 * Cot;</span>
+
+        // + csc
+<span class="fc" id="L80">        double partA8 = partA7 + Csc;</span>
+
+        // * (csc + cot)
+<span class="fc" id="L83">        double partA9 = partA8 * (Csc + Cot);</span>
+
+        // + tan
+<span class="fc" id="L86">        double partA10 = partA9 + Tan;</span>
+
+        // деление на (cot^3 / (sec - csc))
+<span class="fc" id="L89">        double cotCube = Math.pow(Cot, 3);</span>
+<span class="fc" id="L90">        double secMinusCsc = Sec - Csc;</span>
+<span class="fc" id="L91">        double denominatorA = cotCube / secMinusCsc;</span>
+<span class="fc" id="L92">        double A = partA10 / denominatorA;</span>
+
+        // ========== ЧАСТЬ B ==========
+        // ((cos - tan)^2 + (csc + cot))^3)^2
+<span class="fc" id="L96">        double cosMinusTan = Cos - Tan;</span>
+<span class="fc" id="L97">        double partB1 = Math.pow(cosMinusTan, 2);     // (cos - tan)^2</span>
+<span class="fc" id="L98">        double cscPlusCot = Csc + Cot;</span>
+<span class="fc" id="L99">        double partB2 = partB1 + cscPlusCot;          // (cos-tan)^2 + (csc+cot)</span>
+<span class="fc" id="L100">        double partB3 = Math.pow(partB2, 3);          // ((...))^3</span>
+<span class="fc" id="L101">        double partB4 = Math.pow(partB3, 2);          // ((...)^3)^2 = (...)^6</span>
+
+        // деление на cot
+<span class="fc" id="L104">        double partB5 = partB4 / Cot;</span>
+
+        // деление на (csc - tan)
+<span class="fc" id="L107">        double partB6 = partB5 / (Csc - Tan);</span>
+
+        // вычитаем (tan / (sec * (sec * (sin^2 * cos))))
+<span class="fc" id="L110">        double sinSquared = Sin * Sin;</span>
+<span class="fc" id="L111">        double sinSquaredTimesCos = sinSquared * Cos;</span>
+<span class="fc" id="L112">        double secTimesSecTimesThat = Sec * (Sec * sinSquaredTimesCos);</span>
+<span class="fc" id="L113">        double tanDivThat = Tan / secTimesSecTimesThat;</span>
+<span class="fc" id="L114">        double B = partB6 - tanDivThat;</span>
+
+        // ========== РЕЗУЛЬТАТ ==========
+<span class="fc" id="L117">        double result = A - B;</span>
+
+<span class="fc bfc" id="L119" title="All 2 branches covered.">        if (!Double.isFinite(result)) {</span>
+<span class="fc" id="L120">            throw new IllegalArgumentException(&quot;Result is not finite (possible division by zero or overflow)&quot;);</span>
+        }
+
+<span class="fc" id="L123">        return result;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
