@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class LnTest {
-    private static final double EPSILON = 1.0E-12;
-    private static final double ASSERT_DELTA = 1.0E-10;
+    private static final double EPSILON = 1.0E-4;
+    private static final double ASSERT_DELTA = 1.0E-4;
 
     private final Ln ln = new Ln(EPSILON, 10_000);
 

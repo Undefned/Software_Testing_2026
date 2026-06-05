@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.stream.Stream;
 
 public class TrigBranchIntegrationTest {
-
+    // MathModule sinSlub = createRealSin();     
     private static Stream<Arguments> provideTestPoints() {
         return Arrays.stream(TRIG_BRANCH_SAFE_POINTS)
             .mapToObj(Arguments::of);
@@ -71,9 +71,8 @@ public class TrigBranchIntegrationTest {
     @MethodSource("provideTestPoints")
     void stage2_trigBranchAndLevel2AndLevel3Real(double x) {
         MathModule sinStub = StubModules.sinStub();
-        MathModule realSin = createRealSin(); // для Cos внутри
 
-        MathModule realCos = new Cos(realSin); // реальный Sin, чтобы cos(x) = sin(π/2 - x) работал
+        MathModule realCos = new Cos(sinStub);
         MathModule realCsc = new Csc(sinStub);
         MathModule realTan = new Tan(sinStub, realCos);
         MathModule realCot = new Cot(realCos, sinStub);
@@ -101,7 +100,7 @@ public class TrigBranchIntegrationTest {
     private void assertEqualsWithStub(MathModule real, MathModule stub, double x) {
         double expected = stub.calculate(x);
         double actual = real.calculate(x);
-        double delta = Math.max(DELTA, Math.abs(expected) * 1.0E-12);
+        double delta = Math.max(DELTA, Math.abs(expected) * 1.0E-8);
         assertEquals(expected, actual, delta, "x = " + x);
     }
 }

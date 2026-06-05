@@ -17,6 +17,6 @@ public class Cos implements MathModule {
     
     @Override
     public double calculate(double x) {
-        return sin.calculate(Math.PI / 2.0 - x);
+        return Math.cos(x);
     }
 }

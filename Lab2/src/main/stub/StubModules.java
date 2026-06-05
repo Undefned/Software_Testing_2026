@@ -14,7 +14,7 @@ import java.util.Map;
  * Набор фабричных методов для табличных заглушек модулей системы.
  */
 public final class StubModules {
-    private static final double LOOKUP_EPSILON = 1.0E-6;
+    private static final double LOOKUP_EPSILON = 1.0E-3;
 
     private static final double[] BASE_TRIG_FUNCTION_POINTS = {
             -Math.PI / 2.0 - 0.01,

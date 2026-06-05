@@ -9,7 +9,7 @@ import java.util.Map;
  * Табличная реализация модуля для поэтапной интеграции системы.
  */
 public class TableModule implements MathModule {
-    private static final double DEFAULT_LOOKUP_EPSILON = 1.0E-9;
+    private static final double DEFAULT_LOOKUP_EPSILON = 1.0E-3;
 
     private final Map<Double, Double> table;
     private final double lookupEpsilon;

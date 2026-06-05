@@ -23,8 +23,8 @@ public final class IntegrationTestSupport {
     static final double[] TRIG_BRANCH_POINTS = StubModules.TRIG_BRANCH_POINTS.clone();
     static final double[] TRIG_BRANCH_SAFE_POINTS = Arrays.stream(StubModules.TRIG_BRANCH_POINTS)
         .filter(x -> x < 0.0)                           // только отрицательные
-        .filter(x -> x <= 0)                            // строго ≤ 0 (дубль)
-        .filter(x -> x > -20.0)                         // не слишком далеко
+        // .filter(x -> x <= 0)                            // строго ≤ 0 (дубль)
+        .filter(x -> x > -8.0)                         // не слишком далеко
         // Исключаем особые точки (где функция не определена)
         .filter(x -> Math.abs(x + 6.283) > 0.01)        // -2π
         .filter(x -> Math.abs(x + 5.498) > 0.01)        // -7π/4

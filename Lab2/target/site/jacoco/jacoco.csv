@@ -9,7 +9,7 @@ system-function,stub,StubModules,30,323,9,23,8,66,9,27,0,20
 system-function,stub,TableModule,0,142,0,28,0,31,0,17,0,3
 system-function,trig,Sec,0,32,0,4,0,9,0,4,0,2
 system-function,trig,Cot,10,35,2,4,2,10,2,3,0,2
-system-function,trig,Cos,0,20,0,2,0,6,0,3,0,2
+system-function,trig,Cos,0,16,0,2,0,6,0,3,0,2
 system-function,trig,Tan,10,35,2,4,2,10,2,3,0,2
 system-function,trig,Sin,5,137,0,24,2,32,1,15,1,3
 system-function,trig,Csc,0,32,0,4,0,9,0,4,0,2

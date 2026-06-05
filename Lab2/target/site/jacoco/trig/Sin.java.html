@@ -6,7 +6,7 @@ import common.MathModule;
  * Вычисляет функцию синуса с помощью разложения в ряд Тейлора.
  */
 public class Sin implements MathModule {
-    private static final double DEFAULT_EPSILON = 1.0E-12;
+    private static final double DEFAULT_EPSILON = 1.0E-6;
     private static final int DEFAULT_MAX_ITERATIONS = 10_000;
     private static final double TWO_PI = 2.0 * Math.PI;
 
