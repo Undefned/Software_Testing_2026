@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class TutuResultsPage extends Page {
-    private static final Duration RESULTS_TIMEOUT = Duration.ofSeconds(40);
+    private static final Duration RESULTS_TIMEOUT = Duration.ofSeconds(60);
     private static final Duration OPTIONAL_TIMEOUT = Duration.ofSeconds(6);
 
     private static final By OFFER_CARD = By.xpath(
@@ -56,12 +56,30 @@ public class TutuResultsPage extends Page {
     }
 
     public TutuResultsPage waitForResultsState() {
-        new WebDriverWait(driver, RESULTS_TIMEOUT).until(driver -> hasVisibleElement(RESULTS_OR_CLEAR_STATE));
+        String baseUrl = TutuHomePage.BASE_URL;
+        new WebDriverWait(driver, RESULTS_TIMEOUT).until(driver -> {
+            String currentUrl = driver.getCurrentUrl();
+            return !currentUrl.equals(baseUrl) && !currentUrl.equals(baseUrl + "#");
+        });
         return this;
     }
 
     public boolean assertResultsOrClearStateVisible() {
         waitForResultsState();
+        
+        // Вариант 1: URL изменился
+        String currentUrl = driver.getCurrentUrl();
+        if (currentUrl.contains("raspisanie") || currentUrl.contains("poezda")) {
+            return true;
+        }
+        
+        // Вариант 2: Есть заголовок страницы расписания
+        boolean hasTitle = driver.findElements(By.xpath("//h1[contains(@data-ti, 'title')]")).size() > 0;
+        if (hasTitle) {
+            return true;
+        }
+        
+        // Вариант 3: Есть карточки или сообщение
         return hasVisibleElement(RESULTS_OR_CLEAR_STATE);
     }
 

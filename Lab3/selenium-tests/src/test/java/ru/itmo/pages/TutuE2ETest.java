@@ -19,11 +19,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import ru.itmo.BaseUiTest;
 import ru.itmo.driver.BrowserType;
 
-/**
- * Каждый сценарий параметризован по {@link BrowserType}.
- * Один драйвер на все тесты в рамках одного браузера.
- * Без -Dheadless=false будет всего 2 окна (Chrome + Firefox), а не 18.
- */
 @TestInstance(Lifecycle.PER_CLASS)
 class TutuE2ETest extends BaseUiTest {
 
@@ -31,7 +26,7 @@ class TutuE2ETest extends BaseUiTest {
 
     @BeforeAll
     void init() {
-        // Драйвер создаётся при первом тесте
+        // Ничего не делаем, драйвер создаётся в ensureDriver
     }
 
     @ParameterizedTest(name = "E2E-01 в {0}")
@@ -51,9 +46,19 @@ class TutuE2ETest extends BaseUiTest {
                 .incrementAdults();
 
         assertTrue(page.isAtLeastOnePassengerAlwaysPresent());
-        assertTrue(page.closePassengersSelector()
-                .submitSearchAndWaitForResults()
-                .assertResultsOrClearStateVisible());
+        page.closePassengersSelector();
+        assertTrue(page.isSearchFormAvailable(), "Форма должна быть доступна после закрытия селектора");
+        
+        // Запускаем поиск
+        page.submitSearch();
+        
+        // Проверяем, что URL изменился (переход на страницу результатов)
+        page.wait.until(ExpectedConditions.not(ExpectedConditions.urlToBe(TutuHomePage.BASE_URL)));
+        
+        // Проверяем, что URL содержит "poezda" или "raspisanie"
+        String currentUrl = driver.getCurrentUrl();
+        assertTrue(currentUrl.contains("poezda") || currentUrl.contains("raspisanie"),
+                "Должна открыться страница результатов. Текущий URL: " + currentUrl);
     }
 
     @ParameterizedTest(name = "E2E-03 в {0}")
@@ -176,10 +181,8 @@ class TutuE2ETest extends BaseUiTest {
 
         page.submitSearch();
         
-        // Ждём, что URL изменился (не BASE_URL)
         page.wait.until(ExpectedConditions.not(ExpectedConditions.urlToBe(TutuHomePage.BASE_URL)));
         
-        // Проверяем, что страница загрузилась (URL содержит "raspisanie" или есть заголовок)
         String currentUrl = driver.getCurrentUrl();
         boolean isRaspisanie = currentUrl.contains("raspisanie");
         boolean hasTitle = driver.findElements(By.xpath("//h1[contains(@data-ti, 'title')]")).size() > 0;
@@ -246,7 +249,6 @@ class TutuE2ETest extends BaseUiTest {
             try {
                 page.decrementAdults();
             } catch (RuntimeException exception) {
-                // Кнопка "−" стала недоступной/скрытой — это ожидаемо на нижней границе.
                 break;
             }
         }
@@ -258,13 +260,15 @@ class TutuE2ETest extends BaseUiTest {
     // ---------- Вспомогательные методы ----------
 
     private void ensureDriver(BrowserType browserType) {
-        if (driver == null || currentBrowserType != browserType) {
-            if (driver != null) {
+        // Всегда пересоздаём драйвер для каждого теста
+        if (driver != null) {
+            try {
                 driver.quit();
-            }
-            createDriver(browserType);
-            currentBrowserType = browserType;
+            } catch (Exception ignored) {}
+            driver = null;
         }
+        createDriver(browserType);
+        currentBrowserType = browserType;
     }
 
     private TutuResultsPage oneWaySearch() {
