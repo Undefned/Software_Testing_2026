@@ -1,0 +1,210 @@
+{
+  "id": "3d5d24a1-6f57-3c28-815c-3fe5cd6e8eaa",
+  "version": "2.0",
+  "name": "Tutu.ru Functional Tests",
+  "url": "https://www.tutu.ru",
+  "tests": [{
+  "id": "b72209c3-f0cd-3f6b-ad83-6b35100440e2",
+  "commands": [{
+  "id": "b3bff53a-c256-4fb8-8b7b-2f90aaa545e5",
+  "comment": "",
+  "command": "open",
+  "target": "/",
+  "targets": [],
+  "value": ""
+}, {
+  "id": "1939ffcc-ebf4-4508-b859-229e919a71e4",
+  "comment": "",
+  "command": "assertElementPresent",
+  "target": "xpath=//form[contains(@class, 'search-form') or .//input[@data-ti='input']]",
+  "targets": [["xpath=//form[contains(@class, 'search-form') or .//input[@data-ti='input']]", "xpath"]],
+  "value": ""
+}],
+  "description": "Steps: Открыть сайт\nExpected: Страница загружена",
+  "name": "TC-01 - Открытие главной страницы"
+}, {
+  "id": "d5ed0fd9-d051-3764-8fa5-c3d16a37afed",
+  "commands": [{
+  "id": "e8f64589-a68a-4b9c-873e-2cb1ebb1dc19",
+  "comment": "",
+  "command": "open",
+  "target": "/",
+  "targets": [],
+  "value": ""
+}, {
+  "id": "8ef9950e-fa93-4527-8e33-5d9a3ce9b062",
+  "comment": "",
+  "command": "click",
+  "target": "xpath=//button[contains(@class, 'oim-bed-double')]",
+  "targets": [["xpath=//button[contains(@class, 'oim-bed-double')]", "xpath"]],
+  "value": ""
+}, {
+  "id": "40cbc2a1-34ad-490b-9a6d-b38531223875",
+  "comment": "",
+  "command": "click",
+  "target": "xpath=//input[@data-ti='input']",
+  "targets": [["xpath=//input[@data-ti='input']", "xpath"]],
+  "value": ""
+}, {
+  "id": "2efd622f-ef27-4c2a-99cd-fe26f632bba1",
+  "comment": "",
+  "command": "executeScript",
+  "target": "const input = document.querySelector(\"input[data-ti='input']\");if(input) { input.value = 'Москва'; input.dispatchEvent(new Event('input', {bubbles: true})); }",
+  "targets": [],
+  "value": ""
+}, {
+  "id": "b236c25f-16d7-443d-98d6-6b9c2769f485",
+  "comment": "",
+  "command": "waitForElementVisible",
+  "target": "xpath=//div[@role='option' or contains(@class, 'suggest')]",
+  "targets": [["xpath=//div[@role='option' or contains(@class, 'suggest')]", "xpath"]],
+  "value": "5000"
+}, {
+  "id": "9335bdf5-710a-486d-bae8-2befe32687a3",
+  "comment": "",
+  "command": "click",
+  "target": "xpath=//div[contains(text(),'Москва')]",
+  "targets": [["xpath=//div[contains(text(),'Москва')]", "xpath"]],
+  "value": ""
+}, {
+  "id": "6a1cf161-165c-4fd1-90e0-82cfdc2a262c",
+  "comment": "",
+  "command": "click",
+  "target": "xpath=(//input[@data-ti='input'])[2]",
+  "targets": [["xpath=(//input[@data-ti='input'])[2]", "xpath"]],
+  "value": ""
+}, {
+  "id": "dcc0e6d3-4037-4117-9036-84c6345323de",
+  "comment": "",
+  "command": "executeScript",
+  "target": "const inputs = document.querySelectorAll(\"input[data-ti='input']\");if(inputs[1]) { inputs[1].value = 'Санкт-Петербург'; inputs[1].dispatchEvent(new Event('input', {bubbles: true})); }",
+  "targets": [],
+  "value": ""
+}, {
+  "id": "302a8419-b1d3-49e1-b568-73ed10d721b4",
+  "comment": "",
+  "command": "waitForElementVisible",
+  "target": "xpath=//div[@role='option' or contains(@class, 'suggest')]",
+  "targets": [["xpath=//div[@role='option' or contains(@class, 'suggest')]", "xpath"]],
+  "value": "5000"
+}, {
+  "id": "7d0a2e88-4b69-42c4-a405-0ab8bb2fe28c",
+  "comment": "",
+  "command": "click",
+  "target": "xpath=//div[contains(text(),'Санкт-Петербург')]",
+  "targets": [["xpath=//div[contains(text(),'Санкт-Петербург')]", "xpath"]],
+  "value": ""
+}, {
+  "id": "619fc0a3-f376-48d0-a9e5-df91c5ebe450",
+  "comment": "",
+  "command": "click",
+  "target": "xpath=//button[@type='submit']",
+  "targets": [["xpath=//button[@type='submit']", "xpath"]],
+  "value": ""
+}, {
+  "id": "f2aa5db7-c0af-4728-8ad7-11dfdac40012",
+  "comment": "",
+  "command": "waitForElementVisible",
+  "target": "xpath=//div[contains(@class, 'result') or contains(., 'билет')]",
+  "targets": [["xpath=//div[contains(@class, 'result') or contains(., 'билет')]", "xpath"]],
+  "value": "10000"
+}],
+  "description": "Steps: Выбрать отели, ввести города, нажать поиск\nExpected: Поиск запущен",
+  "name": "TC-02 - Поиск отелей Москва → СПб"
+}, {
+  "id": "24685ff3-8d2a-31bd-aac7-a8a5aba92f1d",
+  "commands": [{
+  "id": "da8504e9-827b-441d-b596-0f14370efc39",
+  "comment": "",
+  "command": "open",
+  "target": "/",
+  "targets": [],
+  "value": ""
+}, {
+  "id": "ebff0f58-b284-49b9-8eba-241bdecc2da3",
+  "comment": "",
+  "command": "assertElementPresent",
+  "target": "xpath=//input[@data-ti='input']",
+  "targets": [["xpath=//input[@data-ti='input']", "xpath"]],
+  "value": ""
+}, {
+  "id": "011b19fd-daa0-4292-92db-b94077ca1a74",
+  "comment": "",
+  "command": "assertElementPresent",
+  "target": "xpath=(//input[@data-ti='input'])[2]",
+  "targets": [["xpath=(//input[@data-ti='input'])[2]", "xpath"]],
+  "value": ""
+}, {
+  "id": "ff370761-4a31-401d-a611-617f3415a5cf",
+  "comment": "",
+  "command": "assertElementPresent",
+  "target": "xpath=//button[@type='submit']",
+  "targets": [["xpath=//button[@type='submit']", "xpath"]],
+  "value": ""
+}],
+  "description": "Steps: Проверить поля Откуда, Куда, Найти\nExpected: Все поля видны",
+  "name": "TC-03 - Проверка видимости полей"
+}, {
+  "id": "a68a12db-3ce0-3a69-b259-d133ddffffe4",
+  "commands": [{
+  "id": "e0c55400-5e3a-4da7-a8b3-57dc15e27caa",
+  "comment": "",
+  "command": "open",
+  "target": "/",
+  "targets": [],
+  "value": ""
+}, {
+  "id": "82025e6f-bb5f-48c3-becf-32bf3db4aa0e",
+  "comment": "",
+  "command": "click",
+  "target": "xpath=//button[contains(@class, 'oim-bed-double')]",
+  "targets": [["xpath=//button[contains(@class, 'oim-bed-double')]", "xpath"]],
+  "value": ""
+}, {
+  "id": "08f4481f-187a-497f-9814-f76e45e50b77",
+  "comment": "",
+  "command": "assertElementPresent",
+  "target": "xpath=//input[@data-ti='input']",
+  "targets": [["xpath=//input[@data-ti='input']", "xpath"]],
+  "value": ""
+}],
+  "description": "Steps: Клик по вкладке Отели\nExpected: Вкладка активна",
+  "name": "TC-04 - Переключение на вкладку Отели"
+}, {
+  "id": "592ca859-73ef-3590-a7f9-e37182319991",
+  "commands": [{
+  "id": "aea24e67-816a-4763-9948-0c9d7165512a",
+  "comment": "",
+  "command": "open",
+  "target": "/",
+  "targets": [],
+  "value": ""
+}, {
+  "id": "e5d726ec-6572-41d0-b8ef-61311eaf1e73",
+  "comment": "",
+  "command": "click",
+  "target": "xpath=//button[@type='submit']",
+  "targets": [["xpath=//button[@type='submit']", "xpath"]],
+  "value": ""
+}, {
+  "id": "64cf107a-fc5b-4431-8a27-2d558d33c22a",
+  "comment": "",
+  "command": "assertElementPresent",
+  "target": "xpath=//form[contains(@class, 'search-form') or .//input[@data-ti='input']]",
+  "targets": [["xpath=//form[contains(@class, 'search-form') or .//input[@data-ti='input']]", "xpath"]],
+  "value": ""
+}],
+  "description": "Steps: Нажать поиск без данных\nExpected: Валидация или форма доступна",
+  "name": "TC-05 - Поиск без заполнения полей"
+}],
+  "suites": [{
+  "tests": ["b72209c3-f0cd-3f6b-ad83-6b35100440e2", "d5ed0fd9-d051-3764-8fa5-c3d16a37afed", "24685ff3-8d2a-31bd-aac7-a8a5aba92f1d", "a68a12db-3ce0-3a69-b259-d133ddffffe4", "592ca859-73ef-3590-a7f9-e37182319991"],
+  "name": "All Tutu.ru Scenarios",
+  "parallel": false,
+  "persistSession": false,
+  "timeout": 300,
+  "id": "aaae9117-1501-3c13-8de4-5076b8bcfd54"
+}],
+  "urls": ["https://www.tutu.ru"],
+  "plugins": []
+}

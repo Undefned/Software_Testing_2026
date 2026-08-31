@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: integration.LogBranchIntegrationTest
 -------------------------------------------------------------------------------
-Tests run: 171, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.536 s -- in integration.LogBranchIntegrationTest
+Tests run: 171, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.436 s -- in integration.LogBranchIntegrationTest

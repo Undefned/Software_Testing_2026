@@ -1,0 +1,231 @@
+{
+  "id": "0d04cad7-f3b4-4c8a-bb26-31cc3920b94e",
+  "version": "2.0",
+  "name": "STLab3",
+  "url": "https://www.tutu.ru",
+  "tests": [{
+    "id": "5ae74124-5efc-420d-8723-6105211ab737",
+    "name": "Отели",
+    "commands": [{
+      "id": "afe7b5d2-ad2b-47cf-b636-135a9bcf3526",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fc97f5bd-6379-47f7-9eb5-e21fef5dd914",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1096x704",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "55b8d126-040f-496c-97ae-3c9da65da023",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "xpath=//div[@id='__next']/div[3]/div[2]/div/div/div[2]/div[2]/button/span/i",
+      "targets": [
+        ["css=.size_400_c53cd843 > .oim-bed-double", "css:finder"],
+        ["xpath=//div[@id='__next']/div[3]/div[2]/div/div/div[2]/div[2]/button/span/i", "xpath:idRelative"],
+        ["xpath=//div[2]/button/span/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "add73ee6-ad86-4088-9ebc-f51110081179",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "xpath=//div[@id='__next']/div[3]/div[2]/div/div/div[2]/div[2]/button/span/i",
+      "targets": [
+        ["css=.size_400_c53cd843 > .oim-bed-double", "css:finder"],
+        ["xpath=//div[@id='__next']/div[3]/div[2]/div/div/div[2]/div[2]/button/span/i", "xpath:idRelative"],
+        ["xpath=//div[2]/button/span/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "55c71cf0-741c-4597-866c-36d34bc0cfb5",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@id='__next']/div[3]/div[2]/div/div/div[2]/div[2]/button/span/i",
+      "targets": [
+        ["css=.size_400_c53cd843 > .oim-bed-double", "css:finder"],
+        ["xpath=//div[@id='__next']/div[3]/div[2]/div/div/div[2]/div[2]/button/span/i", "xpath:idRelative"],
+        ["xpath=//div[2]/button/span/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e101d11d-4dba-46fe-bfbb-d9ea24f50395",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "xpath=//div[@id='__next']/div[3]/div[2]/div/div/div[2]/div[2]/button/span",
+      "targets": [
+        ["css=.UHkeVNdW8AQOxfzD > .richIcon_c53cd843", "css:finder"],
+        ["xpath=//div[@id='__next']/div[3]/div[2]/div/div/div[2]/div[2]/button/span", "xpath:idRelative"],
+        ["xpath=//div[2]/button/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e280588d-d385-48b6-851a-8a3a95b74060",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@id='__next']/div[3]/div[2]/div/div/div[2]/div[3]/div/div/div/div/div/label/input",
+      "targets": [
+        ["css=.positionTop_2376e9e4 .input_9519fb16", "css:finder"],
+        ["xpath=//input[@value='']", "xpath:attributes"],
+        ["xpath=//div[@id='__next']/div[3]/div[2]/div/div/div[2]/div[3]/div/div/div/div/div/label/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9a6b026f-21e7-4202-b33e-398802af803b",
+      "comment": "",
+      "command": "executeScript",
+      "target": "document.querySelector(\"input[data-ti='input']\").value = 'Москва'",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "725f163b-c656-457a-8507-ed0c02b04761",
+      "comment": "",
+      "command": "//runScript",
+      "target": "document.querySelector(\"input[data-ti='input']\").value = 'Москва'",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3459e31e-6fc3-41c8-8644-f7fe5c1e59b1",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@id='__next']/div[3]/div[2]/div/div/div[2]/div[3]/div/div[2]/div/div/div/label/input",
+      "targets": [
+        ["css=.positionBottom_2376e9e4 .input_9519fb16", "css:finder"],
+        ["xpath=//input[@value='']", "xpath:attributes"],
+        ["xpath=//div[@id='__next']/div[3]/div[2]/div/div/div[2]/div[3]/div/div[2]/div/div/div/label/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div/label/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "af6391c6-e35d-4a87-8bab-315331dc4096",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[2]/div[2]/div[2]/div/div/div/div/div/span/span",
+      "targets": [
+        ["css=.panel_b6e5028f:nth-child(2) .weekRow_25c16753:nth-child(1) > .dayCellWrapper_5a9379d0:nth-child(3) .date_5a9379d0:nth-child(1)", "css:finder"],
+        ["xpath=//div[2]/div[2]/div[2]/div/div/div/div/div/span/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e48b8cfb-a0a8-43a8-b8a3-6e14191c6bf2",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[5]/div[5]/div/div/div/span/span",
+      "targets": [
+        ["css=.panel_b6e5028f:nth-child(2) .weekRow_25c16753:nth-child(5) > .dayCellWrapper_5a9379d0:nth-child(5) .date_5a9379d0:nth-child(1)", "css:finder"],
+        ["xpath=//div[5]/div[5]/div/div/div/span/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d05c763f-18b5-471a-9229-096ffb72755e",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//button[2]/div/span/span/span",
+      "targets": [
+        ["css=.typoCompact600Accent_86130dfd:nth-child(2) .label_9b22a44f", "css:finder"],
+        ["xpath=//button[2]/div/span/span/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "01d8463d-2ae2-494f-8835-911831955738",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@id='__next']/div[3]/div[2]/div/div/div[2]/div[3]/div/div[2]/div[2]/div/label/input",
+      "targets": [
+        ["css=.positionLgMiddleHorizontal_2376e9e4 .input_9519fb16", "css:finder"],
+        ["xpath=//input[@value='2 гостя']", "xpath:attributes"],
+        ["xpath=//div[@id='__next']/div[3]/div[2]/div/div/div[2]/div[3]/div/div[2]/div[2]/div/label/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/label/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c8b41f19-6d01-4084-bd59-2f286357ba4a",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[6]/div/div/div/div/div/button/div/span/span/i",
+      "targets": [
+        ["css=.oim-minus_outline", "css:finder"],
+        ["xpath=//div[6]/div/div/div/div/div/button/div/span/span/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "48ba5308-b244-4d48-8d59-2bb72576763f",
+      "comment": "",
+      "command": "//click",
+      "target": "xpath=//span[contains(.,'Добавить ребёнка')]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a66cb9db-79f8-4d80-9ce5-1a4af99f48b8",
+      "comment": "",
+      "command": "//mouseOver",
+      "target": "xpath=//span[contains(.,'Добавить ребёнка')]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4f6c788d-c797-4179-928b-89a6358a73b9",
+      "comment": "",
+      "command": "//mouseOut",
+      "target": "xpath=//span[contains(.,'Добавить ребёнка')]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3eca5916-2c25-4700-8157-0e03a34a0767",
+      "comment": "",
+      "command": "//mouseUp",
+      "target": "xpath=//main/div/section/div",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bdbb1b90-f24f-4188-9c6b-873804696199",
+      "comment": "",
+      "command": "//click",
+      "target": "xpath=//div[@id='__next']/div[3]/div[2]/div/div/div[2]/div[2]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2160be85-d079-4083-8241-09f506f98eac",
+      "comment": "",
+      "command": "//click",
+      "target": "xpath=//html/body/div[1]/main/div/section/div/div[4]/div/div[1]/span/span[1]/span",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ad9e367e-7cf9-4a1c-b56f-1c27febd00e7",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@id='__next']/div[3]/div[2]/div/div/div[2]/div[3]/div/div[2]/div[3]/button",
+      "targets": [
+        ["css=.positionLgRight_2376e9e4", "css:finder"],
+        ["xpath=(//button[@type='button'])[25]", "xpath:attributes"],
+        ["xpath=//div[@id='__next']/div[3]/div[2]/div/div/div[2]/div[3]/div/div[2]/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Найти отели')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "54aa0eb3-f6c3-427a-b40c-089ff6057b6f",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,244)",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "8be79f19-698a-4c19-968b-0dbae143ad45",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["5ae74124-5efc-420d-8723-6105211ab737"]
+  }],
+  "urls": ["https://www.tutu.ru/"],
+  "plugins": []
+}

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: integration.TrigBranchIntegrationTest
 -------------------------------------------------------------------------------
-Tests run: 92, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.162 s -- in integration.TrigBranchIntegrationTest
+Tests run: 92, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.203 s -- in integration.TrigBranchIntegrationTest
