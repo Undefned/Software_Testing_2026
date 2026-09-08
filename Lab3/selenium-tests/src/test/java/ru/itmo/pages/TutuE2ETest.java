@@ -32,6 +32,7 @@ class TutuE2ETest extends BaseUiTest {
     @ParameterizedTest(name = "E2E-01 в {0}")
     @MethodSource("ru.itmo.driver.BrowserTypeProvider#allBrowsers")
     void e2e01OneWaySearch(BrowserType browserType) {
+        // Базовый поиск билетов в одном направлении
         ensureDriver(browserType);
         assertTrue(oneWaySearch().assertResultsOrClearStateVisible());
     }
@@ -39,6 +40,7 @@ class TutuE2ETest extends BaseUiTest {
     @ParameterizedTest(name = "E2E-02 в {0}")
     @MethodSource("ru.itmo.driver.BrowserTypeProvider#allBrowsers")
     void e2e02SeveralPassengersSearch(BrowserType browserType) {
+        // Поиск с несколькими пассажирами
         ensureDriver(browserType);
         TutuHomePage page = filledRoute()
                 .selectAvailableDate()
@@ -49,13 +51,10 @@ class TutuE2ETest extends BaseUiTest {
         page.closePassengersSelector();
         assertTrue(page.isSearchFormAvailable(), "Форма должна быть доступна после закрытия селектора");
         
-        // Запускаем поиск
         page.submitSearch();
         
-        // Проверяем, что URL изменился (переход на страницу результатов)
         page.wait.until(ExpectedConditions.not(ExpectedConditions.urlToBe(TutuHomePage.BASE_URL)));
         
-        // Проверяем, что URL содержит "poezda" или "raspisanie"
         String currentUrl = driver.getCurrentUrl();
         assertTrue(currentUrl.contains("poezda") || currentUrl.contains("raspisanie"),
                 "Должна открыться страница результатов. Текущий URL: " + currentUrl);
@@ -64,6 +63,7 @@ class TutuE2ETest extends BaseUiTest {
     @ParameterizedTest(name = "E2E-03 в {0}")
     @MethodSource("ru.itmo.driver.BrowserTypeProvider#allBrowsers")
     void e2e03SearchWithChild(BrowserType browserType) {
+        // Поиск с добавлением ребёнка
         ensureDriver(browserType);
         TutuHomePage page = filledRoute()
                 .selectAvailableDate()
@@ -79,6 +79,7 @@ class TutuE2ETest extends BaseUiTest {
     @ParameterizedTest(name = "E2E-04 в {0}")
     @MethodSource("ru.itmo.driver.BrowserTypeProvider#allBrowsers")
     void e2e04SwapCitiesAndSearch(BrowserType browserType) {
+        // Поиск после смены городов местами
         ensureDriver(browserType);
         TutuHomePage page = filledRoute().swapCities();
 
@@ -91,6 +92,7 @@ class TutuE2ETest extends BaseUiTest {
     @ParameterizedTest(name = "E2E-05 в {0}")
     @MethodSource("ru.itmo.driver.BrowserTypeProvider#allBrowsers")
     void e2e05SapsanFilter(BrowserType browserType) {
+        // Фильтрация результатов по типу поезда "Сапсан"
         ensureDriver(browserType);
         TutuResultsPage results = oneWaySearch().enableSapsanFilterIfAvailable();
         assertTrue(results.assertFilterStateIsAppliedOrResultsStillVisible());
@@ -99,6 +101,7 @@ class TutuE2ETest extends BaseUiTest {
     @ParameterizedTest(name = "E2E-06 в {0}")
     @MethodSource("ru.itmo.driver.BrowserTypeProvider#allBrowsers")
     void e2e06SwallowFilter(BrowserType browserType) {
+        // Фильтрация результатов по типу поезда "Ласточка"
         ensureDriver(browserType);
         TutuResultsPage results = oneWaySearch().enableSwallowFilterIfAvailable();
         assertTrue(results.assertFilterStateIsAppliedOrResultsStillVisible());
@@ -107,6 +110,7 @@ class TutuE2ETest extends BaseUiTest {
     @ParameterizedTest(name = "E2E-07 в {0}")
     @MethodSource("ru.itmo.driver.BrowserTypeProvider#allBrowsers")
     void e2e07AvailableSeatsFilter(BrowserType browserType) {
+        // Фильтр "Только с местами"
         ensureDriver(browserType);
         TutuResultsPage results = oneWaySearch().enableAvailableSeatsFilterIfAvailable();
         assertTrue(results.assertFilterStateIsAppliedOrResultsStillVisible());
@@ -115,6 +119,7 @@ class TutuE2ETest extends BaseUiTest {
     @ParameterizedTest(name = "E2E-08 в {0}")
     @MethodSource("ru.itmo.driver.BrowserTypeProvider#allBrowsers")
     void e2e08LowerSeatsFilter(BrowserType browserType) {
+        // Фильтр "Только нижние места"
         ensureDriver(browserType);
         TutuResultsPage results = oneWaySearch().enableLowerSeatsFilterIfAvailable();
         assertTrue(results.assertFilterStateIsAppliedOrResultsStillVisible());
@@ -123,6 +128,7 @@ class TutuE2ETest extends BaseUiTest {
     @ParameterizedTest(name = "E2E-09 в {0}")
     @MethodSource("ru.itmo.driver.BrowserTypeProvider#allBrowsers")
     void e2e09CarTypeFilter(BrowserType browserType) {
+        // Фильтр по типу вагона (купе)
         ensureDriver(browserType);
         TutuResultsPage results = oneWaySearch()
                 .openCarTypeFilter()
@@ -133,6 +139,7 @@ class TutuE2ETest extends BaseUiTest {
     @ParameterizedTest(name = "E2E-10 в {0}")
     @MethodSource("ru.itmo.driver.BrowserTypeProvider#allBrowsers")
     void e2e10CombinedFiltering(BrowserType browserType) {
+        // Комбинированная фильтрация (места + нижние)
         ensureDriver(browserType);
         TutuResultsPage results = oneWaySearch()
                 .enableAvailableSeatsFilterIfAvailable()
@@ -143,6 +150,7 @@ class TutuE2ETest extends BaseUiTest {
     @ParameterizedTest(name = "E2E-11 в {0}")
     @MethodSource("ru.itmo.driver.BrowserTypeProvider#allBrowsers")
     void e2e11SortResults(BrowserType browserType) {
+        // Сортировка результатов по цене (дешёвые сверху)
         ensureDriver(browserType);
         TutuResultsPage results = oneWaySearch()
                 .openSorting()
@@ -153,6 +161,7 @@ class TutuE2ETest extends BaseUiTest {
     @ParameterizedTest(name = "E2E-12 в {0}")
     @MethodSource("ru.itmo.driver.BrowserTypeProvider#allBrowsers")
     void e2e12OpenFirstOfferRoute(BrowserType browserType) {
+        // Открытие маршрута первого предложения
         ensureDriver(browserType);
         TutuResultsPage results = oneWaySearch().openRouteOfFirstOfferIfAvailable();
         assertTrue(results.assertResultsOrClearStateVisible());
@@ -161,6 +170,7 @@ class TutuE2ETest extends BaseUiTest {
     @ParameterizedTest(name = "E2E-13 в {0}")
     @MethodSource("ru.itmo.driver.BrowserTypeProvider#allBrowsers")
     void e2e13SelectSeatsOnFirstOffer(BrowserType browserType) {
+        // Выбор мест на первом предложении
         ensureDriver(browserType);
         TutuResultsPage results = oneWaySearch().clickSelectSeatsOnFirstOfferIfAvailable();
         assertTrue(results.assertResultsOrClearStateVisible());
@@ -169,6 +179,7 @@ class TutuE2ETest extends BaseUiTest {
     @ParameterizedTest(name = "E2E-14 в {0}")
     @MethodSource("ru.itmo.driver.BrowserTypeProvider#allBrowsers")
     void e2e14SameOriginAndDestination(BrowserType browserType) {
+        // Поиск с одинаковым городом отправления и назначения (открывается расписание)
         ensureDriver(browserType);
         TutuHomePage page = home()
                 .clearOriginCity()
@@ -194,6 +205,7 @@ class TutuE2ETest extends BaseUiTest {
     @ParameterizedTest(name = "E2E-15 в {0}")
     @MethodSource("ru.itmo.driver.BrowserTypeProvider#allBrowsers")
     void e2e15RepeatSearchAfterChangingDestination(BrowserType browserType) {
+        // Повторный поиск после смены города назначения
         ensureDriver(browserType);
         oneWaySearch();
 
@@ -212,6 +224,7 @@ class TutuE2ETest extends BaseUiTest {
     @ParameterizedTest(name = "NEG-01 в {0}")
     @MethodSource("ru.itmo.driver.BrowserTypeProvider#allBrowsers")
     void neg01SearchWithoutDestination(BrowserType browserType) {
+        // Негативный тест: поиск без указания города назначения
         ensureDriver(browserType);
         TutuHomePage page = home()
                 .clearOriginCity()
@@ -227,6 +240,7 @@ class TutuE2ETest extends BaseUiTest {
     @ParameterizedTest(name = "NEG-02 в {0}")
     @MethodSource("ru.itmo.driver.BrowserTypeProvider#allBrowsers")
     void neg02NonExistentCity(BrowserType browserType) {
+        // Негативный тест: ввод несуществующего города
         ensureDriver(browserType);
         home().clearDestinationCity().typeDestinationCity("Мухосранск");
 
@@ -242,6 +256,7 @@ class TutuE2ETest extends BaseUiTest {
     @ParameterizedTest(name = "NEG-03 в {0}")
     @MethodSource("ru.itmo.driver.BrowserTypeProvider#allBrowsers")
     void neg03CannotRemoveAllPassengers(BrowserType browserType) {
+        // Негативный тест: нельзя удалить всех пассажиров (минимум 1 остаётся)
         ensureDriver(browserType);
         TutuHomePage page = home().openPassengersSelector();
 
@@ -291,7 +306,6 @@ class TutuE2ETest extends BaseUiTest {
             try {
                 driver.quit();
             } catch (RuntimeException ignored) {
-                // Игнорируем ошибки при закрытии
             }
             driver = null;
         }

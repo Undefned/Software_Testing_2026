@@ -46,8 +46,6 @@ public abstract class BaseUiTest {
         driver = DriverFactory.createDriver(browserType);
     }
 
-    // @AfterEach убран — теперь драйвер закрывается в @AfterAll дочернего класса
-
     private void saveScreenshot(ExtensionContext context) {
         if (!(driver instanceof TakesScreenshot screenshotDriver)) {
             return;

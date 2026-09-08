@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="ru.itmo.pages.TutuE2ETest" time="427.666" tests="36" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="ru.itmo.pages.TutuE2ETest" time="494.207" tests="36" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.specification.version" value="26"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -16,7 +16,7 @@
     <property name="user.country" value="US"/>
     <property name="session.topDirectory" value="C:\University\Programming\Software Testing\Lab3\selenium-tests"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-26.0.1\bin"/>
-    <property name="sun.java.command" value="C:\Users\ddeni\AppData\Local\Temp\surefire13071931017673972629\surefirebooter-20260901000237372_3.jar C:\Users\ddeni\AppData\Local\Temp\surefire13071931017673972629 2026-09-01T00-02-37_254-jvmRun1 surefire-20260901000237372_1tmp surefire_0-20260901000237372_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\ddeni\AppData\Local\Temp\surefire500893163338771420\surefirebooter-20260908102015320_3.jar C:\Users\ddeni\AppData\Local\Temp\surefire500893163338771420 2026-09-08T10-20-15_195-jvmRun1 surefire-20260908102015320_1tmp surefire_0-20260908102015320_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\University\Programming\Software Testing\lab3\selenium-tests\target\test-classes;C:\University\Programming\Software Testing\lab3\selenium-tests\target\classes;C:\Users\ddeni\.m2\repository\org\seleniumhq\selenium\selenium-java\4.24.0\selenium-java-4.24.0.jar;C:\Users\ddeni\.m2\repository\org\seleniumhq\selenium\selenium-api\4.24.0\selenium-api-4.24.0.jar;C:\Users\ddeni\.m2\repository\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar;C:\Users\ddeni\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\4.24.0\selenium-chrome-driver-4.24.0.jar;C:\Users\ddeni\.m2\repository\com\google\auto\service\auto-service-annotations\1.1.1\auto-service-annotations-1.1.1.jar;C:\Users\ddeni\.m2\repository\org\seleniumhq\selenium\selenium-chromium-driver\4.24.0\selenium-chromium-driver-4.24.0.jar;C:\Users\ddeni\.m2\repository\org\seleniumhq\selenium\selenium-json\4.24.0\selenium-json-4.24.0.jar;C:\Users\ddeni\.m2\repository\org\seleniumhq\selenium\selenium-manager\4.24.0\selenium-manager-4.24.0.jar;C:\Users\ddeni\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v126\4.24.0\selenium-devtools-v126-4.24.0.jar;C:\Users\ddeni\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v127\4.24.0\selenium-devtools-v127-4.24.0.jar;C:\Users\ddeni\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v128\4.24.0\selenium-devtools-v128-4.24.0.jar;C:\Users\ddeni\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v85\4.24.0\selenium-devtools-v85-4.24.0.jar;C:\Users\ddeni\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\4.24.0\selenium-edge-driver-4.24.0.jar;C:\Users\ddeni\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\4.24.0\selenium-firefox-driver-4.24.0.jar;C:\Users\ddeni\.m2\repository\org\seleniumhq\selenium\selenium-http\4.24.0\selenium-http-4.24.0.jar;C:\Users\ddeni\.m2\repository\dev\failsafe\failsafe\3.3.2\failsafe-3.3.2.jar;C:\Users\ddeni\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\4.24.0\selenium-ie-driver-4.24.0.jar;C:\Users\ddeni\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\4.24.0\selenium-remote-driver-4.24.0.jar;C:\Users\ddeni\.m2\repository\com\google\guava\guava\33.3.0-jre\guava-33.3.0-jre.jar;C:\Users\ddeni\.m2\repository\com\google\guava\failureaccess\1.0.2\failureaccess-1.0.2.jar;C:\Users\ddeni\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\ddeni\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\ddeni\.m2\repository\org\checkerframework\checker-qual\3.43.0\checker-qual-3.43.0.jar;C:\Users\ddeni\.m2\repository\com\google\errorprone\error_prone_annotations\2.28.0\error_prone_annotations-2.28.0.jar;C:\Users\ddeni\.m2\repository\com\google\j2objc\j2objc-annotations\3.0.0\j2objc-annotations-3.0.0.jar;C:\Users\ddeni\.m2\repository\io\opentelemetry\semconv\opentelemetry-semconv\1.25.0-alpha\opentelemetry-semconv-1.25.0-alpha.jar;C:\Users\ddeni\.m2\repository\io\opentelemetry\opentelemetry-api\1.41.0\opentelemetry-api-1.41.0.jar;C:\Users\ddeni\.m2\repository\io\opentelemetry\opentelemetry-context\1.41.0\opentelemetry-context-1.41.0.jar;C:\Users\ddeni\.m2\repository\io\opentelemetry\opentelemetry-exporter-logging\1.41.0\opentelemetry-exporter-logging-1.41.0.jar;C:\Users\ddeni\.m2\repository\io\opentelemetry\opentelemetry-sdk-common\1.41.0\opentelemetry-sdk-common-1.41.0.jar;C:\Users\ddeni\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure-spi\1.41.0\opentelemetry-sdk-extension-autoconfigure-spi-1.41.0.jar;C:\Users\ddeni\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure\1.41.0\opentelemetry-sdk-extension-autoconfigure-1.41.0.jar;C:\Users\ddeni\.m2\repository\io\opentelemetry\opentelemetry-api-incubator\1.41.0-alpha\opentelemetry-api-incubator-1.41.0-alpha.jar;C:\Users\ddeni\.m2\repository\io\opentelemetry\opentelemetry-sdk-trace\1.41.0\opentelemetry-sdk-trace-1.41.0.jar;C:\Users\ddeni\.m2\repository\io\opentelemetry\opentelemetry-sdk\1.41.0\opentelemetry-sdk-1.41.0.jar;C:\Users\ddeni\.m2\repository\io\opentelemetry\opentelemetry-sdk-metrics\1.41.0\opentelemetry-sdk-metrics-1.41.0.jar;C:\Users\ddeni\.m2\repository\io\opentelemetry\opentelemetry-sdk-logs\1.41.0\opentelemetry-sdk-logs-1.41.0.jar;C:\Users\ddeni\.m2\repository\net\bytebuddy\byte-buddy\1.15.0\byte-buddy-1.15.0.jar;C:\Users\ddeni\.m2\repository\org\seleniumhq\selenium\selenium-os\4.24.0\selenium-os-4.24.0.jar;C:\Users\ddeni\.m2\repository\org\apache\commons\commons-exec\1.4.0\commons-exec-1.4.0.jar;C:\Users\ddeni\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\4.24.0\selenium-safari-driver-4.24.0.jar;C:\Users\ddeni\.m2\repository\org\seleniumhq\selenium\selenium-support\4.24.0\selenium-support-4.24.0.jar;C:\Users\ddeni\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.3\junit-jupiter-5.10.3.jar;C:\Users\ddeni\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.3\junit-jupiter-api-5.10.3.jar;C:\Users\ddeni\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\ddeni\.m2\repository\org\junit\platform\junit-platform-commons\1.10.3\junit-platform-commons-1.10.3.jar;C:\Users\ddeni\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.3\junit-jupiter-params-5.10.3.jar;C:\Users\ddeni\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.3\junit-jupiter-engine-5.10.3.jar;C:\Users\ddeni\.m2\repository\org\junit\platform\junit-platform-launcher\1.10.3\junit-platform-launcher-1.10.3.jar;C:\Users\ddeni\.m2\repository\org\junit\platform\junit-platform-engine\1.10.3\junit-platform-engine-1.10.3.jar;C:\Users\ddeni\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\ddeni\.m2\repository\log4j\log4j\1.2.17\log4j-1.2.17.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\ddeni\AppData\Local\Temp\surefire13071931017673972629\surefirebooter-20260901000237372_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\ddeni\AppData\Local\Temp\surefire500893163338771420\surefirebooter-20260908102015320_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="26.0.1+8-34"/>
@@ -52,7 +52,7 @@
     <property name="sun.os.patch.level" value=""/>
     <property name="headless" value="false"/>
     <property name="native.encoding" value="Cp1251"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk-26.0.1\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Cloudflare\Cloudflare WARP\;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\eSpeak NG\;C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Go\bin;C:\Program Files\IVPN Client\cli;C:\Users\ddeni\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\ddeni\AppData\Local\Programs\Python\Python311\;C:\Users\ddeni\AppData\Local\Microsoft\WindowsApps;C:\Users\ddeni\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\maven\apache-maven-4.0.0-rc-5\bin;C:\Program Files\Java\jdk-26.0.1\bin;C:\Users\ddeni\.dotnet\tools;C:\Users\ddeni\AppData\Local\Programs\Ollama;C:\Users\ddeni\AppData\Local\Python\bin;C:\Users\ddeni\AppData\Local\Programs\Warp\bin;C:\Users\ddeni\go\bin;c:\Users\ddeni\.vscode\extensions\vscjava.vscode-java-debug-0.59.0\bundled\scripts\noConfigScripts;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-26.0.1\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Python314\Scripts\;C:\Python314\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Cloudflare\Cloudflare WARP\;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\eSpeak NG\;C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Go\bin;C:\Program Files\IVPN Client\cli;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Users\ddeni\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\ddeni\AppData\Local\Programs\Python\Python311\;C:\Users\ddeni\AppData\Local\Microsoft\WindowsApps;C:\Users\ddeni\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\maven\apache-maven-4.0.0-rc-5\bin;C:\Program Files\Java\jdk-26.0.1\bin;C:\Users\ddeni\.dotnet\tools;C:\Users\ddeni\AppData\Local\Programs\Ollama;C:\Users\ddeni\AppData\Local\Python\bin;C:\Users\ddeni\AppData\Local\Programs\Warp\bin;C:\Users\ddeni\go\bin;C:\Users\ddeni\AppData\Roaming\npm;c:\Users\ddeni\.vscode\extensions\vscjava.vscode-java-debug-0.59.0\bundled\scripts\noConfigScripts;."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
     <property name="stderr.encoding" value="Cp1251"/>
     <property name="java.vendor" value="Oracle Corporation"/>
@@ -61,148 +61,205 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="70.0"/>
   </properties>
-  <testcase name="e2e12OpenFirstOfferRoute(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="8.088">
-    <system-err><![CDATA[Sep 01, 2026 12:02:39 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 151
-Sep 01, 2026 12:02:39 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 151.0.7922.174. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+  <testcase name="e2e12OpenFirstOfferRoute(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="10.312">
+    <system-err><![CDATA[Sep 08, 2026 10:20:17 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 152
+Sep 08, 2026 10:20:17 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 152.0.7977.76. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="e2e12OpenFirstOfferRoute(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="9.792"/>
-  <testcase name="e2e15RepeatSearchAfterChangingDestination(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="38.897">
-    <system-err><![CDATA[Sep 01, 2026 12:02:57 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 151
-Sep 01, 2026 12:02:57 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 151.0.7922.174. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+  <testcase name="e2e12OpenFirstOfferRoute(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="12.647"/>
+  <testcase name="e2e15RepeatSearchAfterChangingDestination(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="41.17">
+    <system-err><![CDATA[Sep 08, 2026 10:20:40 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 152
+Sep 08, 2026 10:20:40 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 152.0.7977.76. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="e2e15RepeatSearchAfterChangingDestination(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="41.38"/>
-  <testcase name="e2e03SearchWithChild(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="21.765">
-    <system-err><![CDATA[Sep 01, 2026 12:04:17 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 151
-Sep 01, 2026 12:04:17 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 151.0.7922.174. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+  <testcase name="e2e15RepeatSearchAfterChangingDestination(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="43.249"/>
+  <testcase name="e2e03SearchWithChild(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="24.03">
+    <system-err><![CDATA[Sep 08, 2026 10:22:05 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 152
+Sep 08, 2026 10:22:05 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 152.0.7977.76. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="e2e03SearchWithChild(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="23.026"/>
-  <testcase name="e2e11SortResults(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="8.141">
-    <system-err><![CDATA[Sep 01, 2026 12:05:02 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 151
-Sep 01, 2026 12:05:02 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 151.0.7922.174. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+  <testcase name="e2e03SearchWithChild(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="23.822"/>
+  <testcase name="e2e11SortResults(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="9.83">
+    <system-err><![CDATA[Sep 08, 2026 10:22:53 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 152
+Sep 08, 2026 10:22:53 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 152.0.7977.76. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="e2e11SortResults(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="9.293"/>
-  <testcase name="e2e06SwallowFilter(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="7.967">
-    <system-err><![CDATA[Sep 01, 2026 12:05:20 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 151
-Sep 01, 2026 12:05:20 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 151.0.7922.174. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+  <testcase name="e2e11SortResults(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="12.449"/>
+  <testcase name="e2e06SwallowFilter(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="9.828">
+    <system-err><![CDATA[Sep 08, 2026 10:23:15 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 152
+Sep 08, 2026 10:23:15 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 152.0.7977.76. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="e2e06SwallowFilter(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="9.214"/>
-  <testcase name="e2e02SeveralPassengersSearch(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="21.406">
-    <system-err><![CDATA[Sep 01, 2026 12:05:37 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 151
-Sep 01, 2026 12:05:37 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 151.0.7922.174. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+  <testcase name="e2e06SwallowFilter(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="11.641"/>
+  <testcase name="e2e02SeveralPassengersSearch(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="22.675">
+    <system-err><![CDATA[Sep 08, 2026 10:23:36 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 152
+Sep 08, 2026 10:23:36 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 152.0.7977.76. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="e2e02SeveralPassengersSearch(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="22.933"/>
-  <testcase name="e2e05SapsanFilter(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="7.411">
-    <system-err><![CDATA[Sep 01, 2026 12:06:21 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 151
-Sep 01, 2026 12:06:21 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 151.0.7922.174. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+  <testcase name="e2e02SeveralPassengersSearch(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="23.57"/>
+  <testcase name="e2e05SapsanFilter(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="9.335">
+    <system-err><![CDATA[Sep 08, 2026 10:24:23 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 152
+Sep 08, 2026 10:24:23 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 152.0.7977.76. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="e2e05SapsanFilter(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="9.473"/>
-  <testcase name="e2e04SwapCitiesAndSearch(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="5.777">
-    <system-err><![CDATA[Sep 01, 2026 12:06:38 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 151
-Sep 01, 2026 12:06:38 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 151.0.7922.174. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+  <testcase name="e2e05SapsanFilter(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="12.444"/>
+  <testcase name="e2e04SwapCitiesAndSearch(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="7.863">
+    <system-err><![CDATA[Sep 08, 2026 10:24:44 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 152
+Sep 08, 2026 10:24:44 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 152.0.7977.76. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="e2e04SwapCitiesAndSearch(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="7.325"/>
-  <testcase name="neg02NonExistentCity(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="3.263">
-    <system-err><![CDATA[Sep 01, 2026 12:06:51 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 151
-Sep 01, 2026 12:06:51 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 151.0.7922.174. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+  <testcase name="e2e04SwapCitiesAndSearch(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="8.732"/>
+  <testcase name="neg02NonExistentCity(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="4.473">
+    <system-err><![CDATA[Sep 08, 2026 10:25:01 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 152
+Sep 08, 2026 10:25:01 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 152.0.7977.76. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="neg02NonExistentCity(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="4.401"/>
-  <testcase name="e2e09CarTypeFilter(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="7.584">
-    <system-err><![CDATA[Sep 01, 2026 12:06:59 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 151
-Sep 01, 2026 12:06:59 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 151.0.7922.174. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+  <testcase name="neg02NonExistentCity(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="5.172"/>
+  <testcase name="e2e09CarTypeFilter(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="10.144">
+    <system-err><![CDATA[Sep 08, 2026 10:25:11 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 152
+Sep 08, 2026 10:25:11 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 152.0.7977.76. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="e2e09CarTypeFilter(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="9.39"/>
-  <testcase name="neg03CannotRemoveAllPassengers(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="18.353">
-    <system-err><![CDATA[Sep 01, 2026 12:07:16 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 151
-Sep 01, 2026 12:07:16 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 151.0.7922.174. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+  <testcase name="e2e09CarTypeFilter(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="12.631"/>
+  <testcase name="neg03CannotRemoveAllPassengers(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="18.877">
+    <system-err><![CDATA[Sep 08, 2026 10:25:33 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 152
+Sep 08, 2026 10:25:33 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 152.0.7977.76. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="neg03CannotRemoveAllPassengers(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="19.906"/>
-  <testcase name="e2e07AvailableSeatsFilter(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="8.046">
-    <system-err><![CDATA[Sep 01, 2026 12:07:54 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 151
-Sep 01, 2026 12:07:54 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 151.0.7922.174. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+  <testcase name="neg03CannotRemoveAllPassengers(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="20.68"/>
+  <testcase name="e2e07AvailableSeatsFilter(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="11.112">
+    <system-err><![CDATA[Sep 08, 2026 10:26:13 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 152
+Sep 08, 2026 10:26:13 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 152.0.7977.76. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="e2e07AvailableSeatsFilter(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="9.433"/>
-  <testcase name="neg01SearchWithoutDestination(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="3.877">
-    <system-err><![CDATA[Sep 01, 2026 12:08:11 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 151
-Sep 01, 2026 12:08:11 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 151.0.7922.174. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+  <testcase name="e2e07AvailableSeatsFilter(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="12.03"/>
+  <testcase name="neg01SearchWithoutDestination(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="5.094">
+    <system-err><![CDATA[Sep 08, 2026 10:26:36 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 152
+Sep 08, 2026 10:26:36 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 152.0.7977.76. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="neg01SearchWithoutDestination(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="5.197"/>
-  <testcase name="e2e13SelectSeatsOnFirstOffer(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="12.347">
-    <system-err><![CDATA[Sep 01, 2026 12:08:20 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 151
-Sep 01, 2026 12:08:20 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 151.0.7922.174. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+  <testcase name="neg01SearchWithoutDestination(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="6.278"/>
+  <testcase name="e2e13SelectSeatsOnFirstOffer(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="10.201">
+    <system-err><![CDATA[Sep 08, 2026 10:26:47 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 152
+Sep 08, 2026 10:26:47 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 152.0.7977.76. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="e2e13SelectSeatsOnFirstOffer(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="13.316"/>
-  <testcase name="e2e10CombinedFiltering(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="8.114">
-    <system-err><![CDATA[Sep 01, 2026 12:08:46 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 151
-Sep 01, 2026 12:08:46 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 151.0.7922.174. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+  <testcase name="e2e13SelectSeatsOnFirstOffer(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="13.898"/>
+  <testcase name="e2e10CombinedFiltering(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="9.998">
+    <system-err><![CDATA[Sep 08, 2026 10:27:12 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 152
+Sep 08, 2026 10:27:12 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 152.0.7977.76. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="e2e10CombinedFiltering(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="9.274"/>
-  <testcase name="e2e14SameOriginAndDestination(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="5.633">
-    <system-err><![CDATA[Sep 01, 2026 12:09:04 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 151
-Sep 01, 2026 12:09:04 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 151.0.7922.174. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+  <testcase name="e2e10CombinedFiltering(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="13.235"/>
+  <testcase name="e2e14SameOriginAndDestination(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="7.104">
+    <system-err><![CDATA[Sep 08, 2026 10:27:35 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 152
+Sep 08, 2026 10:27:35 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 152.0.7977.76. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="e2e14SameOriginAndDestination(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="6.838"/>
-  <testcase name="e2e01OneWaySearch(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="6.062">
-    <system-err><![CDATA[Sep 01, 2026 12:09:16 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 151
-Sep 01, 2026 12:09:16 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 151.0.7922.174. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+  <testcase name="e2e14SameOriginAndDestination(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="8.326">
+    <failure message="Страница расписания должна загрузиться. URL: https://www.tutu.ru/poezda/Moskva/?date=31.10.2026&amp;id=2f31a5e0-5594-448b-ba09-69636a46d871&amp;travelers=1 ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: Страница расписания должна загрузиться. URL: https://www.tutu.ru/poezda/Moskva/?date=31.10.2026&id=2f31a5e0-5594-448b-ba09-69636a46d871&travelers=1 ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:214)
+	at ru.itmo.pages.TutuE2ETest.e2e14SameOriginAndDestination(TutuE2ETest.java:187)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:803)
+	at java.base/java.util.stream.ReferencePipeline$7$1FlatMap.accept(ReferencePipeline.java:293)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632)
+	at java.base/java.util.stream.ReferencePipeline$7$1FlatMap.accept(ReferencePipeline.java:293)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1724)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632)
+	at java.base/java.util.stream.ReferencePipeline$7$1FlatMap.accept(ReferencePipeline.java:293)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1724)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632)
+	at java.base/java.util.concurrent.RecursiveAction.exec(RecursiveAction.java:194)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:511)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1450)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2019)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:187)
+]]></failure>
+  </testcase>
+  <testcase name="e2e01OneWaySearch(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="7.439">
+    <system-err><![CDATA[Sep 08, 2026 10:27:50 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 152
+Sep 08, 2026 10:27:50 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 152.0.7977.76. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="e2e01OneWaySearch(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="7.181"/>
-  <testcase name="e2e08LowerSeatsFilter(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="7.555">
-    <system-err><![CDATA[Sep 01, 2026 12:09:29 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 151
-Sep 01, 2026 12:09:29 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 151.0.7922.174. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+  <testcase name="e2e01OneWaySearch(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="8.298"/>
+  <testcase name="e2e08LowerSeatsFilter(BrowserType)[1]" classname="ru.itmo.pages.TutuE2ETest" time="10.453">
+    <system-err><![CDATA[Sep 08, 2026 10:28:06 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 152
+Sep 08, 2026 10:28:06 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 152.0.7977.76. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.24.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="e2e08LowerSeatsFilter(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="9.126"/>
+  <testcase name="e2e08LowerSeatsFilter(BrowserType)[2]" classname="ru.itmo.pages.TutuE2ETest" time="14.091"/>
 </testsuite>

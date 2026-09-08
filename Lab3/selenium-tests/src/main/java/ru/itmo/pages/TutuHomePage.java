@@ -13,16 +13,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
-/**
- * Page Object для формы поиска ж/д билетов на tutu.ru (https://www.tutu.ru/poezda/).
- *
- * Локаторы построены на атрибутах {@code data-ti}, которые на tutu.ru стабильны
- * (в отличие от хэшированных css-классов).
- *
- * Прошедшие/недоступные даты в календаре сознательно не различаются отдельной проверкой:
- * по договорённости любая дата раньше момента написания тестов считается устаревшей и
- * не тестируется отдельно (см. docs/test-cases.md).
- */
 public class TutuHomePage extends Page {
     public static final String BASE_URL = "https://www.tutu.ru/poezda/";
 
@@ -50,7 +40,6 @@ public class TutuHomePage extends Page {
             "//button[@data-ti='calendar-month-header-next-button']");
     private static final By PREV_MONTH_BUTTON = By.xpath(
             "//button[@data-ti='calendar-month-header-prev-button']");
-    // Активная (кликабельная) ячейка календаря: есть info-container и НЕТ маркера пустой/недоступной цены.
     private static final By AVAILABLE_DATE_CELL = By.xpath(
             "//div[@data-ti='panel-chip']"
                     + "[.//span[@data-ti='calendar-day-cell-info-container']"
@@ -69,10 +58,6 @@ public class TutuHomePage extends Page {
             "//div[@data-ti='suggest-container']//div[@data-ti='child_passenger']");
     private static final By DELETE_CHILD_BUTTON = By.xpath(
             "//div[@data-ti='suggest-container']//button[@data-ti='child_passenger_delete_button']");
-    // Возможный попап выбора возраста ребёнка. Существование и точная разметка этого попапа
-    // НЕ подтверждены в обоих браузерах — см. docs/test-cases.md, раздел "Известные допущения".
-    // Метод selectFirstChildAgeIfPrompted() поэтому не бросает исключение, если попап не появился:
-    // тест не должен падать из-за неподтверждённого элемента интерфейса.
     private static final By CHILD_AGE_OPTION = By.xpath(
             "//div[@data-ti='suggest-container']//div[@data-ti='cell']"
                     + "[not(@data-ti='cell-addon')][.//span]");
@@ -237,13 +222,6 @@ public class TutuHomePage extends Page {
         return this;
     }
 
-    /**
-     * Нажимает "Добавить ребёнка". Если сразу после клика раскрывается попап выбора
-     * возраста — выбирает первый доступный вариант. Если попап не появляется (сайт может
-     * проставлять возраст по умолчанию без отдельного шага — так было в HTML-дампе, где у
-     * уже добавленного ребёнка сразу стоит "7 лет"), метод не считает это ошибкой и просто
-     * продолжает: наличие/разметка этого попапа не подтверждены в обоих браузерах.
-     */
     public TutuHomePage addChild() {
         clickFirstVisible(ADD_CHILD_BUTTON);
         selectFirstChildAgeIfPrompted();
@@ -262,8 +240,6 @@ public class TutuHomePage extends Page {
                 return false;
             });
         } catch (TimeoutException ignored) {
-            // Попап выбора возраста либо не появился в этой раскладке/браузере, либо возраст
-            // проставляется автоматически — это не ошибка теста.
         }
     }
 
@@ -339,7 +315,6 @@ public class TutuHomePage extends Page {
             new WebDriverWait(driver, SUGGESTIONS_TIMEOUT).until(driver ->
                     hasVisibleElement(DROPDOWN_SUGGEST_CONTAINER) || hasVisibleElement(DROPDOWN_ITEM));
         } catch (TimeoutException ignored) {
-            // Выбор по exact-совпадению текста поля используется как запасной путь ниже.
         }
     }
 
