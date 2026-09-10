@@ -1,0 +1,7 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1789060244970,544,GET / config=3,200,OK,Thread Group - until HTTP 503 - 1 users 1-1,text,true,,231,158,1,1,http://localhost:8079/?token=518502949&user=-1355159875&config=3,540,0,17
+1789060247908,509,GET / config=3,200,OK,Thread Group - until HTTP 503 - 1 users 1-1,text,true,,231,158,1,1,http://localhost:8079/?token=518502949&user=-1355159875&config=3,509,0,0
+1789060250908,506,GET / config=3,200,OK,Thread Group - until HTTP 503 - 1 users 1-1,text,true,,231,158,1,1,http://localhost:8079/?token=518502949&user=-1355159875&config=3,506,0,0
+1789060253907,508,GET / config=3,200,OK,Thread Group - until HTTP 503 - 1 users 1-1,text,true,,231,158,1,1,http://localhost:8079/?token=518502949&user=-1355159875&config=3,508,0,0
+1789060256908,619,GET / config=3,200,OK,Thread Group - until HTTP 503 - 1 users 1-1,text,true,,231,158,1,1,http://localhost:8079/?token=518502949&user=-1355159875&config=3,619,0,0
+1789060259910,526,GET / config=3,200,OK,Thread Group - until HTTP 503 - 1 users 1-1,text,true,,231,158,1,1,http://localhost:8079/?token=518502949&user=-1355159875&config=3,526,0,0

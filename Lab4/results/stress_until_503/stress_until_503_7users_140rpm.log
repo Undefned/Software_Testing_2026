@@ -1,0 +1,161 @@
+2026-09-10 20:17:38,583 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
+2026-09-10 20:17:38,595 INFO o.a.j.JMeter: Loading user properties from: C:\Program Files\apache-jmeter-5.6.3\bin\user.properties
+2026-09-10 20:17:38,596 INFO o.a.j.JMeter: Loading system properties from: C:\Program Files\apache-jmeter-5.6.3\bin\system.properties
+2026-09-10 20:17:38,596 INFO o.a.j.JMeter: Setting JMeter property: jmeter.save.saveservice.output_format=csv
+2026-09-10 20:17:38,596 INFO o.a.j.JMeter: Setting JMeter property: jmeter.save.saveservice.print_field_names=true
+2026-09-10 20:17:38,598 INFO o.a.j.JMeter: Setting JMeter property: jmeter.save.saveservice.timestamp_format=ms
+2026-09-10 20:17:38,598 INFO o.a.j.JMeter: Setting JMeter property: jmeter.save.saveservice.time=true
+2026-09-10 20:17:38,598 INFO o.a.j.JMeter: Setting JMeter property: jmeter.save.saveservice.latency=true
+2026-09-10 20:17:38,598 INFO o.a.j.JMeter: Setting JMeter property: jmeter.save.saveservice.label=true
+2026-09-10 20:17:38,598 INFO o.a.j.JMeter: Setting JMeter property: jmeter.save.saveservice.response_code=true
+2026-09-10 20:17:38,598 INFO o.a.j.JMeter: Setting JMeter property: jmeter.save.saveservice.response_message=true
+2026-09-10 20:17:38,598 INFO o.a.j.JMeter: Setting JMeter property: jmeter.save.saveservice.successful=true
+2026-09-10 20:17:38,598 INFO o.a.j.JMeter: Setting JMeter property: jmeter.save.saveservice.assertion_results_failure_message=true
+2026-09-10 20:17:38,598 INFO o.a.j.JMeter: Setting JMeter property: jmeter.save.saveservice.thread_name=true
+2026-09-10 20:17:38,598 INFO o.a.j.JMeter: Setting JMeter property: jmeter.save.saveservice.thread_counts=true
+2026-09-10 20:17:38,598 INFO o.a.j.JMeter: Setting JMeter property: jmeter.save.saveservice.connect_time=true
+2026-09-10 20:17:38,605 INFO o.a.j.JMeter: Copyright (c) 1998-2024 The Apache Software Foundation
+2026-09-10 20:17:38,605 INFO o.a.j.JMeter: Version 5.6.3
+2026-09-10 20:17:38,605 INFO o.a.j.JMeter: java.version=26.0.1
+2026-09-10 20:17:38,605 INFO o.a.j.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+2026-09-10 20:17:38,605 INFO o.a.j.JMeter: os.name=Windows 10
+2026-09-10 20:17:38,605 INFO o.a.j.JMeter: os.arch=amd64
+2026-09-10 20:17:38,606 INFO o.a.j.JMeter: os.version=10.0
+2026-09-10 20:17:38,606 INFO o.a.j.JMeter: file.encoding=UTF-8
+2026-09-10 20:17:38,606 INFO o.a.j.JMeter: java.awt.headless=true
+2026-09-10 20:17:38,606 INFO o.a.j.JMeter: Max memory     =1073741824
+2026-09-10 20:17:38,606 INFO o.a.j.JMeter: Available Processors =8
+2026-09-10 20:17:38,617 INFO o.a.j.JMeter: Default Locale=English (EN)
+2026-09-10 20:17:38,617 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
+2026-09-10 20:17:38,618 INFO o.a.j.JMeter: JMeterHome=C:\Program Files\apache-jmeter-5.6.3
+2026-09-10 20:17:38,618 INFO o.a.j.JMeter: user.dir  =C:\University\Programming\Software Testing\Lab4
+2026-09-10 20:17:38,618 INFO o.a.j.JMeter: PWD       =C:\University\Programming\Software Testing\Lab4
+2026-09-10 20:17:38,619 INFO o.a.j.JMeter: IP: 172.28.17.195 Name: DESKTOP-74FQ4EV FullName: DESKTOP-74FQ4EV
+2026-09-10 20:17:38,626 INFO o.a.j.JMeter: Setting property 'jmeter.reportgenerator.outputdir' to:'C:\University\Programming\Software Testing\Lab4\html_reports\stress_until_503\7users_140rpm'
+2026-09-10 20:17:38,628 INFO o.a.j.s.FileServer: Default base='C:\University\Programming\Software Testing\Lab4'
+2026-09-10 20:17:38,629 INFO o.a.j.s.FileServer: Set new base='C:\University\Programming\Software Testing\Lab4\quality_jmeter_plans\stress_until_503'
+2026-09-10 20:17:38,837 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2026-09-10 20:17:38,853 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2026-09-10 20:17:38,855 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2026-09-10 20:17:38,858 INFO o.a.j.s.SaveService: Loading file: quality_jmeter_plans\stress_until_503\stress_until_503_7users_140rpm_ctt.jmx
+2026-09-10 20:17:38,902 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-09-10 20:17:38,902 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-09-10 20:17:38,902 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-09-10 20:17:38,902 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-09-10 20:17:38,902 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2026-09-10 20:17:38,902 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2026-09-10 20:17:38,913 INFO o.a.j.JMeter: Creating summariser <summary>
+2026-09-10 20:17:38,920 INFO o.a.j.r.d.ReportGenerator: ReportGenerator will use for Parsing the separator: ','
+2026-09-10 20:17:38,920 INFO o.a.j.r.d.ReportGenerator: Will generate report at end of test from  results file: results/stress_until_503/stress_until_503_7users_140rpm.jtl
+2026-09-10 20:17:38,920 INFO o.a.j.r.d.ReportGenerator: Reading report generator properties from: C:\Program Files\apache-jmeter-5.6.3\bin\reportgenerator.properties
+2026-09-10 20:17:38,921 INFO o.a.j.r.d.ReportGenerator: Merging with JMeter properties
+2026-09-10 20:17:38,923 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.temp_dir' not found, using default value 'temp' instead.
+2026-09-10 20:17:38,925 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.apdex_per_transaction' not found, using default value 'null' instead.
+2026-09-10 20:17:38,925 INFO o.a.j.r.c.ReportGeneratorConfiguration: apdex_per_transaction is empty, not APDEX per transaction customization
+2026-09-10 20:17:38,925 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.sample_filter' not found, using default value 'null' instead.
+2026-09-10 20:17:38,925 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.report_title' not found, using default value 'null' instead.
+2026-09-10 20:17:38,925 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.start_date' not found, using default value 'null' instead.
+2026-09-10 20:17:38,925 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.end_date' not found, using default value 'null' instead.
+2026-09-10 20:17:38,925 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.date_format' not found, using default value 'null' instead.
+2026-09-10 20:17:38,925 INFO o.a.j.r.c.ReportGeneratorConfiguration: Will use date range start date: null, end date: null
+2026-09-10 20:17:38,927 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.totalTPS.exclude_controllers' not found, using default value 'false' instead.
+2026-09-10 20:17:38,928 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.activeThreadsOverTime.exclude_controllers' not found, using default value 'false' instead.
+2026-09-10 20:17:38,928 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.timeVsThreads.exclude_controllers' not found, using default value 'false' instead.
+2026-09-10 20:17:38,928 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.responseTimeDistribution.exclude_controllers' not found, using default value 'false' instead.
+2026-09-10 20:17:38,928 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.transactionsPerSecond.exclude_controllers' not found, using default value 'false' instead.
+2026-09-10 20:17:38,928 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.responseTimePercentiles.exclude_controllers' not found, using default value 'false' instead.
+2026-09-10 20:17:38,928 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.responseTimePercentilesOverTime.exclude_controllers' not found, using default value 'false' instead.
+2026-09-10 20:17:38,928 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.responseTimesOverTime.exclude_controllers' not found, using default value 'false' instead.
+2026-09-10 20:17:38,928 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.connectTimeOverTime.exclude_controllers' not found, using default value 'false' instead.
+2026-09-10 20:17:38,928 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.latenciesOverTime.exclude_controllers' not found, using default value 'false' instead.
+2026-09-10 20:17:38,929 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.exporter.json.filters_only_sample_series' not found, using default value 'true' instead.
+2026-09-10 20:17:38,929 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.exporter.json.series_filter' not found, using default value '' instead.
+2026-09-10 20:17:38,929 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.exporter.json.show_controllers_only' not found, using default value 'false' instead.
+2026-09-10 20:17:38,929 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.exporter.html.filters_only_sample_series' not found, using default value 'true' instead.
+2026-09-10 20:17:38,929 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.exporter.html.series_filter' not found, using default value '' instead.
+2026-09-10 20:17:38,929 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.exporter.html.show_controllers_only' not found, using default value 'false' instead.
+2026-09-10 20:17:38,937 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2026-09-10 20:17:38,938 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2026-09-10 20:17:38,938 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2026-09-10 20:17:38,942 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
+2026-09-10 20:17:38,942 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
+2026-09-10 20:17:38,995 INFO o.a.j.JMeter: Running test (1789060658995)
+2026-09-10 20:17:39,011 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group - until HTTP 503 - 7 users
+2026-09-10 20:17:39,011 INFO o.a.j.e.StandardJMeterEngine: Starting 7 threads for group Thread Group - until HTTP 503 - 7 users.
+2026-09-10 20:17:39,011 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2026-09-10 20:17:39,011 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=7 ramp-up=7 delayedStart=false
+2026-09-10 20:17:39,017 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2026-09-10 20:17:39,017 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2026-09-10 20:17:39,017 INFO o.a.j.t.JMeterThread: Thread started: Thread Group - until HTTP 503 - 7 users 1-1
+2026-09-10 20:17:39,053 INFO o.a.j.p.h.s.HTTPHCAbstractImpl: Local host = DESKTOP-74FQ4EV
+2026-09-10 20:17:39,058 INFO o.a.j.p.h.s.HTTPHC4Impl: HTTP request retry count = 0
+2026-09-10 20:17:39,059 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2026-09-10 20:17:39,059 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to UTF-8
+2026-09-10 20:17:39,059 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2026-09-10 20:17:39,059 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2026-09-10 20:17:40,016 INFO o.a.j.t.JMeterThread: Thread started: Thread Group - until HTTP 503 - 7 users 1-2
+2026-09-10 20:17:41,014 INFO o.a.j.t.JMeterThread: Thread started: Thread Group - until HTTP 503 - 7 users 1-3
+2026-09-10 20:17:42,014 INFO o.a.j.t.JMeterThread: Thread started: Thread Group - until HTTP 503 - 7 users 1-4
+2026-09-10 20:17:43,014 INFO o.a.j.t.JMeterThread: Thread started: Thread Group - until HTTP 503 - 7 users 1-5
+2026-09-10 20:17:44,013 INFO o.a.j.t.JMeterThread: Thread started: Thread Group - until HTTP 503 - 7 users 1-6
+2026-09-10 20:17:45,014 INFO o.a.j.t.JMeterThread: Thread started: Thread Group - until HTTP 503 - 7 users 1-7
+2026-09-10 20:18:00,538 INFO o.a.j.r.Summariser: summary +     52 in 00:00:22 =    2.4/s Avg:   538 Min:   514 Max:   669 Err:     1 (1.92%) Active: 7 Started: 7 Finished: 0
+2026-09-10 20:18:30,538 INFO o.a.j.r.Summariser: summary +     70 in 00:00:30 =    2.3/s Avg:   532 Min:   521 Max:   617 Err:     0 (0.00%) Active: 7 Started: 7 Finished: 0
+2026-09-10 20:18:30,538 INFO o.a.j.r.Summariser: summary =    122 in 00:00:52 =    2.4/s Avg:   535 Min:   514 Max:   669 Err:     1 (0.82%)
+2026-09-10 20:19:00,559 INFO o.a.j.r.Summariser: summary +     70 in 00:00:30 =    2.3/s Avg:   552 Min:   521 Max:  1028 Err:     4 (5.71%) Active: 7 Started: 7 Finished: 0
+2026-09-10 20:19:00,559 INFO o.a.j.r.Summariser: summary =    192 in 00:01:22 =    2.4/s Avg:   541 Min:   514 Max:  1028 Err:     5 (2.60%)
+2026-09-10 20:19:06,680 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group - until HTTP 503 - 7 users 1-5
+2026-09-10 20:19:07,641 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group - until HTTP 503 - 7 users 1-1
+2026-09-10 20:19:07,821 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group - until HTTP 503 - 7 users 1-4
+2026-09-10 20:19:07,987 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group - until HTTP 503 - 7 users 1-2
+2026-09-10 20:19:09,392 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group - until HTTP 503 - 7 users 1-6
+2026-09-10 20:19:09,393 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group - until HTTP 503 - 7 users 1-6
+2026-09-10 20:19:09,418 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group - until HTTP 503 - 7 users 1-3
+2026-09-10 20:19:09,418 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group - until HTTP 503 - 7 users 1-3
+2026-09-10 20:19:09,537 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group - until HTTP 503 - 7 users 1-7
+2026-09-10 20:19:09,537 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group - until HTTP 503 - 7 users 1-7
+2026-09-10 20:19:09,538 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2026-09-10 20:19:09,540 INFO o.a.j.r.Summariser: summary +     23 in 00:00:09 =    2.6/s Avg:   545 Min:   520 Max:   781 Err:     1 (4.35%) Active: 0 Started: 7 Finished: 7
+2026-09-10 20:19:09,541 INFO o.a.j.r.Summariser: summary =    215 in 00:01:31 =    2.4/s Avg:   542 Min:   514 Max:  1028 Err:     6 (2.79%)
+2026-09-10 20:19:09,542 INFO o.a.j.JMeter: Generating Dashboard
+2026-09-10 20:19:09,544 INFO o.a.j.r.d.ReportGenerator: Flushing result collector before report Generation
+2026-09-10 20:19:09,609 INFO o.a.j.r.p.NormalizerSampleConsumer: Using format, 'ms', to parse timeStamp field
+2026-09-10 20:19:09,775 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.AggregateConsumer#stopProducing(): beginDate produced 0 samples
+2026-09-10 20:19:09,775 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.AggregateConsumer#stopProducing(): endDate produced 0 samples
+2026-09-10 20:19:09,776 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.ApdexSummaryConsumer#stopProducing(): apdexSummary produced 0 samples
+2026-09-10 20:19:09,776 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.RequestsSummaryConsumer#stopProducing(): requestsSummary produced 0 samples
+2026-09-10 20:19:09,782 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.StatisticsSummaryConsumer#stopProducing(): statisticsSummary produced 0 samples
+2026-09-10 20:19:09,784 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.Top5ErrorsBySamplerConsumer#stopProducing(): top5ErrorsBySampler produced 0 samples
+2026-09-10 20:19:09,784 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.ErrorsSummaryConsumer#stopProducing(): errorsSummary produced 0 samples
+2026-09-10 20:19:09,784 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.HitsPerSecondGraphConsumer#stopProducing(): hitsPerSecond produced 0 samples
+2026-09-10 20:19:09,832 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.LatencyVSRequestGraphConsumer#stopProducing(): latencyVsRequest produced 0 samples
+2026-09-10 20:19:09,832 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.SyntheticResponseTimeDistributionGraphConsumer#stopProducing(): syntheticResponseTimeDistribution produced 0 samples
+2026-09-10 20:19:09,833 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.BytesThroughputGraphConsumer#stopProducing(): bytesThroughputOverTime produced 0 samples
+2026-09-10 20:19:09,833 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.CodesPerSecondGraphConsumer#stopProducing(): codesPerSecond produced 0 samples
+2026-09-10 20:19:09,886 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimeVSRequestGraphConsumer#stopProducing(): responseTimeVsRequest produced 0 samples
+2026-09-10 20:19:09,887 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.FilterConsumer#stopProducing(): startIntervalControlerFilter produced 1505 samples
+2026-09-10 20:19:09,887 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.TotalTPSGraphConsumer#stopProducing(): totalTPS produced 0 samples
+2026-09-10 20:19:09,887 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ActiveThreadsGraphConsumer#stopProducing(): activeThreadsOverTime produced 0 samples
+2026-09-10 20:19:09,887 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.TimeVSThreadGraphConsumer#stopProducing(): timeVsThreads produced 0 samples
+2026-09-10 20:19:09,887 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimeDistributionGraphConsumer#stopProducing(): responseTimeDistribution produced 0 samples
+2026-09-10 20:19:09,887 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.TransactionsPerSecondGraphConsumer#stopProducing(): transactionsPerSecond produced 0 samples
+2026-09-10 20:19:09,888 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimePercentilesGraphConsumer#stopProducing(): responseTimePercentiles produced 0 samples
+2026-09-10 20:19:09,889 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimePercentilesOverTimeGraphConsumer#stopProducing(): responseTimePercentilesOverTime produced 0 samples
+2026-09-10 20:19:09,889 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimeOverTimeGraphConsumer#stopProducing(): responseTimesOverTime produced 0 samples
+2026-09-10 20:19:09,889 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ConnectTimeOverTimeGraphConsumer#stopProducing(): connectTimeOverTime produced 0 samples
+2026-09-10 20:19:09,889 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.LatencyOverTimeGraphConsumer#stopProducing(): latenciesOverTime produced 0 samples
+2026-09-10 20:19:09,889 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.FilterConsumer#stopProducing(): nameFilter produced 3225 samples
+2026-09-10 20:19:09,889 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.FilterConsumer#stopProducing(): dateRangeFilter produced 645 samples
+2026-09-10 20:19:09,889 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.NormalizerSampleConsumer#stopProducing(): normalizer produced 215 samples
+2026-09-10 20:19:09,890 INFO o.a.j.r.p.CsvFileSampleSource: produce(): 215 samples produced in 208ms on channel 0
+2026-09-10 20:19:09,890 INFO o.a.j.r.d.ReportGenerator: Exporting data using exporter:'json' of className:'org.apache.jmeter.report.dashboard.JsonExporter'
+2026-09-10 20:19:09,960 INFO o.a.j.r.d.JsonExporter: Found data for consumer statisticsSummary in context
+2026-09-10 20:19:09,960 INFO o.a.j.r.d.JsonExporter: Creating statistics for overall
+2026-09-10 20:19:09,960 INFO o.a.j.r.d.JsonExporter: Creating statistics for other transactions
+2026-09-10 20:19:09,961 INFO o.a.j.r.d.JsonExporter: Checking output folder
+2026-09-10 20:19:09,962 INFO o.a.j.r.d.JsonExporter: Writing statistics JSON to C:\University\Programming\Software Testing\Lab4\html_reports\stress_until_503\7users_140rpm\statistics.json
+2026-09-10 20:19:10,014 INFO o.a.j.r.d.ReportGenerator: Exporting data using exporter:'html' of className:'org.apache.jmeter.report.dashboard.HtmlTemplateExporter'
+2026-09-10 20:19:10,018 INFO o.a.j.r.d.HtmlTemplateExporter: Will generate dashboard in folder: C:\University\Programming\Software Testing\Lab4\html_reports\stress_until_503\7users_140rpm
+2026-09-10 20:19:10,113 INFO o.a.j.r.d.HtmlTemplateExporter: Report will be generated in: C:\University\Programming\Software Testing\Lab4\html_reports\stress_until_503\7users_140rpm, creating folder structure
+2026-09-10 20:19:10,116 INFO o.a.j.r.d.TemplateVisitor: Copying folder from 'C:\Program Files\apache-jmeter-5.6.3\bin\report-template' to 'C:\University\Programming\Software Testing\Lab4\html_reports\stress_until_503\7users_140rpm', got message: C:\University\Programming\Software Testing\Lab4\html_reports\stress_until_503\7users_140rpm, found non empty folder with following content [C:\University\Programming\Software Testing\Lab4\html_reports\stress_until_503\7users_140rpm\statistics.json], will be ignored
+2026-09-10 20:19:10,557 INFO o.a.j.JMeter: Dashboard generated
